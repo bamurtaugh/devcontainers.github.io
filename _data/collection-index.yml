@@ -1,3 +1,8 @@
+- name: Test
+  maintainer: Test
+  contact: Test
+  repository: Test
+  ociReference: Test
 - name: Reference Implementation Features
   maintainer: Dev Container Spec Maintainers
   contact: https://github.com/devcontainers/features/issues
