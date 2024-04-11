@@ -738,3 +738,8 @@
   contact: https://github.com/va-h/devcontainers-features/issues
   repository: https://github.com/va-h/devcontainers-features
   ociReference: ghcr.io/va-h/devcontainers-features
+- name: Brigit Test
+  maintainer: Brigit
+  contact: https://github.com/bamurtaugh
+  repository:  https://github.com/bamurtaugh
+  ociReference:  https://github.com/bamurtaugh
