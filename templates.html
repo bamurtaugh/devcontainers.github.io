@@ -30,6 +30,8 @@ sectionid: collection-index-templates
     <tr>
         <td class="tg-0lax"><b>Template Name</b></b></td>
         <td class="tg-0lax"><b>Maintainer</b></td>
+        <td class="tg-0lax"><b>Reference</b></td>
+        <td class="tg-0lax"><b>Latest Version</b></td>
     </tr>
     
     {% for c in site.data.devcontainer-index.collections %}
@@ -38,6 +40,8 @@ sectionid: collection-index-templates
         <td class="tg-0lax"><a rel="nofollow" href="{{ f.documentationURL | strip_html }}">{{ f.name | strip_html }}</a>
         </td>
         <td class="tg-0lax">{{ c.sourceInformation.maintainer | strip_html }}</td>
+        <td class="tg-0lax"><code>{{ f.id | strip_html  }}:{{ f.version | strip_html }}</code></td>
+        <td class="tg-0lax"><code>{{ f.version | strip_html  }}</code></td>
     </tr>
     {% endfor %}
     
