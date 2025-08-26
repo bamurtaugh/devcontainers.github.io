@@ -3,6 +3,74 @@
 ---
 @charset "utf-8";
 
+// CSS Custom Properties for Theme Support
+:root {
+  // Light theme colors (default)
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+  --footer-bg: #e9ecef;
+  --footer-text: #000000;
+  --navbar-bg: #{{ site.theme_color }};
+  --navbar-text: #ffffff;
+  --link-color: #{{ site.theme_color }};
+  --link-hover: #1034a8;
+}
+
+// Dark theme colors
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e9ecef;
+  --card-bg: #2d2d2d;
+  --border-color: #495057;
+  --footer-bg: #212529;
+  --footer-text: #e9ecef;
+  --navbar-bg: #{{ site.theme_color }};
+  --navbar-text: #ffffff;
+  --link-color: #7db3ff;
+  --link-hover: #a2c4ff;
+}
+
+// Apply theme variables
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.footer {
+  background: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+// Theme toggle button styling
+#theme-toggle {
+  margin-left: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
 img[alt=without_DAP] { width: 60%; height: 60%; }
 img[alt=with_DAP] { width: 75%; height: 75%; }
 img[alt=init-launch] { width: 80%; height: 80%; }
@@ -357,8 +425,6 @@ pre[class=highlight] {
 
 .footer {
 	padding: 15px 0;
-	color: #000;
-	background: #e9ecef;
 
 	@media (min-width: 576px) {
 		padding: 50px 0;
@@ -442,19 +508,11 @@ pre[class=highlight] {
 }
 
 .nav .nav-link {
-	color: #{{ site.theme_color }} !important;
+	color: var(--link-color) !important;
   }
 
 .nav .nav-link:hover {
-	color: #1034a8 !important;
-}
-
-a {
-	color: #{{ site.theme_color }};
-}
-
-a:hover {
-	color: #1034a8
+	color: var(--link-hover) !important;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
