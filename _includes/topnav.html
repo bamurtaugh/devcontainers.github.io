@@ -38,6 +38,11 @@
                 <li {% if page.sectionid=='collections' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
                     <a class="nav-link" href='{{ "/collections" | prepend: site.baseurl }}'>Collections</a>
                 </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="btn btn-outline-light btn-sm" type="button" aria-label="Toggle dark mode">
+                        <span id="theme-toggle-icon">🌙</span>
+                    </button>
+                </li>
             </ul>
         </div>
 
