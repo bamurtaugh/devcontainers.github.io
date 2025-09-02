@@ -38,6 +38,12 @@
                 <li {% if page.sectionid=='collections' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
                     <a class="nav-link" href='{{ "/collections" | prepend: site.baseurl }}'>Collections</a>
                 </li>
+                <li {% if page.sectionid=='blog' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+                    <a class="nav-link" href='{{ "/blog" | prepend: site.baseurl }}'>Blog Posts</a>
+                </li>
+                <li {% if page.sectionid=='glossary' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+                    <a class="nav-link" href='{{ "/glossary" | prepend: site.baseurl }}'>Glossary Terms</a>
+                </li>
             </ul>
         </div>
 
