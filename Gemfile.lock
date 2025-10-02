@@ -210,6 +210,10 @@ GEM
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
     minitest (5.18.0)
+    nokogiri (1.14.3-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.14.3-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
     octokit (4.25.1)
@@ -243,6 +247,8 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.2)
+      tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -250,6 +256,8 @@ GEM
     webrick (1.8.1)
 
 PLATFORMS
+  aarch64-linux
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -262,7 +270,7 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.2.9p265
 
 BUNDLED WITH
    2.4.10
