@@ -38,6 +38,27 @@
                 <li {% if page.sectionid=='collections' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
                     <a class="nav-link" href='{{ "/collections" | prepend: site.baseurl }}'>Collections</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Theme options">
+                        <i class="fas fa-palette"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="themeDropdown">
+                        <button class="dropdown-item theme-option" data-theme="light">
+                            <i class="fas fa-sun"></i> Light
+                        </button>
+                        <button class="dropdown-item theme-option" data-theme="dark">
+                            <i class="fas fa-moon"></i> Dark
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item theme-option" data-theme="high-contrast">
+                            <i class="fas fa-adjust"></i> High Contrast
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <label class="dropdown-item mb-0">
+                            <input type="checkbox" id="reduce-motion-toggle"> Reduce Motion
+                        </label>
+                    </div>
+                </li>
             </ul>
         </div>
 
