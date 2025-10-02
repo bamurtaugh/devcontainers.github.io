@@ -51,10 +51,14 @@ function consentRequired() {
   return WcpConsent.siteConsent.isConsentRequired;
 }
 
-$(function() {
-  // Initialize font customization
+// Initialize font customization early (doesn't depend on jQuery)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFontCustomization);
+} else {
   initFontCustomization();
-  
+}
+
+$(function() {
   // Load GA upfront because we classify it as essential cookie
   window.dataLayer = window.dataLayer || []
   function gtag() {
