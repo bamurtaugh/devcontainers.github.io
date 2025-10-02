@@ -4,6 +4,32 @@ $('#small-nav-dropdown').change(function() {
     .val()
 })
 
+// Font customization functionality
+function initFontCustomization() {
+  const fontSelector = document.getElementById('font-selector');
+  if (!fontSelector) return;
+
+  // Load saved font preference
+  const savedFont = localStorage.getItem('preferredFont') || 'source-sans';
+  applyFont(savedFont);
+  fontSelector.value = savedFont;
+
+  // Listen for font changes
+  fontSelector.addEventListener('change', function() {
+    const selectedFont = this.value;
+    applyFont(selectedFont);
+    localStorage.setItem('preferredFont', selectedFont);
+  });
+}
+
+function applyFont(fontName) {
+  const body = document.body;
+  // Remove all font classes
+  body.classList.remove('font-source-sans', 'font-open-sans', 'font-roboto', 'font-lato', 'font-merriweather');
+  // Add the selected font class
+  body.classList.add('font-' + fontName);
+}
+
 const site_tag = 'UA-62780441-30';
 function loadAnalytics(gtag) {
   // set cookie to expire in 12 x 28 days
@@ -26,6 +52,9 @@ function consentRequired() {
 }
 
 $(function() {
+  // Initialize font customization
+  initFontCustomization();
+  
   // Load GA upfront because we classify it as essential cookie
   window.dataLayer = window.dataLayer || []
   function gtag() {

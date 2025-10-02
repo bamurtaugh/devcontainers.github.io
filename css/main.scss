@@ -485,3 +485,50 @@ h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
+// Font customization classes
+body.font-source-sans {
+	font-family: "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+}
+
+body.font-open-sans {
+	font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+
+body.font-roboto {
+	font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+}
+
+body.font-lato {
+	font-family: "Lato", "Segoe UI", Arial, sans-serif;
+}
+
+body.font-merriweather {
+	font-family: "Merriweather", Georgia, serif;
+}
+
+// Font selector styling
+.font-selector {
+	display: inline-block;
+	margin-right: 10px;
+	
+	label {
+		font-size: 12px;
+		margin-right: 5px;
+		color: #868e96;
+	}
+	
+	select {
+		font-size: 12px;
+		padding: 2px 5px;
+		border: 1px solid #ced4da;
+		border-radius: 3px;
+		background-color: #fff;
+		cursor: pointer;
+		
+		&:focus {
+			outline: none;
+			border-color: #2780E3;
+		}
+	}
+}
