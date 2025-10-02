@@ -1,0 +1,127 @@
+---
+title: Features and Templates
+layout: table
+sectionid: collection-index-features-templates
+---
+
+<h1 style="margin-left: auto;margin-right: auto;">Available Dev Container Features and Templates</h1>
+<p style="margin-left: auto;margin-right: auto;">
+    This page contains all official and community-supported <a href="implementors/features/">Dev Container Features</a>
+    and <a href="implementors/templates/">Dev Container Templates</a>
+    known at the time of crawling <a href="collections">each registered collection</a>. This list is continuously
+    updated with the latest available information. See the <a
+        href="https://github.com/devcontainers/feature-template">
+        Feature quick start repository</a> and <a href="https://github.com/devcontainers/template-starter">
+    Template quick start repository</a> to add your own!
+    <br><br>
+    <a href="implementors/features#referencing-a-feature">Referencing a Feature</a> can be done in the "features"
+    section of a devcontainer.json. Templates listed here will be presented in the UX of <a href="supporting">supporting tools</a>.
+    <br><br>
+    Please note that if you need to report a Feature or Template, you should do so through the registry hosting it.
+</p>
+
+<p>
+    To add your own collection to this list, please create a PR editing <a
+        href="https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml">this
+        yaml file</a>.
+</p>
+
+<h2 style="margin-left: auto;margin-right: auto;">Features</h2>
+<input type="text" id="searchInputFeatures" placeholder="Search Features">
+<br>
+<br>
+
+<table id="featuresTable" class="tg">
+    <tr>
+        <td class="tg-0lax"><b>Feature Name</b></b></td>
+        <td class="tg-0lax"><b>Maintainer</b></td>
+        <td class="tg-0lax"><b>Reference</b></td>
+        <td class="tg-0lax"><b>Latest Version</b></td>
+    </tr>
+    
+    {% for c in site.data.devcontainer-index.collections %}
+    {% for f in c.features %}
+    {% if f.deprecated != true %}
+    <tr>
+        <td class="tg-0lax"><a rel="nofollow" href="{{ f.documentationURL | strip_html }}">{{ f.name | strip_html }}</a>
+        </td>
+        <td class="tg-0lax">{{ c.sourceInformation.maintainer | strip_html }}</td>
+        <td class="tg-0lax"><code>{{ f.id | strip_html  }}:{{ f.majorVersion | strip_html }}</code></td>
+        <td class="tg-0lax"><code>{{ f.version | strip_html  }}</code></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    
+    {% endfor %}
+</table>
+
+<br>
+<br>
+
+<h2 style="margin-left: auto;margin-right: auto;">Templates</h2>
+<input type="text" id="searchInputTemplates" placeholder="Search Templates">
+<br>
+<br>
+
+<table id="templatesTable" class="tg">
+    <tr>
+        <td class="tg-0lax"><b>Template Name</b></b></td>
+        <td class="tg-0lax"><b>Maintainer</b></td>
+        <td class="tg-0lax"><b>Reference</b></td>
+        <td class="tg-0lax"><b>Latest Version</b></td>
+    </tr>
+    
+    {% for c in site.data.devcontainer-index.collections %}
+    {% for f in c.templates %}
+    <tr>
+        <td class="tg-0lax"><a rel="nofollow" href="{{ f.documentationURL | strip_html }}">{{ f.name | strip_html }}</a>
+        </td>
+        <td class="tg-0lax">{{ c.sourceInformation.maintainer | strip_html }}</td>
+        <td class="tg-0lax"><code>{{ f.id | strip_html  }}:{{ f.version | strip_html }}</code></td>
+        <td class="tg-0lax"><code>{{ f.version | strip_html  }}</code></td>
+    </tr>
+    {% endfor %}
+    
+    {% endfor %}
+</table>
+
+<script>
+    const searchInputFeatures = document.getElementById('searchInputFeatures');
+    const featuresTable = document.getElementById('featuresTable');
+    const featureRows = featuresTable.getElementsByTagName('tr');
+
+    searchInputFeatures.addEventListener('input', function () {
+        const searchValue = searchInputFeatures.value.toLowerCase();
+
+        for (let i = 1; i < featureRows.length; i++) {
+            const name = featureRows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+            const maintainer = featureRows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
+            const repository = featureRows[i].getElementsByTagName('td')[2].textContent.toLowerCase();
+
+            if (name.includes(searchValue) || maintainer.includes(searchValue) || repository.includes(searchValue)) {
+                featureRows[i].style.display = '';
+            } else {
+                featureRows[i].style.display = 'none';
+            }
+        }
+    });
+
+    const searchInputTemplates = document.getElementById('searchInputTemplates');
+    const templatesTable = document.getElementById('templatesTable');
+    const templateRows = templatesTable.getElementsByTagName('tr');
+
+    searchInputTemplates.addEventListener('input', function () {
+        const searchValue = searchInputTemplates.value.toLowerCase();
+
+        for (let i = 1; i < templateRows.length; i++) {
+            const name = templateRows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+            const maintainer = templateRows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
+
+            if (name.includes(searchValue) || maintainer.includes(searchValue)) {
+                templateRows[i].style.display = '';
+            } else {
+                templateRows[i].style.display = 'none';
+            }
+        }
+    });
+</script>
