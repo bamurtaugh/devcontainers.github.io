@@ -721,6 +721,7 @@ h1 a {
 }
 
 /* Reduced motion preference */
+/* Respect both system preference and manual toggle */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

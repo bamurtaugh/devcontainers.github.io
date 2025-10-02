@@ -1,5 +1,8 @@
 // Theme customization functionality
 (function() {
+  // Constants
+  const DARK_MODE_MEDIA_QUERY = '(prefers-color-scheme: dark)';
+  
   // Wait for DOM to be ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeTheme);
@@ -91,8 +94,8 @@
     }
     
     // Respect system preferences if no saved preference
-    if (!localStorage.getItem('theme')) {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (!localStorage.getItem('theme') && window.matchMedia) {
+      const prefersDark = window.matchMedia(DARK_MODE_MEDIA_QUERY).matches;
       if (prefersDark) {
         document.documentElement.setAttribute('data-theme', 'dark');
         const darkOption = document.querySelector(`.theme-option[data-theme="dark"]`);
@@ -104,7 +107,7 @@
     
     // Listen for system preference changes
     if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      window.matchMedia(DARK_MODE_MEDIA_QUERY).addEventListener('change', function(e) {
         // Only auto-switch if user hasn't manually selected a theme
         if (!localStorage.getItem('theme')) {
           const newTheme = e.matches ? 'dark' : 'light';
@@ -123,8 +126,8 @@
 })();
 
 // Small navigation dropdown handler
-if (typeof $ !== 'undefined') {
-  $(function() {
+if (typeof jQuery !== 'undefined' && jQuery.fn) {
+  jQuery(function($) {
     $('#small-nav-dropdown').change(function() {
       window.location = $(this)
         .find('option:selected')
