@@ -4,6 +4,39 @@ $('#small-nav-dropdown').change(function() {
     .val()
 })
 
+// Theme Toggle Functionality
+function initThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = themeToggle.querySelector('i');
+  
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  
+  // Update icon based on current theme
+  updateThemeIcon(themeIcon, currentTheme);
+  
+  // Toggle theme on button click
+  themeToggle.addEventListener('click', function() {
+    let theme = document.documentElement.getAttribute('data-theme');
+    let newTheme = theme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(themeIcon, newTheme);
+  });
+}
+
+function updateThemeIcon(iconElement, theme) {
+  if (theme === 'dark') {
+    iconElement.classList.remove('fa-moon');
+    iconElement.classList.add('fa-sun');
+  } else {
+    iconElement.classList.remove('fa-sun');
+    iconElement.classList.add('fa-moon');
+  }
+}
+
 const site_tag = 'UA-62780441-30';
 function loadAnalytics(gtag) {
   // set cookie to expire in 12 x 28 days
@@ -26,6 +59,9 @@ function consentRequired() {
 }
 
 $(function() {
+  // Initialize theme toggle
+  initThemeToggle();
+  
   // Load GA upfront because we classify it as essential cookie
   window.dataLayer = window.dataLayer || []
   function gtag() {
