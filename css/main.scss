@@ -3,6 +3,65 @@
 ---
 @charset "utf-8";
 
+/* Theme color definitions */
+:root {
+  /* Purple themes */
+  --purple-light-primary: #8250df;
+  --purple-light-hover: #6639ba;
+  
+  --purple-dark-primary: #6639ba;
+  --purple-dark-hover: #4a2c8a;
+  
+  --purple-github-primary: #8250df;
+  --purple-github-hover: #6639ba;
+  
+  /* Orange themes */
+  --orange-light-primary: #f97316;
+  --orange-light-hover: #ea580c;
+  
+  --orange-dark-primary: #ea580c;
+  --orange-dark-hover: #c2410c;
+  
+  /* Blue (original) theme */
+  --blue-original-primary: #2753E3;
+  --blue-original-hover: #1034a8;
+  
+  /* Default theme variables */
+  --theme-primary: var(--purple-github-primary);
+  --theme-hover: var(--purple-github-hover);
+}
+
+/* Theme-specific overrides */
+[data-theme="purple-light"] {
+  --theme-primary: var(--purple-light-primary);
+  --theme-hover: var(--purple-light-hover);
+}
+
+[data-theme="purple-dark"] {
+  --theme-primary: var(--purple-dark-primary);
+  --theme-hover: var(--purple-dark-hover);
+}
+
+[data-theme="purple-github"] {
+  --theme-primary: var(--purple-github-primary);
+  --theme-hover: var(--purple-github-hover);
+}
+
+[data-theme="orange-light"] {
+  --theme-primary: var(--orange-light-primary);
+  --theme-hover: var(--orange-light-hover);
+}
+
+[data-theme="orange-dark"] {
+  --theme-primary: var(--orange-dark-primary);
+  --theme-hover: var(--orange-dark-hover);
+}
+
+[data-theme="blue-original"] {
+  --theme-primary: var(--blue-original-primary);
+  --theme-hover: var(--blue-original-hover);
+}
+
 img[alt=without_DAP] { width: 60%; height: 60%; }
 img[alt=with_DAP] { width: 75%; height: 75%; }
 img[alt=init-launch] { width: 80%; height: 80%; }
@@ -24,7 +83,7 @@ body {
 }
 
 .bg-primary {
-	background-color: #{{ site.theme_color }} !important;
+	background-color: var(--theme-primary) !important;
   }
 
 .header-container {
@@ -442,19 +501,19 @@ pre[class=highlight] {
 }
 
 .nav .nav-link {
-	color: #{{ site.theme_color }} !important;
+	color: var(--theme-primary) !important;
   }
 
 .nav .nav-link:hover {
-	color: #6639ba !important;
+	color: var(--theme-hover) !important;
 }
 
 a {
-	color: #{{ site.theme_color }};
+	color: var(--theme-primary);
 }
 
 a:hover {
-	color: #6639ba
+	color: var(--theme-hover)
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -484,4 +543,25 @@ h2 a, h3 a, h4 a, a h3 {
 h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
+}
+
+/* Theme selector styling */
+.theme-selector {
+	background: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	color: white;
+	border-radius: 4px;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.875rem;
+}
+
+.theme-selector:focus {
+	outline: none;
+	border-color: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.theme-selector option {
+	background: #2c3e50;
+	color: white;
 }
