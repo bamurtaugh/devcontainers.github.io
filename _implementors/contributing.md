@@ -97,7 +97,7 @@ There are several additional options to engage with the dev container community,
 - You can always check out the issues and PRs (and contribute new ones) across the repos in the [Dev Containers GitHub org](https://github.com/devcontainers) too!
 - Community collections: You can contribute your own [Templates](https://containers.dev/implementors/templates-distribution/#distribution) and [Features](https://containers.dev/implementors/features-distribution/#distribution) to our [community index](https://containers.dev/collections)!
 
-## <a href="#publishing-features-templates" name="publishing-features-templates" class="anchor"> Publishing Features and Templates </a>
+## <a href="#publishing-features-and-templates" name="publishing-features-and-templates" class="anchor"> Publishing Features and Templates </a>
 
 If you'd like to create and share your own Features or Templates with the community, we provide comprehensive guides:
 
