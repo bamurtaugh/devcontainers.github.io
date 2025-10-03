@@ -17,6 +17,65 @@ html {
 body {
 	letter-spacing: .25px;
 	text-rendering: optimizeLegibility;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+	background-color: #1a1a1a;
+	color: #e0e0e0;
+}
+
+body.dark-mode .bg-primary {
+	background-color: #1a3a7a !important;
+}
+
+body.dark-mode .navbar-dark .navbar-nav .nav-link {
+	color: #e0e0e0;
+}
+
+body.dark-mode a {
+	color: #6b9aff;
+}
+
+body.dark-mode a:hover {
+	color: #4a7de6;
+}
+
+body.dark-mode .footer {
+	background: #2a2a2a;
+	color: #e0e0e0;
+}
+
+body.dark-mode .card {
+	background-color: #2a2a2a;
+	color: #e0e0e0;
+	border-color: #3a3a3a;
+}
+
+body.dark-mode pre[class=highlight] {
+	background-color: #2a2a2a;
+	border-color: #3a3a3a;
+	color: #e0e0e0;
+}
+
+body.dark-mode .toc-link {
+	color: #b0b0b0;
+}
+
+body.dark-mode .toc-link:hover {
+	color: #e0e0e0;
+}
+
+#theme-toggle {
+	background: none;
+	border: none;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+}
+
+#theme-toggle:hover {
+	opacity: 0.7;
 }
 
 .single-page {

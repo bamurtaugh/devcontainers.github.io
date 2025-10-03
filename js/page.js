@@ -26,6 +26,45 @@ function consentRequired() {
 }
 
 $(function() {
+  // Theme toggle functionality
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (themeToggle) {
+    const icon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      body.classList.add('dark-mode');
+      if (icon) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        if (icon) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        }
+      } else {
+        localStorage.setItem('theme', 'light');
+        if (icon) {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      }
+    });
+  }
+
   // Load GA upfront because we classify it as essential cookie
   window.dataLayer = window.dataLayer || []
   function gtag() {
