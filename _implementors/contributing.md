@@ -8,6 +8,22 @@ index: 9
 
 We're excited for your contributions to the Dev Container Specification! This document outlines how you can get involved. We also welcome you to join our [community Slack channel](https://aka.ms/dev-container-community).
 
+## <a href="#how-to-file-an-issue" name="how-to-file-an-issue" class="anchor"> How to file an issue </a>
+
+We welcome feedback and contributions via issues! When filing an issue, please:
+
+1. **Search existing issues** to avoid duplicates
+2. **Choose the right repository**: 
+   - [devcontainers/spec](https://github.com/devcontainers/spec/issues) for specification changes or proposals
+   - [devcontainers/cli](https://github.com/devcontainers/cli/issues) for CLI-specific issues
+   - [devcontainers/features](https://github.com/devcontainers/features/issues) for issues with official Features
+   - [devcontainers/templates](https://github.com/devcontainers/templates/issues) for issues with official Templates
+   - Tool-specific repos (like VS Code Dev Containers) for tool-specific issues
+3. **Provide clear information**: Include steps to reproduce, expected vs. actual behavior, and relevant configuration details
+4. **Label appropriately** (if you have permissions) - see the [Review process](#review-process) section below
+
+If you're new to contributing and looking for a place to start, check for issues labeled `good first issue` in the relevant repositories!
+
 ## <a href="#contribution-approaches" name="contribution-approaches" class="anchor"> Spec Contribution approaches </a>
 
 If you'd like to contribute a change or addition to the spec, you may follow the guidance below:
@@ -64,6 +80,12 @@ We use the following [labels](https://github.com/devcontainers/spec/labels) in t
 
 - `proposal`: Issues under discussion, still collecting feedback.
 - `finalization`: Proposals we intend to make part of the spec.
+- `documentation`: Improvements or additions to documentation.
+- `question`: Further information is requested.
+- `good first issue`: Good for newcomers - we welcome your contributions!
+- `help wanted`: Extra attention is needed from the community.
+- `bug`: Something isn't working as expected.
+- `enhancement`: New feature or request.
 
 [Milestones](https://github.com/devcontainers/spec/milestones) use a "month year" pattern (i.e. January 2022). If a finalized proposal is added to a milestone, it is intended to be merged during that milestone.
 
@@ -74,3 +96,22 @@ There are several additional options to engage with the dev container community,
 - [Community Slack channel](https://aka.ms/dev-container-community): This is a great opportunity to connect with the community and maintainers
 - You can always check out the issues and PRs (and contribute new ones) across the repos in the [Dev Containers GitHub org](https://github.com/devcontainers) too!
 - Community collections: You can contribute your own [Templates](https://containers.dev/implementors/templates-distribution/#distribution) and [Features](https://containers.dev/implementors/features-distribution/#distribution) to our [community index](https://containers.dev/collections)!
+
+## <a href="#publishing-features-and-templates" name="publishing-features-and-templates" class="anchor"> Publishing Features and Templates </a>
+
+If you'd like to create and share your own Features or Templates with the community, we provide comprehensive guides:
+
+### <a href="#publishing-features" name="publishing-features" class="anchor"> Publishing Features </a>
+- **Quick start**: Check out our [feature-starter repository](https://github.com/devcontainers/feature-starter) for a template you can use
+- **Step-by-step guide**: See our [Authoring a Dev Container Feature guide](/guide/author-a-feature) for a complete walkthrough
+- **Detailed specification**: Review the [Features distribution specification](/implementors/features-distribution) for technical details
+- **Publishing tools**: Use the [Dev Container CLI](https://github.com/devcontainers/cli) (`devcontainer features publish`) or the [Dev Container Publish GitHub Action](https://github.com/marketplace/actions/dev-container-publish)
+- **Add to index**: Once published, you can add your Features to the [community index](/features) by opening a PR to modify [collection-index.yml](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml)
+
+### <a href="#publishing-templates" name="publishing-templates" class="anchor"> Publishing Templates </a>
+- **Quick start**: Check out our [template-starter repository](https://github.com/devcontainers/template-starter) for a template you can use
+- **Detailed specification**: Review the [Templates distribution specification](/implementors/templates-distribution) for technical details
+- **Publishing tools**: Use the [Dev Container CLI](https://github.com/devcontainers/cli) (`devcontainer templates publish`) or the [Dev Container Publish GitHub Action](https://github.com/marketplace/actions/dev-container-publish)
+- **Add to index**: Once published, you can add your Templates to the [community index](/templates) by opening a PR to modify [collection-index.yml](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml)
+
+> **Note**: Both Features and Templates are published as OCI artifacts to container registries (like GitHub Container Registry). By default, GHCR packages are private. To make them publicly available (and stay within the free tier), you'll need to change the package visibility to `public` in your registry settings.
