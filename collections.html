@@ -1,7 +1,7 @@
 ---
-title: Collections
+title: Collections & Glossary
 layout: table
-sectionid: collection-index
+sectionid: collections
 ---
 
 <h1 style="margin-left: auto;margin-right: auto;">Collections</h1>
@@ -63,3 +63,83 @@ sectionid: collection-index
         }
     });
 </script>
+
+<hr style="margin-top: 3rem; margin-bottom: 3rem;">
+
+<h1 id="glossary" style="margin-left: auto;margin-right: auto;">Glossary</h1>
+
+<p style="margin-left: auto;margin-right: auto;">
+    This glossary provides definitions for the most commonly used terms in the Development Container Specification.
+</p>
+
+<h3 id="development-container"><a href="#development-container" class="anchor">Development Container</a></h3>
+
+<p>A container in which a user can develop an application. Development containers provide a consistent, reproducible development environment that includes all the tools, libraries, and dependencies needed for development.</p>
+
+<h3 id="devcontainer-json"><a href="#devcontainer-json" class="anchor">devcontainer.json</a></h3>
+
+<p>A JSON with Comments (jsonc) metadata file that contains configuration for creating and customizing a development container. This file can be located at <code>.devcontainer/devcontainer.json</code>, <code>.devcontainer.json</code>, or <code>.devcontainer/&lt;folder&gt;/devcontainer.json</code>.</p>
+
+<h3 id="environment"><a href="#environment" class="anchor">Environment</a></h3>
+
+<p>A logical instance of one or more development containers, along with any needed side-car containers. An environment is based on one set of metadata that can be managed as a single unit.</p>
+
+<h3 id="features"><a href="#features" class="anchor">Features</a></h3>
+
+<p>Self-contained, shareable units of installation code and development container configuration. Features are designed to install atop a base container image to add specific tools, runtimes, or libraries.</p>
+
+<h3 id="templates"><a href="#templates" class="anchor">Templates</a></h3>
+
+<p>Pre-configured starter development container configurations for different technology stacks. Templates provide a quick way to get started with a development container for a specific programming language or framework.</p>
+
+<h3 id="image-metadata"><a href="#image-metadata" class="anchor">Image Metadata</a></h3>
+
+<p>Dev container metadata properties that can be stored in an image label, allowing configuration to be embedded directly in container images. This makes images and their related configuration self-contained.</p>
+
+<h3 id="lifecycle-scripts"><a href="#lifecycle-scripts" class="anchor">Lifecycle Scripts</a></h3>
+
+<p>Commands that run at specific points in the container lifecycle:</p>
+<ul>
+    <li><strong>onCreateCommand</strong>: Runs when the container is created</li>
+    <li><strong>updateContentCommand</strong>: Runs when the container's content is updated</li>
+    <li><strong>postCreateCommand</strong>: Runs after the container is created</li>
+    <li><strong>postStartCommand</strong>: Runs each time the container starts</li>
+    <li><strong>postAttachCommand</strong>: Runs each time a tool attaches to the container</li>
+</ul>
+
+<h3 id="workspace-folder"><a href="#workspace-folder" class="anchor">Workspace Folder</a></h3>
+
+<p>The primary working directory inside the development container where the project source code is located. This is typically specified using the <code>workspaceFolder</code> property in devcontainer.json.</p>
+
+<h3 id="remote-user"><a href="#remote-user" class="anchor">Remote User</a></h3>
+
+<p>The user account that will be used when executing commands inside the development container. Specified by the <code>remoteUser</code> property in devcontainer.json.</p>
+
+<h3 id="forward-ports"><a href="#forward-ports" class="anchor">Forward Ports</a></h3>
+
+<p>A list of ports that should be automatically forwarded from the container to the local machine, making services running in the container accessible on the host.</p>
+
+<h3 id="customizations"><a href="#customizations" class="anchor">Customizations</a></h3>
+
+<p>Tool-specific settings and extensions that should be installed or configured in the development container. For example, VS Code extensions, settings, and other editor-specific configurations.</p>
+
+<h3 id="mounts"><a href="#mounts" class="anchor">Mounts</a></h3>
+
+<p>Volumes or bind mounts that make local files or directories available inside the container. Mounts preserve data and enable sharing files between the host and container.</p>
+
+<h3 id="dockerfile"><a href="#dockerfile" class="anchor">Dockerfile</a></h3>
+
+<p>A text file containing instructions for building a Docker container image. Development containers can be based on a Dockerfile for customized image creation.</p>
+
+<h3 id="docker-compose"><a href="#docker-compose" class="anchor">Docker Compose</a></h3>
+
+<p>A tool for defining and running multi-container Docker applications. Development containers can use Docker Compose for orchestrating multiple services.</p>
+
+<h3 id="orchestration"><a href="#orchestration" class="anchor">Orchestration Options</a></h3>
+
+<p>Different approaches to running development containers:</p>
+<ul>
+    <li><strong>Image-based</strong>: Using a pre-built container image</li>
+    <li><strong>Dockerfile-based</strong>: Building from a Dockerfile</li>
+    <li><strong>Docker Compose-based</strong>: Using docker-compose.yml for multi-container setups</li>
+</ul>
