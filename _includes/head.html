@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="{{ "/css/bootswatch/cosmo/bootstrap.min.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/fontawesome-all.min.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-    <!-- Font customization: Additional Google Fonts -->
+    
+    <!-- Font Customization: Load additional Google Fonts for user selection
+         These fonts are loaded upfront for optimal performance when the user switches fonts.
+         The 'preconnect' lines establish early connections to Google's font servers.
+         Available fonts: Open Sans, Roboto, Lato, and Merriweather (Source Sans Pro is already loaded via Bootstrap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:wght@300;400;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
