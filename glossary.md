@@ -5,10 +5,10 @@ sectionid: glossary
 ---
 
 <script type="text/javascript">
-    // Brief delay for screen readers
+    // Brief delay for screen readers to announce content
     setTimeout(function() {
         window.location.href = "{{ site.baseurl }}/collections#glossary";
-    }, 100);
+    }, 250);
 </script>
 
 <p>This page has moved to <a href="{{ site.baseurl }}/collections#glossary">Collections & Glossary</a>. You will be redirected automatically.</p>
