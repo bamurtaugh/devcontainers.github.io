@@ -17,6 +17,21 @@
                     <li>
                         <a class="github-button" href="https://github.com/devcontainers/spec/subscription" aria-label="Watch devcontainers/spec on GitHub">Watch</a>
                     </li>
+                    <!-- Font Customization: Dropdown selector for choosing site-wide font family
+                         - The select element is identified by id="font-selector" for JavaScript interaction
+                         - Each option's value (e.g., "source-sans") corresponds to a CSS class (e.g., "font-source-sans")
+                         - User selections are saved to localStorage and persist across browser sessions
+                         - The aria-label provides accessibility for screen readers -->
+                    <li class="font-selector">
+                        <label for="font-selector">Font:</label>
+                        <select id="font-selector" aria-label="Select font family">
+                            <option value="source-sans">Source Sans Pro (Default)</option>
+                            <option value="open-sans">Open Sans</option>
+                            <option value="roboto">Roboto</option>
+                            <option value="lato">Lato</option>
+                            <option value="merriweather">Merriweather</option>
+                        </select>
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-2">
