@@ -9,6 +9,28 @@ img[alt=init-launch] { width: 80%; height: 80%; }
 img[alt=stop-continue-terminate] { width: 80%; height: 80%; }
 img[alt=breakpoint] { width: 80%; height: 80%; }
 
+:root {
+	--bg-color: #ffffff;
+	--text-color: #212529;
+	--code-bg: #f6f8fa;
+	--code-border: #ccc;
+	--footer-bg: #e9ecef;
+	--footer-text: #000;
+	--card-bg: #ffffff;
+	--border-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+	--bg-color: #1a1a1a;
+	--text-color: #e0e0e0;
+	--code-bg: #2d2d2d;
+	--code-border: #444;
+	--footer-bg: #0d0d0d;
+	--footer-text: #e0e0e0;
+	--card-bg: #252525;
+	--border-color: #444;
+}
+
 html {
 	position: relative;
 	min-height: 100%;
@@ -17,6 +39,9 @@ html {
 body {
 	letter-spacing: .25px;
 	text-rendering: optimizeLegibility;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .single-page {
@@ -82,10 +107,10 @@ pre[class=highlight] {
 	overflow: auto;
 	font-size: 85%;
 	line-height: 1.45;
-	background-color: #f6f8fa;
-	border: 1px solid #ccc;
+	background-color: var(--code-bg);
+	border: 1px solid var(--code-border);
 	border-radius: 4px;
-	background: #f6f8fa
+	background: var(--code-bg);
 }
 
 .highlight .hll {
@@ -357,8 +382,8 @@ pre[class=highlight] {
 
 .footer {
 	padding: 15px 0;
-	color: #000;
-	background: #e9ecef;
+	color: var(--footer-text);
+	background: var(--footer-bg);
 
 	@media (min-width: 576px) {
 		padding: 50px 0;
@@ -474,6 +499,8 @@ a:hover {
 
 .dap-sidebar .card {
 	padding-top: 1px;
+	background-color: var(--card-bg);
+	border-color: var(--border-color);
 }
 
 h2 a, h3 a, h4 a, a h3 {
@@ -484,4 +511,83 @@ h2 a, h3 a, h4 a, a h3 {
 h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	margin-left: 0.5rem;
+	transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover {
+	opacity: 0.7;
+}
+
+.theme-toggle:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline-offset: 2px;
+}
+
+[data-theme="dark"] .highlight .c,
+[data-theme="dark"] .highlight .err,
+[data-theme="dark"] .highlight .n,
+[data-theme="dark"] .highlight .p,
+[data-theme="dark"] .highlight .cm,
+[data-theme="dark"] .highlight .cp,
+[data-theme="dark"] .highlight .c1,
+[data-theme="dark"] .highlight .cs,
+[data-theme="dark"] .highlight .sd {
+	color: #a0a0a0;
+}
+
+[data-theme="dark"] .highlight .k,
+[data-theme="dark"] .highlight .kc,
+[data-theme="dark"] .highlight .kd,
+[data-theme="dark"] .highlight .kr {
+	color: #bb86fc;
+}
+
+[data-theme="dark"] .highlight .s,
+[data-theme="dark"] .highlight .sb,
+[data-theme="dark"] .highlight .s2,
+[data-theme="dark"] .highlight .sh,
+[data-theme="dark"] .highlight .sx,
+[data-theme="dark"] .highlight .sr,
+[data-theme="dark"] .highlight .s1,
+[data-theme="dark"] .highlight .ss,
+[data-theme="dark"] .highlight .ld {
+	color: #98c379;
+}
+
+[data-theme="dark"] .highlight .m,
+[data-theme="dark"] .highlight .mf,
+[data-theme="dark"] .highlight .mh,
+[data-theme="dark"] .highlight .mi,
+[data-theme="dark"] .highlight .mo,
+[data-theme="dark"] .highlight .il {
+	color: #d19a66;
+}
+
+[data-theme="dark"] .highlight .na,
+[data-theme="dark"] .highlight .nb,
+[data-theme="dark"] .highlight .nc,
+[data-theme="dark"] .highlight .no,
+[data-theme="dark"] .highlight .nf,
+[data-theme="dark"] .highlight .nx,
+[data-theme="dark"] .highlight .kt {
+	color: #61afef;
+}
+
+[data-theme="dark"] a {
+	color: #61afef;
+}
+
+[data-theme="dark"] a:hover {
+	color: #89c4f4;
 }
