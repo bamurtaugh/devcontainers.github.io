@@ -7,7 +7,17 @@ description: >
 url: https://devcontainers.github.io # the base hostname & protocol for your site
 git_address: https://github.com/devcontainers/devcontainers.github.io
 git_edit_address: https://github.com/devcontainers/devcontainers.github.io/settings/pages/blob/gh-pages
-theme_color: 2753E3
+# Default theme color (can be overridden by user preference)
+theme_color: 8250df
+
+# Available theme colors for user selection
+theme_colors:
+  purple_light: "8250df"
+  purple_dark: "6639ba"
+  purple_github: "8250df"
+  orange_light: "f97316"
+  orange_dark: "ea580c"
+  blue_original: "2753E3"
 
 # Build settings
 markdown: kramdown
@@ -26,6 +36,8 @@ exclude:
   - .gitignore
   - README.md
   - resources
+  - vendor/bundle
+  - .bundle
 
 timezone: Europe/Zurich
 
