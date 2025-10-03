@@ -7,6 +7,8 @@ $('#small-nav-dropdown').change(function() {
 // Theme Toggle Functionality
 function initThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
+  if (!themeToggle) return; // Guard clause if element doesn't exist
+  
   const themeIcon = themeToggle.querySelector('i');
   
   // Check for saved theme preference or default to light mode
