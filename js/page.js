@@ -10,6 +10,7 @@ function initThemeToggle() {
   if (!themeToggle) return; // Guard clause if element doesn't exist
   
   const themeIcon = themeToggle.querySelector('i');
+  if (!themeIcon) return; // Guard clause if icon doesn't exist
   
   // Check for saved theme preference or default to light mode
   const currentTheme = localStorage.getItem('theme') || 'light';
