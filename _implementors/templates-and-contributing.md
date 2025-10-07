@@ -186,7 +186,7 @@ and it has the following `.devcontainer.json` file:
 }
 ```
 
-A user tries to add the `java` Template to their project using the [supporting tools](/supporting#supporting-tools-and-services) and selects `17-bullseye` when prompted for `"Specify version of Go"` and the `default` values when prompted for `"Specify version of node, or 'none' to skip node installation"` and `"Install Maven, a management tool for Java"`.
+A user tries to add the `java` Template to their project using the [supporting tools](/supporting#supporting-tools-and-services) and selects `17-bullseye` when prompted for `"Specify version of java"` and the `default` values when prompted for `"Specify version of node, or 'none' to skip node installation"` and `"Install Maven, a management tool for Java"`.
 
 The supporting tool could then use a string replacer for all the files within the sub-directory of the Template. In this example, `.devcontainer.json` needs to be modified and hence, the inputs can provided to it as follows:
 
@@ -202,8 +202,8 @@ The modified `.devcontainer.json` will be as follows:
 
 ```json
 {
-     "name": "Go",
-     "image": "mcr.microsoft.com/devcontainers/go:0-17-bullseye",
+     "name": "Java",
+     "image": "mcr.microsoft.com/devcontainers/java:0-17-bullseye",
      "features": {
           "ghcr.io/devcontainers/features/node:1": {
                "version": "latest",
@@ -347,13 +347,13 @@ oras push ${REGISTRY}/${NAMESPACE}:latest \
 
 ### <a href="#guide-to-publishing-templates" name="guide-to-publishing-templates" class="anchor">Guide to publishing Templates</a>
 
-The Dev Container CLI can be used to publish [Template](https://containers.dev/implementors/templates/) artifacts to an OCI registry (that supports the [artifacts specification](https://oras.land/implementors/)).
+The Dev Container CLI can be used to publish [Template](#templates) artifacts to an OCI registry (that supports the [artifacts specification](https://oras.land/implementors/)).
 
 To see all the available options, run `devcontainers templates publish --help`.
 
 ### <a href="#example" name="example" class="anchor">Example</a>
 
-Given a directory that is organized according to the [Templates distribution specification](https://containers.dev/implementors/templates-distribution/) - for example:
+Given a directory that is organized according to the [Templates distribution specification](#templates-distribution) - for example:
 
 ```
 ├── src
@@ -475,4 +475,4 @@ There are several additional options to engage with the dev container community,
 - [GitHub Discussions](https://github.com/devcontainers/spec/discussions): This is a great opportunity to connect with the community and maintainers of this project, without the requirement of contributing a change to the actual spec (which we see more in issues and PRs)
 - [Community Slack channel](https://aka.ms/dev-container-community): This is a great opportunity to connect with the community and maintainers
 - You can always check out the issues and PRs (and contribute new ones) across the repos in the [Dev Containers GitHub org](https://github.com/devcontainers) too!
-- Community collections: You can contribute your own [Templates](https://containers.dev/implementors/templates-distribution/#distribution) and [Features](https://containers.dev/implementors/features-distribution/#distribution) to our [community index](https://containers.dev/collections)!
+- Community collections: You can contribute your own [Templates](#distribution) and [Features](https://containers.dev/implementors/features-distribution/#distribution) to our [community index](https://containers.dev/collections)!
