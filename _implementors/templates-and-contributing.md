@@ -186,7 +186,7 @@ and it has the following `.devcontainer.json` file:
 }
 ```
 
-A user tries to add the `java` Template to their project using the [supporting tools](/supporting#supporting-tools-and-services) and selects `17-bullseye` when prompted for `"Specify version of java"` and the `default` values when prompted for `"Specify version of node, or 'none' to skip node installation"` and `"Install Maven, a management tool for Java"`.
+A user tries to add the `java` Template to their project using the [supporting tools](/supporting#supporting-tools-and-services) and selects `17-bullseye` when prompted for `"Specify version of Java"` and the `default` values when prompted for `"Specify version of node, or 'none' to skip node installation"` and `"Install Maven, a management tool for Java"`.
 
 The supporting tool could then use a string replacer for all the files within the sub-directory of the Template. In this example, `.devcontainer.json` needs to be modified and hence, the inputs can provided to it as follows:
 
