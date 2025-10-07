@@ -22,28 +22,35 @@ function initThemeToggle() {
   
   const htmlElement = document.documentElement;
   
-  // Check for saved theme preference or default to 'light'
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  htmlElement.setAttribute('data-theme', currentTheme);
+  // Get current theme from localStorage or default to 'light'
+  function getTheme() {
+    return localStorage.getItem('theme') || 'light';
+  }
+  
+  // Update icon based on theme
+  function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+      themeIcon.textContent = '☀️';
+      themeToggle.setAttribute('title', 'Switch to light theme');
+    } else {
+      themeIcon.textContent = '🌙';
+      themeToggle.setAttribute('title', 'Switch to dark theme');
+    }
+  }
+  
+  // Initialize theme
+  const currentTheme = getTheme();
   updateThemeIcon(currentTheme);
   
   // Toggle theme on button click
   themeToggle.addEventListener('click', function() {
-    const currentTheme = htmlElement.getAttribute('data-theme');
+    const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
   });
-  
-  function updateThemeIcon(theme) {
-    if (theme === 'dark') {
-      themeIcon.textContent = '☀️';
-    } else {
-      themeIcon.textContent = '🌙';
-    }
-  }
 }
 
 const site_tag = 'UA-62780441-30';

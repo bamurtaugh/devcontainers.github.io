@@ -536,7 +536,8 @@ h1 a {
 }
 
 #theme-toggle:focus {
-	outline: none;
+	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline-offset: 2px;
 }
 
 // Dark theme card styles
