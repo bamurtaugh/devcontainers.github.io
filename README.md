@@ -35,7 +35,7 @@ For issues on and contributions to the dev container specification itself, pleas
 If you're looking to contribute to this website and aren't sure where to start, here are some examples of good first issues based on the [spec overview](https://containers.dev/implementors/spec):
 
 #### Documentation improvements
-- **Add examples for lifecycle scripts**: The spec describes various [lifecycle scripts](https://containers.dev/implementors/json_reference/#lifecycle-scripts) like `onCreateCommand`, `postCreateCommand`, `postStartCommand`, and `postAttachCommand`. You could add practical examples showing how to use these scripts for common scenarios (installing dependencies, starting services, etc.).
+- **Add examples for lifecycle scripts**: The spec describes various [lifecycle scripts](https://containers.dev/implementors/json_reference/#lifecycle-scripts) like `onCreateCommand`, `postCreateCommand`, `postStartCommand`, and `postAttachCommand`. Add practical examples showing how to use these scripts for common scenarios (installing dependencies, starting services, etc.).
 - **Clarify Feature vs Template usage**: Create a guide or comparison table that helps users understand when to use [Features](https://containers.dev/implementors/features) vs [Templates](https://containers.dev/implementors/templates), with real-world use cases.
 - **Expand environment variables documentation**: Add more examples showing how to use `remoteEnv` and `containerEnv` properties in different scenarios (accessing secrets, setting up paths, configuring tools).
 
