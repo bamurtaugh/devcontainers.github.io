@@ -139,7 +139,7 @@ Suppose the `java` Template has the following `options` parameters declared in t
 "options": {
     "imageVariant": {
         "type": "string",
-        "description": "Specify version of java.",
+        "description": "Specify version of Java.",
         "proposals": [
           "17-bullseye",
           "17-buster",
