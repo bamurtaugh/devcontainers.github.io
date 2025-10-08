@@ -24,7 +24,11 @@ body {
 }
 
 .bg-primary {
+	{% if site.use_gradient %}
+	background: linear-gradient(135deg, #{{ site.gradient_start_color }} 0%, #{{ site.gradient_end_color }} 100%) !important;
+	{% else %}
 	background-color: #{{ site.theme_color }} !important;
+	{% endif %}
   }
 
 .header-container {
@@ -442,7 +446,11 @@ pre[class=highlight] {
 }
 
 .nav .nav-link {
+	{% if site.use_gradient %}
+	color: #{{ site.gradient_start_color }} !important;
+	{% else %}
 	color: #{{ site.theme_color }} !important;
+	{% endif %}
   }
 
 .nav .nav-link:hover {
@@ -450,7 +458,11 @@ pre[class=highlight] {
 }
 
 a {
+	{% if site.use_gradient %}
+	color: #{{ site.gradient_start_color }};
+	{% else %}
 	color: #{{ site.theme_color }};
+	{% endif %}
 }
 
 a:hover {
