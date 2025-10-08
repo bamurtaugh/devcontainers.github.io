@@ -16,9 +16,11 @@ gradient_end_color: 00B4D8    # Ending color of the gradient (hex without #)
 
 When `use_gradient` is set to `true`, the following changes take effect:
 
-1. **Header Background**: The `.bg-primary` class (used in the site header) will use a linear gradient from `gradient_start_color` to `gradient_end_color` at a 135-degree angle
+1. **Header Background**: The `.bg-primary` class (used in the site header) will use a linear gradient from `gradient_start_color` to `gradient_end_color` at a fixed 135-degree angle (diagonal from bottom-left to top-right)
 2. **Link Colors**: Navigation links and general links will use the `gradient_start_color` instead of the solid `theme_color`
 3. **Meta Theme Color**: The browser theme color meta tag will use the `gradient_start_color`
+
+**Note**: The gradient angle is currently fixed at 135 degrees. To change the angle, you would need to modify the CSS in `css/main.scss`.
 
 ## Disabling the Gradient
 
