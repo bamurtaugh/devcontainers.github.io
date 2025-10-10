@@ -14,7 +14,7 @@ A development container (or dev container for short) is a container that provide
 
 ### <a href="#devcontainer-json" name="devcontainer-json" class="anchor"> devcontainer.json </a>
 
-A structured JSON with Comments (jsonc) metadata format that tools can use to store configuration required to develop inside of local or cloud-based containerized environments. This is the primary configuration file for dev containers.
+A structured JSON with Comments (JSONC) metadata format that tools can use to store configuration required to develop inside of local or cloud-based containerized environments. This is the primary configuration file for dev containers.
 
 ### <a href="#features" name="features" class="anchor"> Features </a>
 
