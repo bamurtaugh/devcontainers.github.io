@@ -6,11 +6,11 @@ author: Microsoft
 index: 5
 ---
 
-**Development Container Features** are self-contained, shareable units of installation code and development container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "features" into your development container for you or your collaborators to use.
+**Development Container {% include tooltip.html term="Features" %}** are self-contained, shareable units of installation code and development container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "features" into your {% include tooltip.html term="dev container" %} for you or your collaborators to use.
 
-Feature metadata is captured by a `devcontainer-feature.json` file in the root folder of the feature.
+Feature {% include tooltip.html term="metadata" %} is captured by a `devcontainer-feature.json` file in the root folder of the feature.
 
-> **Note:** While Features may be installed on top of any base image, the implementation of a Feature might restrict it to a subset of possible base images. For example, some Features may be authored to work with a certain Linux distro (e.g. debian-based images that use the `apt` package manager).
+> **Note:** While Features may be installed on top of any base {% include tooltip.html term="image" %}, the implementation of a Feature might restrict it to a subset of possible base images. For example, some Features may be authored to work with a certain Linux distro (e.g. debian-based images that use the `apt` package manager).
 > 
 > This page covers details on the Features specification. If you are looking for summarized information on creating your own Features, check out the [quick start](https://github.com/devcontainers/feature-starter) and [core Features](https://github.com/devcontainers/features) repositories.
 
