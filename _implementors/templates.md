@@ -8,7 +8,7 @@ index: 7
 
 **Development Container {% include tooltip.html term="Templates" %}** are source files packaged together that encode configuration for a complete development environment. A Template can be used in a new or existing project, and a [supporting tool](/supporting) will use the configuration from the Template to build a {% include tooltip.html term="dev container" %}.
 
-The configuration is placed in a [`.devcontainer.json`](/implementors/json_reference#devcontainerjson) which can also reference other files within the Template. Alternatively, `.devcontainer/devcontainer.json` can also be used if the {% include tooltip.html term="container" %} needs to reference other files, such as a `Dockerfile` or `docker-compose.yml`. A Template can also provide additional source files (eg: boilerplate code or a [{% include tooltip.html term="lifecycle scripts" %}](/implementors/json_reference/#lifecycle-scripts)).
+The configuration is placed in a [`.devcontainer.json`](/implementors/json_reference#devcontainerjson) which can also reference other files within the Template. Alternatively, `.devcontainer/devcontainer.json` can also be used if the {% include tooltip.html term="dev container" %} needs to reference other files, such as a `Dockerfile` or `docker-compose.yml`. A Template can also provide additional source files (eg: boilerplate code or a [{% include tooltip.html term="lifecycle scripts" %}](/implementors/json_reference/#lifecycle-scripts)).
 
 Template {% include tooltip.html term="metadata" %} is captured by a `devcontainer-template.json` file in the root folder of the Template.
 
