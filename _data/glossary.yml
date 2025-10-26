@@ -1,0 +1,201 @@
+# Glossary of Development Container terms
+# This file provides definitions for tooltips displayed throughout the site
+
+terms:
+  - term: "dev container"
+    definition: "A development container (or dev container for short) allows you to use a container as a full-featured development environment."
+    
+  - term: "development container"
+    definition: "A containerized development environment that includes all the tools, libraries, and runtimes needed for working with a codebase."
+    
+  - term: "devcontainer.json"
+    definition: "The configuration file that defines how your development container is built and what features it includes."
+    
+  - term: "Feature"
+    definition: "A self-contained, shareable unit of installation code that adds tooling, runtime, or library capabilities to a dev container."
+    
+  - term: "Features"
+    definition: "Self-contained, shareable units of installation code and development container configuration that add capabilities to containers."
+    
+  - term: "Template"
+    definition: "A pre-configured development container setup that can be used as a starting point for new projects."
+    
+  - term: "Templates"
+    definition: "Pre-configured development container setups that can be used as starting points for new projects."
+    
+  - term: "Dev Container CLI"
+    definition: "A command-line tool for working with development containers, allowing you to build and run containers from the command line."
+    
+  - term: "Development Container Specification"
+    definition: "An open specification for enriching containers with development-specific content and settings."
+    
+  - term: "base image"
+    definition: "The underlying container image that your development container is built upon, such as Ubuntu, Debian, or Alpine Linux."
+    
+  - term: "lifecycle scripts"
+    definition: "Scripts that run at specific points in the container lifecycle, such as onCreate, onCreateCommand, postCreateCommand, postStartCommand, and postAttachCommand."
+    
+  - term: "devcontainer-feature.json"
+    definition: "The metadata file that defines a Feature's properties, options, and installation requirements."
+    
+  - term: "devcontainer-template.json"
+    definition: "The metadata file that describes a Template's configuration and intended use case."
+    
+  - term: "supporting tools"
+    definition: "Tools and editors that implement the Development Container Specification, such as VS Code, GitHub Codespaces, and others."
+    
+  - term: "container"
+    definition: "A lightweight, standalone package that includes everything needed to run a piece of software, including code, runtime, system tools, and libraries."
+    
+  - term: "image"
+    definition: "A read-only template used to create containers, containing the application code and all dependencies."
+    
+  - term: "Codespaces"
+    definition: "GitHub's cloud-based development environment that uses development containers to provide instant, preconfigured dev environments."
+    
+  - term: "VS Code"
+    definition: "Visual Studio Code, a popular code editor that supports development containers through the Dev Containers extension."
+    
+  - term: "Docker"
+    definition: "A platform for developing, shipping, and running applications in containers."
+    
+  - term: "customizations"
+    definition: "Tool-specific configuration settings that customize the development environment, such as VS Code extensions and settings."
+    
+  - term: "forwardPorts"
+    definition: "A setting in devcontainer.json that specifies which ports should be automatically forwarded from the container to your local machine."
+    
+  - term: "postCreateCommand"
+    definition: "A lifecycle script that runs once after the container is created, often used to install dependencies or configure the environment."
+    
+  - term: "onCreateCommand"
+    definition: "A lifecycle script that runs when the container is first created, before the container is started."
+    
+  - term: "postStartCommand"
+    definition: "A lifecycle script that runs each time the container starts."
+    
+  - term: "postAttachCommand"
+    definition: "A lifecycle script that runs each time a tool attaches to the container."
+    
+  - term: "mounts"
+    definition: "Configuration that specifies how to mount volumes or bind local directories into the container."
+    
+  - term: "remoteUser"
+    definition: "The username that the development environment should run as inside the container."
+    
+  - term: "containerEnv"
+    definition: "Environment variables that should be set in the container."
+    
+  - term: "runArgs"
+    definition: "Additional arguments to pass to the container runtime when creating the container."
+    
+  - term: "build"
+    definition: "Configuration for building a custom container image from a Dockerfile."
+    
+  - term: "Dockerfile"
+    definition: "A text file containing instructions for building a container image."
+    
+  - term: "containerUser"
+    definition: "The user that processes will run as inside the container by default."
+    
+  - term: "workspaceFolder"
+    definition: "The path to the folder inside the container where your source code is mounted."
+    
+  - term: "workspaceMount"
+    definition: "Configuration for how your local workspace folder is mounted into the container."
+    
+  - term: "updateContentCommand"
+    definition: "A lifecycle script that runs when the container starts after the source code has been updated."
+    
+  - term: "installsAfter"
+    definition: "A Feature property that specifies which other Features should be installed before this one."
+    
+  - term: "privileged"
+    definition: "A setting that gives the container additional permissions, required for operations like Docker-in-Docker."
+    
+  - term: "init"
+    definition: "A setting that adds a tiny init process to handle signal forwarding and zombie process reaping."
+    
+  - term: "capAdd"
+    definition: "Linux capabilities to add to the container for additional permissions."
+    
+  - term: "securityOpt"
+    definition: "Security options for the container, such as seccomp profiles or AppArmor settings."
+    
+  - term: "extensions"
+    definition: "VS Code extensions that should be automatically installed in the development container."
+    
+  - term: "settings"
+    definition: "VS Code settings that should be applied inside the development container."
+    
+  - term: "portsAttributes"
+    definition: "Additional configuration for forwarded ports, such as labels and visibility settings."
+    
+  - term: "otherPortsAttributes"
+    definition: "Default attributes to apply to ports that aren't explicitly configured."
+    
+  - term: "registry"
+    definition: "A service that stores and distributes Features and Templates, such as GitHub Container Registry or OCI registries."
+    
+  - term: "collection"
+    definition: "A grouping of Features or Templates published together, typically maintained by the same organization."
+    
+  - term: "OCI"
+    definition: "Open Container Initiative - industry standards for container formats and runtimes."
+    
+  - term: "manifest"
+    definition: "A file that describes the contents and metadata of a container image or Feature."
+    
+  - term: "layer"
+    definition: "A component of a container image, where each layer represents a set of filesystem changes."
+    
+  - term: "tar archive"
+    definition: "A file archive format used to package Features and Templates for distribution."
+    
+  - term: "semantic version"
+    definition: "A versioning scheme (e.g., 1.0.0) that uses major.minor.patch numbers to indicate the level of changes."
+    
+  - term: "entrypoint"
+    definition: "The command that runs when a container starts, typically defined in a Dockerfile or devcontainer.json."
+    
+  - term: "install.sh"
+    definition: "The installation script for a Feature that contains the commands to set up the feature's functionality."
+    
+  - term: "options"
+    definition: "Configurable parameters that can be passed to a Feature to customize its installation."
+    
+  - term: "containerEnv"
+    definition: "Environment variables that are set in the container when a Feature is installed."
+    
+  - term: "pre-build"
+    definition: "A container image that has been built ahead of time to speed up development container creation."
+    
+  - term: "codespace"
+    definition: "A cloud-hosted development environment that runs in a container."
+    
+  - term: "lifecycle hooks"
+    definition: "Commands that execute at specific points in the container's lifecycle."
+    
+  - term: "bind mount"
+    definition: "A way to mount a directory from the host machine into the container."
+    
+  - term: "volume"
+    definition: "A persistent storage mechanism for containers that exists independently of the container lifecycle."
+    
+  - term: "dotfiles"
+    definition: "Hidden configuration files (starting with a dot) that customize your development environment."
+    
+  - term: "updateRemoteUserUID"
+    definition: "A setting that synchronizes the container user's ID with the local user's ID to avoid permission issues."
+    
+  - term: "userEnvProbe"
+    definition: "Specifies how to detect environment variables that should be set in the terminal."
+    
+  - term: "shutdownAction"
+    definition: "Defines what should happen to the container when you close the development tool."
+    
+  - term: "overrideCommand"
+    definition: "Whether to override the default container command with the development tool's command."
+    
+  - term: "waitFor"
+    definition: "Specifies which lifecycle command to wait for before considering the container ready."

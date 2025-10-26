@@ -485,3 +485,56 @@ h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
+/* Tooltip styles for glossary terms */
+.glossary-term {
+	position: relative;
+	border-bottom: 1px dotted #2780e3;
+	cursor: help;
+	text-decoration: none;
+}
+
+.glossary-term:hover {
+	border-bottom-color: #1034a8;
+}
+
+.glossary-tooltip {
+	position: absolute;
+	display: none;
+	background-color: #333;
+	color: #fff;
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 1.4;
+	max-width: 300px;
+	z-index: 1000;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 8px;
+	white-space: normal;
+}
+
+.glossary-tooltip::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 6px solid transparent;
+	border-top-color: #333;
+}
+
+.glossary-term:hover .glossary-tooltip,
+.glossary-term:focus .glossary-tooltip {
+	display: block;
+}
+
+/* Ensure tooltips are visible on touch devices */
+@media (hover: none) {
+	.glossary-term:active .glossary-tooltip {
+		display: block;
+	}
+}

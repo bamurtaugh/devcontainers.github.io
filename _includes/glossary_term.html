@@ -1,0 +1,15 @@
+{% comment %}
+Usage: {% include glossary_term.html term="dev container" %}
+or with custom text: {% include glossary_term.html term="dev container" text="development containers" %}
+{% endcomment %}
+{% assign term_to_find = include.term | downcase %}
+{% assign display_text = include.text | default: include.term %}
+{% assign found_definition = "" %}
+{% for glossary_item in site.data.glossary.terms %}
+  {% assign glossary_term = glossary_item.term | downcase %}
+  {% if glossary_term == term_to_find %}
+    {% assign found_definition = glossary_item.definition %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% if found_definition != "" %}<span class="glossary-term" data-term="{{ include.term }}" data-definition="{{ found_definition }}">{{ display_text }}</span>{% else %}{{ display_text }}{% endif %}
