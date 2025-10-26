@@ -68,8 +68,8 @@ If using VS Code, the following tasks are pre-configured in `.vscode/tasks.json`
 - **Build** (default build task): Builds the static site
 
 You can run these via:
-- Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`): Select `Tasks: Run Task`
-- Keyboard shortcut: `Ctrl+Shift+B` (Windows/Linux) or `Cmd+Shift+B` (Mac) for Build task
+- **Command Palette** (`Ctrl+Shift+P` or `Cmd+Shift+P`): Select `Tasks: Run Task`, then choose either "Serve" or "Build"
+- **Keyboard shortcut** for Build task: `Ctrl+Shift+B` (Windows/Linux) or `Cmd+Shift+B` (Mac)
 
 ## Feedback and contributing
 
