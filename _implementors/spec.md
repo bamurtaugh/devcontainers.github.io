@@ -6,9 +6,9 @@ author: Microsoft
 index: 1
 ---
 
-The purpose of the **Development Container Specification** is to provide a way to enrich containers with the content and metadata necessary to enable development inside them. These container **environments** should be easy to use, create, and recreate. 
+The purpose of the **{% include tooltip.html term="Development Container Specification" %}** is to provide a way to enrich {% include tooltip.html term="container" %}s with the content and {% include tooltip.html term="metadata" %} necessary to enable development inside them. These container **environments** should be easy to use, create, and recreate. 
 
-A **development container** is a container in which a user can develop an application. Tools that want to implement this specification should provide a set of features/commands that give more flexibility to users and allow **development containers** to scale to large development groups.
+A **{% include tooltip.html term="dev container" %}** is a container in which a user can develop an application. Tools that want to implement this specification should provide a set of features/commands that give more flexibility to users and allow **development containers** to scale to large development groups.
 
 An **environment** is defined as a logical instance of one or more **development containers**, along with any needed side-car containers. An environment is based on one set of metadata that can be managed as a single unit. Users can create multiple **environments** from the same configuration metadata for different purposes.
 
@@ -16,13 +16,13 @@ An **environment** is defined as a logical instance of one or more **development
 
 The Development Container Spec allows one to define a repeatable development environment for a user or team of developers that includes the execution environment the application needs. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development and you may need to use different secrets or other settings. 
 
-Furthermore, working inside a development container can require additional **metadata** to drive tooling or service experiences than you would normally need with a production container. Providing a structured and consistent form for this metadata is a core part of this specification.
+Furthermore, working inside a development container can require additional **{% include tooltip.html term="metadata" %}** to drive tooling or service experiences than you would normally need with a production container. Providing a structured and consistent form for this metadata is a core part of this specification.
 
-A development container is composed of a definition (e.g. contained in a `devcontainer.json` file) that deterministically creates containers under the control of the user.
+A development container is composed of a definition (e.g. contained in a {% include tooltip.html term="devcontainer.json" %} file) that deterministically creates containers under the control of the user.
 
 ## <a href="#devcontainerjson" name="devcontainerjson" class="anchor"> `devcontainer.json` </a>
 
-While the structure of this metadata is critical, it is also important to call out how this data can be represented on disk where appropriate. While other representations may be added over time, metadata can be stored in a JSON with Comments file called `devcontainer.json` today. Products using it should expect to find a devcontainer.json file in one or more of the following locations (in order of precedence):
+While the structure of this metadata is critical, it is also important to call out how this data can be represented on disk where appropriate. While other representations may be added over time, metadata can be stored in a JSON with Comments file called {% include tooltip.html term="devcontainer.json" %} today. Products using it should expect to find a devcontainer.json file in one or more of the following locations (in order of precedence):
 
 - `.devcontainer/devcontainer.json`
 - `.devcontainer.json`
@@ -32,9 +32,9 @@ It is valid that these files may exist in more than one location, so consider pr
 
 ## <a href="#image-metadata" name="image-metadata" class="anchor"> Image Metadata </a>
 
-Certain dev container metadata properties can be stored in an image label as an array of metadata snippets. This allows them to be stored in prebuilt images, such that, the image and its related configuration are self-contained. These contents should then be merged with any local devcontainer.json file contents at the time the container is created. An array is used so subsequent image builds can simply append changes to the array rather than attempting to merge at that point - which improves compatibility with arbitrary image build systems.
+Certain dev container metadata properties can be stored in an {% include tooltip.html term="image" %} label as an array of metadata snippets. This allows them to be stored in prebuilt {% include tooltip.html term="image" %}s, such that, the image and its related configuration are self-contained. These contents should then be merged with any local {% include tooltip.html term="devcontainer.json" %} file contents at the time the container is created. An array is used so subsequent image builds can simply append changes to the array rather than attempting to merge at that point - which improves compatibility with arbitrary image build systems.
 
-Metadata should be representative of with the following structure, using one entry per [Dev Container Feature](../features) and `devcontainer.json` (see table below for the full list):
+Metadata should be representative of with the following structure, using one entry per [Dev Container {% include tooltip.html term="Features" %}](../features) and `devcontainer.json` (see table below for the full list):
 
 ```json
 [

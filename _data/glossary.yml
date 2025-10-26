@@ -1,0 +1,39 @@
+# Glossary of terms for in-context tooltips
+# This file defines tooltips that appear throughout the site to help users understand key concepts
+
+terms:
+  - term: "dev container"
+    definition: "A development container allows you to use a container as a full-featured development environment. It can run locally or remotely, in a private or public cloud."
+    
+  - term: "devcontainer.json"
+    definition: "A JSON with Comments file that contains metadata defining a development container's configuration, including tools, settings, and environment setup."
+    
+  - term: "Development Container Specification"
+    definition: "An open specification for enriching containers with development-specific content and settings, enabling a standardized development environment."
+    
+  - term: "Features"
+    definition: "Reusable units of installation code and configuration that can be added to a development container to quickly add tools, runtimes, or libraries."
+    
+  - term: "Templates"
+    definition: "Pre-configured development container definitions for specific tech stacks that provide a starting point for creating new development environments."
+    
+  - term: "container"
+    definition: "A lightweight, standalone executable package that includes everything needed to run a piece of software, including code, runtime, system tools, and libraries."
+    
+  - term: "metadata"
+    definition: "Structured data that describes the configuration, tools, and settings needed for a development container environment."
+    
+  - term: "image"
+    definition: "A read-only template containing the operating system, application code, and dependencies needed to create a container."
+    
+  - term: "image metadata"
+    definition: "Configuration data stored in container image labels that can be merged with devcontainer.json settings when creating a development container."
+    
+  - term: "lifecycle scripts"
+    definition: "Commands that run at specific points in the container lifecycle, such as onCreate, postCreate, postStart, and postAttach."
+    
+  - term: "customizations"
+    definition: "Tool-specific settings and extensions that can be configured within a devcontainer.json file, such as VS Code extensions and settings."
+    
+  - term: "remote development"
+    definition: "The ability to develop in a container running on a remote machine or cloud service while using local tools and editors."

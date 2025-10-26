@@ -43,4 +43,40 @@ $(function() {
 
   // initialize consent
   onConsentChanged();
+  
+  // Initialize tooltips
+  initGlossaryTooltips();
 })
+
+// Initialize glossary tooltips
+function initGlossaryTooltips() {
+  // Ensure tooltips stay within viewport on mobile
+  const tooltips = document.querySelectorAll('.glossary-term');
+  
+  tooltips.forEach(tooltip => {
+    tooltip.addEventListener('mouseenter', function() {
+      const tooltipContent = this.querySelector('.tooltip-content');
+      if (tooltipContent) {
+        const rect = tooltipContent.getBoundingClientRect();
+        
+        // Adjust if tooltip goes off-screen to the right
+        if (rect.right > window.innerWidth) {
+          tooltipContent.style.left = 'auto';
+          tooltipContent.style.right = '0';
+          tooltipContent.style.transform = 'translateX(0)';
+        }
+        
+        // Adjust if tooltip goes off-screen to the left
+        if (rect.left < 0) {
+          tooltipContent.style.left = '0';
+          tooltipContent.style.transform = 'translateX(0)';
+        }
+      }
+    });
+    
+    // Add keyboard accessibility
+    tooltip.setAttribute('tabindex', '0');
+    tooltip.setAttribute('role', 'button');
+    tooltip.setAttribute('aria-label', 'Show definition');
+  });
+}
