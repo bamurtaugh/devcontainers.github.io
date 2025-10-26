@@ -1,0 +1,377 @@
+# Dev Container Glossary
+# Terms are organized alphabetically
+# Each term includes: name, definition, category, related terms, and optional examples
+
+terms:
+  - id: dev-container
+    name: dev container
+    definition: A containerized development environment that includes all the tools, libraries, and runtimes needed for a particular project. The container runs locally or remotely and provides a consistent, reproducible development setup.
+    category: Core Concepts
+    related:
+      - devcontainer-json
+      - image
+      - container
+    examples:
+      - "A dev container for a Python project might include Python 3.11, pip, pytest, and VS Code extensions for Python development."
+
+  - id: devcontainer-json
+    name: devcontainer.json
+    definition: The configuration file that defines how to build and run a dev container. It specifies the container image, Features to install, customizations for tools, and lifecycle scripts to run.
+    category: Core Concepts
+    related:
+      - feature
+      - template
+      - lifecycle-scripts
+    examples:
+      - "Place devcontainer.json in the .devcontainer/ folder or .devcontainer.json at the repository root."
+
+  - id: feature
+    name: Feature
+    definition: A self-contained, shareable unit of installation code and development container configuration that can be added to a devcontainer.json. Features are distributed via OCI registries and can install tools, languages, or configure the environment.
+    category: Core Concepts
+    related:
+      - devcontainer-json
+      - oci-registry
+      - lifecycle-hooks
+      - template
+    examples:
+      - "The 'ghcr.io/devcontainers/features/node' Feature installs Node.js and npm in the container."
+
+  - id: template
+    name: Template
+    definition: A source files package that serves as a starting point for a new development container project. Templates include a devcontainer.json and may include Dockerfiles, scripts, and sample code.
+    category: Core Concepts
+    related:
+      - devcontainer-json
+      - feature
+      - oci-registry
+    examples:
+      - "The 'ghcr.io/devcontainers/templates/typescript-node' Template creates a Node.js TypeScript project with a pre-configured dev container."
+
+  - id: lifecycle-scripts
+    name: lifecycle scripts
+    definition: Commands that execute at specific points in the dev container lifecycle. Common scripts include onCreateCommand, updateContentCommand, postCreateCommand, postStartCommand, and postAttachCommand.
+    category: Configuration
+    related:
+      - oncreatecommand
+      - postcreatecommand
+      - updatecontentcommand
+      - poststartcommand
+      - postattachcommand
+    examples:
+      - "Use postCreateCommand to run 'npm install' after the container is created."
+
+  - id: oncreatecommand
+    name: onCreateCommand
+    definition: A lifecycle script that runs once when the container is first created. Use this for one-time setup tasks like cloning additional repositories or initializing databases.
+    category: Lifecycle Scripts
+    related:
+      - lifecycle-scripts
+      - postcreatecommand
+      - updatecontentcommand
+    examples:
+      - "onCreateCommand: git clone https://github.com/example/data.git /workspace/data"
+
+  - id: updatecontentcommand
+    name: updateContentCommand
+    definition: A lifecycle script that runs when the container is created and whenever a rebuild is triggered. Use this for tasks that should run on both initial creation and updates.
+    category: Lifecycle Scripts
+    related:
+      - lifecycle-scripts
+      - oncreatecommand
+      - postcreatecommand
+    examples:
+      - "updateContentCommand: bundle install"
+
+  - id: postcreatecommand
+    name: postCreateCommand
+    definition: A lifecycle script that runs after the container is created and after onCreateCommand/updateContentCommand. Use this for setup tasks that depend on source code being available.
+    category: Lifecycle Scripts
+    related:
+      - lifecycle-scripts
+      - oncreatecommand
+      - updatecontentcommand
+    examples:
+      - "postCreateCommand: npm install && npm run build"
+
+  - id: poststartcommand
+    name: postStartCommand
+    definition: A lifecycle script that runs each time the container starts (including after creation). Use this for tasks that should run every time the container starts.
+    category: Lifecycle Scripts
+    related:
+      - lifecycle-scripts
+      - postattachcommand
+    examples:
+      - "postStartCommand: docker-compose up -d database"
+
+  - id: postattachcommand
+    name: postAttachCommand
+    definition: A lifecycle script that runs each time a tool attaches to the container. This runs in parallel with other scripts and is useful for starting background services.
+    category: Lifecycle Scripts
+    related:
+      - lifecycle-scripts
+      - poststartcommand
+    examples:
+      - "postAttachCommand: code --install-extension dbaeumer.vscode-eslint"
+
+  - id: customizations
+    name: customizations
+    definition: Product-specific configuration properties in devcontainer.json that are namespaced by tool identifier. This allows different tools to have their own settings without conflicts.
+    category: Configuration
+    related:
+      - devcontainer-json
+    examples:
+      - "customizations.vscode.extensions defines VS Code extensions to install."
+      - "customizations.vscode.settings configures VS Code settings for the workspace."
+
+  - id: remoteuser
+    name: remoteUser
+    definition: The user that tools and processes should run as inside the container. This is typically the user context for your editor/IDE processes.
+    category: Users & Permissions
+    related:
+      - containeruser
+      - remoteenv
+    examples:
+      - "remoteUser: node  # Run VS Code processes as the 'node' user"
+
+  - id: containeruser
+    name: containerUser
+    definition: The user for all container operations, including running lifecycle scripts and the container's main process. If not specified, defaults to the user in the image.
+    category: Users & Permissions
+    related:
+      - remoteuser
+      - containerenv
+    examples:
+      - "containerUser: vscode  # Run all container operations as 'vscode' user"
+
+  - id: remoteenv
+    name: remoteEnv
+    definition: Environment variables set in the user's shell and available to tools and processes running in the container. These are set after the container is running.
+    category: Environment
+    related:
+      - containerenv
+      - remoteuser
+    examples:
+      - "remoteEnv: { \"PATH\": \"/usr/local/bin:${containerEnv:PATH}\" }"
+
+  - id: containerenv
+    name: containerEnv
+    definition: Environment variables set on the container itself during creation. These are available to all processes including lifecycle scripts and the main container process.
+    category: Environment
+    related:
+      - remoteenv
+      - containeruser
+    examples:
+      - "containerEnv: { \"NODE_ENV\": \"development\" }"
+
+  - id: workspacefolder
+    name: workspaceFolder
+    definition: The default path inside the container where your source code files are accessed. Tools open this folder as the workspace root.
+    category: Workspace
+    related:
+      - workspacemount
+      - containerworkspacefolder
+      - localworkspacefolder
+    examples:
+      - "workspaceFolder: /workspace/myproject"
+
+  - id: workspacemount
+    name: workspaceMount
+    definition: Specifies how and where source code is mounted from the host into the container. This is a Docker mount specification.
+    category: Workspace
+    related:
+      - workspacefolder
+      - containerworkspacefolder
+    examples:
+      - "workspaceMount: source=${localWorkspaceFolder},target=/workspace,type=bind"
+
+  - id: containerworkspacefolder
+    name: containerWorkspaceFolder
+    definition: The path inside the container where the workspace folder is located. Deprecated in favor of workspaceFolder.
+    category: Workspace
+    related:
+      - workspacefolder
+      - localworkspacefolder
+    deprecated: true
+    examples:
+      - "Use workspaceFolder instead of containerWorkspaceFolder."
+
+  - id: localworkspacefolder
+    name: localWorkspaceFolder
+    definition: A variable that refers to the workspace folder path on the local/host machine. Used in configuration values that need to reference the host path.
+    category: Workspace
+    related:
+      - workspacefolder
+      - workspacemount
+    examples:
+      - "Used in workspaceMount: source=${localWorkspaceFolder}"
+
+  - id: image-metadata
+    name: image metadata
+    definition: Dev container configuration settings stored as labels in the container image itself. This allows pre-built images to include dev container configuration.
+    category: Configuration
+    related:
+      - image
+      - feature
+      - prebuild
+    examples:
+      - "Use image metadata labels like 'devcontainer.metadata' to store Feature installation records."
+
+  - id: oci-registry
+    name: OCI registry
+    definition: An Open Container Initiative (OCI) compliant registry used to distribute and share Features and Templates. GitHub Container Registry (GHCR) is commonly used.
+    category: Distribution
+    related:
+      - feature
+      - template
+    examples:
+      - "ghcr.io/devcontainers/features/node is a Feature distributed via GHCR."
+
+  - id: lifecycle-hooks
+    name: lifecycle hooks
+    definition: Execution points in a Feature's installation process where scripts can run. Features can define installsAfter dependencies and scripts that run at specific points.
+    category: Core Concepts
+    related:
+      - feature
+      - lifecycle-scripts
+    examples:
+      - "A Feature's onCreateCommand hook runs during the container creation phase."
+
+  - id: image
+    name: image
+    definition: The container image property in devcontainer.json that specifies the base Docker/OCI image to use for the dev container.
+    category: Configuration
+    related:
+      - dockerfile
+      - docker-compose
+      - prebuild
+    examples:
+      - "image: mcr.microsoft.com/devcontainers/typescript-node:1-20"
+
+  - id: dockerfile
+    name: dockerFile
+    definition: The property in devcontainer.json that specifies a Dockerfile to build the container image. An alternative to using a pre-built image.
+    category: Configuration
+    related:
+      - image
+      - docker-compose
+    examples:
+      - "dockerFile: Dockerfile"
+
+  - id: docker-compose
+    name: dockerComposeFile
+    definition: The property in devcontainer.json that specifies a Docker Compose file to use for creating the dev container and any services it depends on.
+    category: Configuration
+    related:
+      - image
+      - dockerfile
+      - service
+    examples:
+      - "dockerComposeFile: docker-compose.yml"
+
+  - id: service
+    name: service
+    definition: When using Docker Compose, the name of the service in the compose file that represents the dev container.
+    category: Configuration
+    related:
+      - docker-compose
+    examples:
+      - "service: app  # The 'app' service in docker-compose.yml is the dev container"
+
+  - id: prebuild
+    name: prebuild
+    definition: The process of creating a pre-built container image that includes all Features and configuration, allowing for faster dev container creation. Often done in CI/CD.
+    category: Advanced
+    related:
+      - image-metadata
+      - feature
+      - image
+    examples:
+      - "Use the Dev Container CLI in GitHub Actions to prebuild images for your repository."
+
+  - id: dev-container-cli
+    name: Dev Container CLI
+    definition: The official command-line interface for working with dev containers. Used to build, run, and manage dev containers outside of an editor or IDE.
+    category: Advanced
+    related:
+      - devcontainer-json
+      - prebuild
+    examples:
+      - "devcontainer build --workspace-folder . --image-name myimage:latest"
+
+  - id: orchestrator
+    name: orchestrator
+    definition: The container runtime or orchestration system used to run dev containers. Common orchestrators include Docker, Podman, and Kubernetes.
+    category: Advanced
+    related:
+      - image
+      - docker-compose
+    examples:
+      - "The specification supports Docker and Podman as orchestrators."
+
+  - id: forwarded-ports
+    name: forwardPorts
+    definition: An array of port numbers or port mappings that should be forwarded from the container to the local machine, making services accessible on localhost.
+    category: Configuration
+    related:
+      - portsattributes
+    examples:
+      - "forwardPorts: [3000, 8080]  # Forward ports 3000 and 8080"
+
+  - id: portsattributes
+    name: portsAttributes
+    definition: Additional configuration for forwarded ports, including labels, protocols, and whether to automatically forward or elevate privileges.
+    category: Configuration
+    related:
+      - forwarded-ports
+    examples:
+      - "portsAttributes: { \"3000\": { \"label\": \"Web Server\", \"onAutoForward\": \"notify\" } }"
+
+  - id: mounts
+  - id: mounts
+    name: mounts
+    definition: Additional mount points to add to the container beyond the workspace folder. Can mount volumes, bind mounts, or tmpfs.
+    category: Configuration
+    related:
+      - workspacemount
+      - volumes
+    examples:
+      - "mounts: [\"source=project-cache,target=/cache,type=volume\"]"
+
+  - id: volumes
+    name: volumes
+    definition: Docker-managed persistent storage locations that can be mounted into containers, allowing data to persist across container restarts and rebuilds.
+    category: Storage
+    related:
+      - mounts
+    examples:
+      - "A volume named 'project-cache' can be mounted at /cache in the container using mounts."
+
+  - id: init
+    name: init
+    definition: A boolean property that determines whether to run an init process inside the container to handle signals and reap zombie processes.
+    category: Configuration
+    related:
+      - privileged
+      - capadd
+    examples:
+      - "init: true  # Run an init process (tini) in the container"
+  - id: privileged
+    name: privileged
+    definition: A boolean property that runs the container in privileged mode, giving it extended permissions. Use with caution for security reasons.
+    category: Configuration
+    related:
+      - capadd
+      - securityopt
+    examples:
+      - "privileged: true  # Required for Docker-in-Docker scenarios"
+
+  - id: capadd
+    name: capAdd
+    definition: An array of Linux capabilities to add to the container, providing specific privileges without running in full privileged mode.
+    category: Configuration
+    related:
+      - privileged
+      - securityopt
+    examples:
+      - "capAdd: [\"SYS_PTRACE\"]  # Allow debugging/tracing"

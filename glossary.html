@@ -1,0 +1,189 @@
+---
+layout: default
+title: Glossary
+description: Definitions of key terminology used in the Development Container Specification
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Dev Container Glossary</h1>
+            <p class="lead">A comprehensive reference for terms and concepts used in the Development Container Specification.</p>
+            
+            <!-- Search Box -->
+            <div class="form-group mb-5">
+                <input type="text" id="glossary-search" class="form-control form-control-lg" placeholder="Search for a term..." aria-label="Search glossary">
+                <small class="form-text text-muted">Start typing to filter terms by name or definition</small>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="mb-4">
+                <div class="btn-group btn-group-sm flex-wrap" role="group" aria-label="Filter by category">
+                    <button type="button" class="btn btn-outline-primary active" data-category="all">All Terms</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Core Concepts">Core Concepts</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Configuration">Configuration</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Lifecycle Scripts">Lifecycle Scripts</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Users & Permissions">Users & Permissions</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Workspace">Workspace</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Environment">Environment</button>
+                </div>
+            </div>
+
+            <!-- Terms List -->
+            <div id="terms-container">
+                {% assign sorted_terms = site.data.glossary.terms | sort: "name" %}
+                {% for term in sorted_terms %}
+                <div class="card mb-3 glossary-term" data-category="{{ term.category }}" id="{{ term.id }}">
+                    <div class="card-body">
+                        <h3 class="card-title h4">
+                            <code class="text-dark">{{ term.name }}</code>
+                            {% if term.deprecated %}
+                            <span class="badge badge-warning ml-2">Deprecated</span>
+                            {% endif %}
+                            <a href="#{{ term.id }}" class="text-muted ml-2" aria-label="Link to {{ term.name }}" title="Link to this term">
+                                <i class="fas fa-link fa-sm"></i>
+                            </a>
+                        </h3>
+                        <p class="card-text lead">{{ term.definition }}</p>
+                        
+                        {% if term.examples %}
+                        <div class="mt-3">
+                            <h5 class="h6 font-weight-bold">Examples:</h5>
+                            <ul class="mb-2">
+                                {% for example in term.examples %}
+                                <li><code>{{ example }}</code></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        {% if term.related %}
+                        <div class="mt-3">
+                            <strong>Related terms:</strong>
+                            {% for related_id in term.related %}
+                                {% assign related_term = site.data.glossary.terms | where: "id", related_id | first %}
+                                {% if related_term %}
+                                <a href="#{{ related_id }}" class="badge badge-info ml-1">{{ related_term.name }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div id="no-results" class="alert alert-info" style="display: none;">
+                <i class="fas fa-info-circle"></i> No terms found matching your search. Try different keywords.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Search and Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('glossary-search');
+    const termsContainer = document.getElementById('terms-container');
+    const noResults = document.getElementById('no-results');
+    const categoryButtons = document.querySelectorAll('[data-category]');
+    const allTerms = document.querySelectorAll('.glossary-term');
+    
+    let currentCategory = 'all';
+
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        filterTerms(searchTerm, currentCategory);
+    });
+
+    // Category filter functionality
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update current category and filter
+            currentCategory = this.dataset.category;
+            const searchTerm = searchInput.value.toLowerCase();
+            filterTerms(searchTerm, currentCategory);
+        });
+    });
+
+    function filterTerms(searchTerm, category) {
+        let visibleCount = 0;
+
+        allTerms.forEach(term => {
+            const termName = term.querySelector('.card-title code').textContent.toLowerCase();
+            const termDefinition = term.querySelector('.card-text').textContent.toLowerCase();
+            const termCategory = term.dataset.category;
+            
+            const termName = term.querySelector('.card-title code')?.textContent?.toLowerCase() || '';
+            const termDefinition = term.querySelector('.card-text')?.textContent?.toLowerCase() || '';
+            const termCategory = term.dataset.category;
+            const matchesCategory = category === 'all' || termCategory === category;
+
+            if (matchesSearch && matchesCategory) {
+                term.style.display = 'block';
+                visibleCount++;
+            } else {
+                term.style.display = 'none';
+            }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+            termsContainer.style.display = 'none';
+            noResults.style.display = 'block';
+        } else {
+            termsContainer.style.display = 'block';
+            noResults.style.display = 'none';
+        }
+    }
+
+    // Smooth scroll to term if URL has hash
+    if (window.location.hash) {
+        setTimeout(function() {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.classList.add('highlight-term');
+                setTimeout(() => target.classList.remove('highlight-term'), 2000);
+            }
+        }, 100);
+    }
+});
+</script>
+
+<style>
+.glossary-term {
+    transition: all 0.3s ease;
+}
+
+.glossary-term:target,
+.glossary-term.highlight-term {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    background-color: #f8f9fa;
+}
+
+.glossary-term code {
+    font-size: 1.1em;
+}
+
+.card-text.lead {
+    font-size: 1rem;
+}
+
+.btn-group {
+    gap: 0.25rem;
+}
+
+#glossary-search {
+    max-width: 600px;
+}
+
+.badge {
+    font-size: 0.85em;
+}
+</style>
