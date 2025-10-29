@@ -118,6 +118,49 @@ html[data-theme="dark"] {
 	.header-container {
 		background-color: #0d1117;
 	}
+
+	// Sidebar
+	.dap-sidebar .card {
+		background-color: #2d2d2d;
+		border-color: #444;
+	}
+
+	// Navigation links in sidebar
+	.nav .nav-link {
+		color: #4da3ff !important;
+	}
+
+	.nav .nav-link:hover {
+		color: #80bdff !important;
+	}
+
+	// Jumbotron and header
+	.jumbotron {
+		background-color: #0d1117;
+	}
+
+	// Buttons
+	.btn-primary {
+		background-color: #1f6feb;
+		border-color: #1f6feb;
+	}
+
+	.btn-primary:hover {
+		background-color: #1a5cd7;
+		border-color: #1a5cd7;
+	}
+
+	// Select dropdowns
+	select {
+		background-color: #2d2d2d;
+		border-color: #444;
+		color: #e0e0e0;
+	}
+
+	select option {
+		background-color: #2d2d2d;
+		color: #e0e0e0;
+	}
 }
 
 img[alt=without_DAP] { width: 60%; height: 60%; }
