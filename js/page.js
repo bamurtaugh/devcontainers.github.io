@@ -25,7 +25,47 @@ function consentRequired() {
   return WcpConsent.siteConsent.isConsentRequired;
 }
 
+// Theme toggle functionality
+function initThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const htmlElement = document.documentElement;
+  
+  // Get stored theme preference or default to light
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  
+  // Apply the theme
+  function applyTheme(theme) {
+    htmlElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // Update icon
+    if (theme === 'dark') {
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    } else {
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
+  }
+  
+  // Set initial theme
+  applyTheme(currentTheme);
+  
+  // Toggle theme on button click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const newTheme = htmlElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(newTheme);
+    });
+  }
+}
+
 $(function() {
+  // Initialize theme toggle
+  initThemeToggle();
+  
   // Load GA upfront because we classify it as essential cookie
   window.dataLayer = window.dataLayer || []
   function gtag() {

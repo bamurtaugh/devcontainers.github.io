@@ -3,6 +3,166 @@
 ---
 @charset "utf-8";
 
+// Theme toggle button styles
+#theme-toggle {
+	padding: 0.5rem 1rem;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+	transform: scale(1.1);
+}
+
+#theme-toggle:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline-offset: 2px;
+}
+
+// Dark theme styles
+html[data-theme="dark"] {
+	// Background and text colors
+	body {
+		background-color: #1a1a1a;
+		color: #e0e0e0;
+	}
+
+	// Navigation bar
+	.navbar-dark {
+		background-color: #0d1117 !important;
+	}
+
+	// Links
+	a {
+		color: #4da3ff;
+	}
+
+	a:hover {
+		color: #80bdff;
+	}
+
+	// Cards and containers
+	.card {
+		background-color: #2d2d2d;
+		border-color: #444;
+	}
+
+	// Code blocks
+	pre[class=highlight] {
+		background-color: #2d2d2d;
+		border-color: #444;
+		color: #e0e0e0;
+	}
+
+	// Footer
+	.footer {
+		background-color: #2d2d2d;
+		color: #e0e0e0;
+	}
+
+	// Forms and inputs
+	.form-control {
+		background-color: #2d2d2d;
+		border-color: #444;
+		color: #e0e0e0;
+	}
+
+	.form-control:focus {
+		background-color: #2d2d2d;
+		border-color: #4da3ff;
+		color: #e0e0e0;
+	}
+
+	// Tables
+	table {
+		color: #e0e0e0;
+	}
+
+	th {
+		background-color: #2d2d2d;
+		border-color: #444;
+	}
+
+	td {
+		border-color: #444;
+	}
+
+	// Breadcrumbs and navigation
+	.breadcrumb {
+		background-color: #2d2d2d;
+	}
+
+	// Highlight adjustments for dark theme
+	.highlight .c { color: #8b949e; }
+	.highlight .err { color: #f85149; }
+	.highlight .k { color: #ff7b72; }
+	.highlight .l { color: #a5d6ff; }
+	.highlight .n { color: #e0e0e0; }
+	.highlight .o { color: #ff7b72; }
+	.highlight .p { color: #e0e0e0; }
+	.highlight .s { color: #a5d6ff; }
+	.highlight .na { color: #79c0ff; }
+	.highlight .nb { color: #ffa657; }
+	.highlight .nc { color: #f0883e; }
+	.highlight .nf { color: #d2a8ff; }
+	.highlight .nt { color: #7ee787; }
+
+	// Page content wrapper
+	.page-content {
+		background-color: #1a1a1a;
+	}
+
+	// Header container
+	.header-container {
+		background-color: #0d1117;
+	}
+
+	// Sidebar
+	.dap-sidebar .card {
+		background-color: #2d2d2d;
+		border-color: #444;
+	}
+
+	// Navigation links in sidebar
+	.nav .nav-link {
+		color: #4da3ff !important;
+	}
+
+	.nav .nav-link:hover {
+		color: #80bdff !important;
+	}
+
+	// Jumbotron and header
+	.jumbotron {
+		background-color: #0d1117;
+	}
+
+	// Buttons
+	.btn-primary {
+		background-color: #1f6feb;
+		border-color: #1f6feb;
+	}
+
+	.btn-primary:hover {
+		background-color: #1a5cd7;
+		border-color: #1a5cd7;
+	}
+
+	// Select dropdowns
+	select {
+		background-color: #2d2d2d;
+		border-color: #444;
+		color: #e0e0e0;
+	}
+
+	select option {
+		background-color: #2d2d2d;
+		color: #e0e0e0;
+	}
+}
+
 img[alt=without_DAP] { width: 60%; height: 60%; }
 img[alt=with_DAP] { width: 75%; height: 75%; }
 img[alt=init-launch] { width: 80%; height: 80%; }
