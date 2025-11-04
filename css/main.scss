@@ -485,3 +485,62 @@ h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
+// Tooltip styles
+.glossary-term {
+	border-bottom: 1px dotted #{{ site.theme_color }};
+	cursor: help;
+	position: relative;
+	text-decoration: none;
+}
+
+.glossary-term:hover {
+	border-bottom-color: #1034a8;
+}
+
+.tooltip-content {
+	visibility: hidden;
+	position: absolute;
+	z-index: 1000;
+	background-color: #333;
+	color: #fff;
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 1.4;
+	max-width: 300px;
+	width: max-content;
+	bottom: 125%;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	pointer-events: none;
+}
+
+.tooltip-content::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #333 transparent transparent transparent;
+}
+
+.glossary-term:hover .tooltip-content,
+.glossary-term:focus .tooltip-content {
+	visibility: visible;
+	opacity: 1;
+}
+
+// Mobile adjustments for tooltips
+@media (max-width: 768px) {
+	.tooltip-content {
+		max-width: 250px;
+		font-size: 13px;
+		padding: 6px 10px;
+	}
+}

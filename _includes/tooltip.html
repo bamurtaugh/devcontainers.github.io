@@ -1,0 +1,12 @@
+{% comment %}
+  Include file for creating glossary tooltips
+  Usage: {% include tooltip.html term="dev container" %}
+{% endcomment %}
+{% assign term_lower = include.term | downcase %}
+{% for glossary_item in site.data.glossary.terms %}
+  {% assign glossary_term_lower = glossary_item.term | downcase %}
+  {% if glossary_term_lower == term_lower %}
+<span class="glossary-term">{{ include.term }}<span class="tooltip-content">{{ glossary_item.definition }}</span></span>
+    {% break %}
+  {% endif %}
+{% endfor %}
