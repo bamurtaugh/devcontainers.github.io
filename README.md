@@ -24,6 +24,53 @@ It is from this [Jekyll Dev Container Template](https://github.com/devcontainers
 * Once the dev container finishes building, execute the following command in your dev container to start the site: `bundle exec jekyll serve`
 * Check out the site! http://localhost:4000/containers.dev/
 
+## Testing
+
+**Every code change should be tested before committing.**
+
+### Local Testing Process
+
+Follow these steps to test your changes locally:
+
+1. **Start the Jekyll server**: 
+   - Run the VS Code task "Serve" (default test task), or
+   - Execute `bundle exec jekyll serve --livereload` in the terminal
+   
+2. **View the site**: Navigate to `http://localhost:4000/` in a browser
+
+3. **Verify your changes**: 
+   - Check that your changes render correctly
+   - Verify formatting, layout, and content appear as expected
+   
+4. **Check links**: 
+   - Ensure all internal links work correctly
+   - Test any new or modified links
+   
+5. **Validate navigation** (if applicable): 
+   - Confirm new pages appear in navigation if expected
+   - Check that navigation menu items work correctly
+
+### Available Commands
+
+- **Serve with live reload**: `bundle exec jekyll serve --livereload`
+  - Starts dev server with automatic browser refresh on file changes
+  - Access site at `http://localhost:4000/`
+  
+- **Build only**: `bundle exec jekyll build`
+  - Generates static site files in the `_site/` directory
+  - Useful for checking build errors without running a server
+
+### VS Code Tasks
+
+If using VS Code, the following tasks are pre-configured in `.vscode/tasks.json`:
+
+- **Serve** (default test task): Runs Jekyll with live reload
+- **Build** (default build task): Builds the static site
+
+You can run these via:
+- **Command Palette** (`Ctrl+Shift+P` or `Cmd+Shift+P`): Select `Tasks: Run Task`, then choose either "Serve" or "Build"
+- **Keyboard shortcut** for Build task: `Ctrl+Shift+B` (Windows/Linux) or `Cmd+Shift+B` (Mac)
+
 ## Feedback and contributing
 
 If you'd like to provide feedback on or contribute to the dev containers website, please feel free to open an issue or PR in this repo.
