@@ -485,3 +485,96 @@ h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 1.25rem;
+	cursor: pointer;
+	padding: 0.5rem;
+	margin-left: 1rem;
+	transition: opacity 0.3s;
+}
+
+.theme-toggle:hover {
+	opacity: 0.7;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+	background-color: #1a1a1a;
+	color: #e0e0e0;
+}
+
+body.dark-theme .page-content {
+	background-color: #1a1a1a;
+}
+
+body.dark-theme .header-container {
+	background-color: #0d47a1 !important;
+}
+
+body.dark-theme .bg-primary {
+	background-color: #0d47a1 !important;
+}
+
+body.dark-theme .footer {
+	background-color: #2a2a2a;
+	color: #e0e0e0;
+}
+
+body.dark-theme a {
+	color: #5c9aff;
+}
+
+body.dark-theme a:hover {
+	color: #8bb5ff;
+}
+
+body.dark-theme .nav .nav-link {
+	color: #5c9aff !important;
+}
+
+body.dark-theme .nav .nav-link:hover {
+	color: #8bb5ff !important;
+}
+
+body.dark-theme .navbar-dark .navbar-nav .nav-link {
+	color: white;
+}
+
+body.dark-theme .navbar-dark .navbar-nav .nav-link:hover {
+	color: rgba(255,255,255,0.7);
+}
+
+body.dark-theme pre[class=highlight] {
+	background-color: #2a2a2a;
+	border-color: #444;
+	color: #e0e0e0;
+}
+
+body.dark-theme .toc-link {
+	color: #b0b0b0;
+}
+
+body.dark-theme .card {
+	background-color: #2a2a2a;
+	color: #e0e0e0;
+	border-color: #444;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+	color: #e0e0e0;
+}
+
+body.dark-theme code {
+	background-color: #2a2a2a;
+	color: #e0e0e0;
+}
