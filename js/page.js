@@ -69,7 +69,7 @@ if (document.readyState === 'loading') {
 }
 
 // jQuery-dependent code - only run if jQuery is available
-if (typeof $ !== 'undefined') {
+if (typeof window.jQuery !== 'undefined') {
   $(function() {
     // Load GA upfront because we classify it as essential cookie
     window.dataLayer = window.dataLayer || []
