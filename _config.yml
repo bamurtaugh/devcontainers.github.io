@@ -26,6 +26,7 @@ exclude:
   - .gitignore
   - README.md
   - resources
+  - vendor/
 
 timezone: Europe/Zurich
 
