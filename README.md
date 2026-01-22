@@ -34,7 +34,7 @@ This site includes the following pages:
 * **Overview** (`overview.md`) - Detailed explanation of what development containers are and how they work
 * **Features** (`features.html`) - Searchable table of all available Dev Container Features from official and community collections
 * **Templates** (`templates.html`) - Searchable table of all available Dev Container Templates from official and community collections
-* **Collections** (`collections.html`) - List of official and community-contributed dev container asset collections
+* **Collections** (`collections.html`) - Searchable list of official and community-contributed dev container asset collections
 * **Guides** (`guides.html`) - Collection of blog posts and guides about dev containers
 * **Supporting Tools** (`supporting.md`) - Documentation of tools and services that support the Dev Container Specification
 * **Contributing** (`contributing.md`) - Guidelines for contributing to the Dev Container Specification
@@ -58,7 +58,7 @@ The `_implementors/` directory contains the technical specification documentatio
 
 ### Local Testing
 
-1. **Start the dev container** - Open this repository in a dev container-supporting tool (VS Code with Dev Containers extension, GitHub Codespaces, etc.)
+1. **Start the Dev Container** - Open this repository in a Dev Container-supporting tool (VS Code with Dev Containers extension, GitHub Codespaces, etc.)
 
 2. **Install dependencies** (if not already installed):
    ```bash
@@ -72,7 +72,7 @@ The `_implementors/` directory contains the technical specification documentatio
 
 4. **View the site** - Open your browser to http://localhost:4000/containers.dev/
 
-5. **Make changes** - Edit any `.md` or `.html` files. Jekyll will automatically rebuild the site when you save changes.
+5. **Make changes** - Edit any files (`.md`, `.html`, `.css`, `.js`, `.yml`, etc.). Jekyll will automatically rebuild the site when you save changes.
 
 6. **Test your changes**:
    * Navigate to all pages to ensure they render correctly
