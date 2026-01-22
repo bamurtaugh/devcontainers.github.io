@@ -104,7 +104,7 @@ Before submitting your pull request:
 - [ ] Site builds without errors locally
 - [ ] All new/modified pages display correctly in the browser
 - [ ] Links have been tested and work as expected
-- [ ] Content follows the formatting guidelines in [contributing.md](contributing.md)
+- [ ] Content is clear, well-formatted, and free of typos
 - [ ] No sensitive information or secrets are included
 - [ ] Changes are focused and minimal for the intended purpose
 
