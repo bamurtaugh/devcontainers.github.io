@@ -11,6 +11,7 @@ $(function() {
   
   const body = document.body;
   const icon = themeToggle.querySelector('i');
+  if (!icon) return; // Exit if icon doesn't exist
   
   // Check for saved theme preference or default to light mode
   const currentTheme = localStorage.getItem('theme') || 'light';
