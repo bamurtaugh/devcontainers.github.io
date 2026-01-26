@@ -98,7 +98,7 @@ jobs:
           - debian:11
           - debian:12
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install Dev Container CLI"
         run: npm install -g @devcontainers/cli
