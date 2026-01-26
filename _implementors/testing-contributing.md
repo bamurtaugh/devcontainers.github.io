@@ -47,7 +47,7 @@ devcontainer features test --base-image debian:11
 Features should be idempotent, meaning they can be safely installed multiple times. The CLI supports testing this with the idempotency mode:
 
 ```bash
-devcontainer features test --skip-scenarios --features myFeature
+devcontainer features test --skip-scenarios -f myFeature
 ```
 
 This is especially important for Features that:
@@ -69,7 +69,7 @@ Templates should be tested to ensure they:
 You can test Templates using the Dev Container CLI:
 
 ```bash
-devcontainer templates test --template-id mytemplate
+devcontainer templates test -t mytemplate
 ```
 
 ## <a href="#ci-integration" name="ci-integration" class="anchor"> CI/CD Integration </a>
