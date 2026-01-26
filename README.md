@@ -71,7 +71,7 @@ The easiest way to get started is using the included dev container configuration
 4. **View the site:**
    Open your browser to [http://localhost:4000/containers.dev/](http://localhost:4000/containers.dev/)
 
-The dev container configuration is based on the [Jekyll Dev Container Template](https://github.com/devcontainers/templates/tree/main/src/jekyll) and can be found in the [`.devcontainer`](https://github.com/devcontainers/containers.dev/tree/gh-pages/.devcontainer) folder.
+The dev container configuration is based on the [Jekyll Dev Container Template](https://github.com/devcontainers/templates/tree/main/src/jekyll) and can be found in the [`.devcontainer`](./.devcontainer) folder.
 
 ### Manual Setup
 
