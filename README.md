@@ -42,9 +42,9 @@ To build and run this site locally, you'll need one of the following:
   - Or any other [supporting tool](https://containers.dev/supporting)
 
 **Option 2: Manual Installation**
-- [Ruby](https://www.ruby-lang.org/) (version specified in `.ruby-version` if present)
+- [Ruby](https://www.ruby-lang.org/) (see `Gemfile` for version requirements)
 - [Bundler](https://bundler.io/)
-- [Jekyll](https://jekyllrb.com/) 3.9.3 or compatible version
+- [Jekyll](https://jekyllrb.com/) 3.9.3
 
 ## Building and Running Locally
 
