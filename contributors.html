@@ -1,0 +1,60 @@
+---
+title: Contributors
+layout: table
+sectionid: contributors
+---
+
+<h1 style="margin-left: auto;margin-right: auto;">Contributors</h1>
+<p style="margin-left: auto;margin-right: auto;">
+    This page recognizes the contributors who have helped make the Development Containers Specification possible.
+    We appreciate everyone's contributions to making dev containers better!
+</p>
+
+<p>
+    To add yourself or someone else to this list, please create a PR editing <a
+        href="https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/contributors.yml">this
+        yaml file</a>.
+</p>
+
+<input type="text" id="searchInput" placeholder="Search contributors">
+
+<br>
+<br>
+
+<table id="contributorsTable" class="tg">
+    <tr>
+        <td class="tg-0lax"><b>Name</b></td>
+        <td class="tg-0lax"><b>Organization</b></td>
+        <td class="tg-0lax"><b>GitHub</b></td>
+    </tr>
+
+    {% for contributor in site.data.contributors %}
+    <tr>
+        <td class="tg-0lax">{{ contributor.name }}</td>
+        <td class="tg-0lax">{{ contributor.organization | default: "—" }}</td>
+        <td class="tg-0lax"><a rel="nofollow" href="https://github.com/{{ contributor.github | strip_html }}">@{{ contributor.github | strip_html }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const contributorsTable = document.getElementById('contributorsTable');
+    const rows = contributorsTable.getElementsByTagName('tr');
+
+    searchInput.addEventListener('input', function () {
+        const searchValue = searchInput.value.toLowerCase();
+
+        for (let i = 1; i < rows.length; i++) {
+            const name = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+            const organization = rows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
+            const github = rows[i].getElementsByTagName('td')[2].textContent.toLowerCase();
+
+            if (name.includes(searchValue) || organization.includes(searchValue) || github.includes(searchValue)) {
+                rows[i].style.display = '';
+            } else {
+                rows[i].style.display = 'none';
+            }
+        }
+    });
+</script>
