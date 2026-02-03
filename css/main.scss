@@ -17,6 +17,60 @@ html {
 body {
 	letter-spacing: .25px;
 	text-rendering: optimizeLegibility;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme styles */
+body.dark-theme {
+	background-color: #1e1e1e;
+	color: #e0e0e0;
+}
+
+body.dark-theme .page-content {
+	background-color: #1e1e1e;
+}
+
+body.dark-theme .footer {
+	background: #2d2d2d;
+	color: #e0e0e0;
+}
+
+body.dark-theme pre[class=highlight] {
+	background-color: #2d2d2d;
+	border-color: #404040;
+}
+
+body.dark-theme .card {
+	background-color: #2d2d2d;
+	color: #e0e0e0;
+}
+
+body.dark-theme .table {
+	color: #e0e0e0;
+}
+
+body.dark-theme .table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	font-size: 1.25rem;
+	transition: opacity 0.2s ease;
+}
+
+.theme-toggle:hover {
+	opacity: 0.7;
+}
+
+.theme-toggle:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline-offset: 2px;
 }
 
 .single-page {
