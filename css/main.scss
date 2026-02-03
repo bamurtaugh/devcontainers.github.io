@@ -485,3 +485,74 @@ h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
+
+/* Dark theme styles */
+body.dark-theme {
+	background-color: #1e1e1e;
+	color: #d4d4d4;
+}
+
+body.dark-theme .page-content {
+	background-color: #1e1e1e;
+}
+
+body.dark-theme .navbar-dark {
+	background-color: #0d1117 !important;
+}
+
+body.dark-theme .bg-primary {
+	background-color: #1a3a8a !important;
+}
+
+body.dark-theme .footer {
+	background: #2d2d2d;
+	color: #d4d4d4;
+}
+
+body.dark-theme pre[class=highlight] {
+	background-color: #2d2d2d;
+	border-color: #444;
+	color: #d4d4d4;
+}
+
+body.dark-theme .card {
+	background-color: #2d2d2d;
+	color: #d4d4d4;
+}
+
+body.dark-theme a {
+	color: #4a9eff;
+}
+
+body.dark-theme a:hover {
+	color: #72b4ff;
+}
+
+body.dark-theme .nav .nav-link {
+	color: #4a9eff !important;
+}
+
+body.dark-theme .nav .nav-link:hover {
+	color: #72b4ff !important;
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+	background: none;
+	border: none;
+	color: rgba(255,255,255,0.9);
+	cursor: pointer;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	margin-left: 1rem;
+	transition: opacity 0.3s;
+}
+
+.theme-toggle:hover {
+	opacity: 0.8;
+}
+
+.theme-toggle:focus {
+	outline: 2px solid rgba(255,255,255,0.5);
+	outline-offset: 2px;
+}
