@@ -4,7 +4,10 @@ layout: table
 sectionid: collection-index-templates
 ---
 
+<!-- Main heading for the Templates page -->
 <h1 style="margin-left: auto;margin-right: auto;">Available Dev Container Templates</h1>
+
+<!-- Introduction explaining what Templates are and how to use them -->
 <p style="margin-left: auto;margin-right: auto;">
     This table contains all official and community-supported <a href="implementors/templates/">Dev Container Templates</a>
     known at the time of crawling <a href="collections">each registered collection</a>. This list is continuously 
@@ -16,17 +19,21 @@ sectionid: collection-index-templates
     Please note that if you need to report a Template, you should do so through the registry hosting the Template.
 </p>
 
+<!-- Instructions for contributing new collections -->
 <p>
     To add your own collection to this list, please create a PR editing <a
         href="https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml">this
         yaml file</a>.
 </p>
 
+<!-- Search input for filtering the table -->
 <input type="text" id="searchInput" placeholder="Search">
 <br>
 <br>
 
+<!-- Table listing all available Templates with their details -->
 <table id="collectionTable" class="tg">
+    <!-- Table header row -->
     <tr>
         <td class="tg-0lax"><b>Template Name</b></b></td>
         <td class="tg-0lax"><b>Maintainer</b></td>
@@ -34,13 +41,18 @@ sectionid: collection-index-templates
         <td class="tg-0lax"><b>Latest Version</b></td>
     </tr>
     
+    <!-- Loop through each collection and its templates -->
     {% for c in site.data.devcontainer-index.collections %}
     {% for f in c.templates %}
     <tr>
+        <!-- Template name with link to documentation -->
         <td class="tg-0lax"><a rel="nofollow" href="{{ f.documentationURL | strip_html }}">{{ f.name | strip_html }}</a>
         </td>
+        <!-- Collection maintainer -->
         <td class="tg-0lax">{{ c.sourceInformation.maintainer | strip_html }}</td>
+        <!-- Template reference ID and version -->
         <td class="tg-0lax"><code>{{ f.id | strip_html  }}:{{ f.version | strip_html }}</code></td>
+        <!-- Full version number -->
         <td class="tg-0lax"><code>{{ f.version | strip_html  }}</code></td>
     </tr>
     {% endfor %}
@@ -48,18 +60,24 @@ sectionid: collection-index-templates
     {% endfor %}
 </table>
 
+<!-- JavaScript for search/filter functionality -->
 <script>
+    // Get references to search input and table
     const searchInput = document.getElementById('searchInput');
     const collectionTable = document.getElementById('collectionTable');
     const rows = collectionTable.getElementsByTagName('tr');
 
+    // Add event listener for real-time search filtering
     searchInput.addEventListener('input', function () {
         const searchValue = searchInput.value.toLowerCase();
 
+        // Loop through table rows (skip header row at index 0)
         for (let i = 1; i < rows.length; i++) {
+            // Get text content from each column
             const name = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
             const maintainer = rows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
 
+            // Show row if search value matches any column, otherwise hide it
             if (name.includes(searchValue) || maintainer.includes(searchValue)) {
                 rows[i].style.display = '';
             } else {

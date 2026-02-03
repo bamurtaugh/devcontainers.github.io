@@ -4,14 +4,19 @@ layout: singlePage
 sectionid: supporting
 ---
 
+<!-- Introduction: Overview of tools and services that support the Dev Container Specification -->
 This page outlines tools and services that currently support the Development Container Specification, including the `devcontainer.json` format. A `devcontainer.json` file in your project tells tools and services that support the dev container spec how to access (or create) a dev container with a well-defined tool and runtime stack.
 
+<!-- Note about property compatibility across different tools -->
 While most [dev container properties](implementors/json_reference) apply to any `devcontainer.json` supporting tool or service, a few are specific to certain tools, which are outlined below.
 
+<!-- Section 1: Editors that support dev containers -->
 ## <a href="#editors" name="editors" class="anchor"> Editors </a>
 
+<!-- Subsection: Visual Studio Code -->
 ### <a href="#visual-studio-code" name="visual-studio-code" class="anchor"> Visual Studio Code </a>
 
+<!-- VS Code specific configuration structure -->
 Visual Studio Code specific properties go under `vscode` inside `customizations`.
 
 ```json
@@ -25,56 +30,80 @@ Visual Studio Code specific properties go under `vscode` inside `customizations`
 }
 ```
 
+<!-- Table of VS Code specific properties -->
 | Property | Type  | Description |
 |:------------------|:------------|:------------|
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file. Defaults to `{}`. |
 {: .table .table-bordered}
 
+<!-- Note: These properties are also supported by VS Code Dev Containers extension and GitHub Codespaces -->
 Please note that the [Dev Containers](#dev-containers) extension and [GitHub Codespaces](#github-codespaces) support these VS Code properties.
 
+<!-- Subsection: Visual Studio -->
 ### <a href="#visual-studio" name="visual-studio" class="anchor"> Visual Studio </a>
 
+<!-- Visual Studio support details: C++ projects with CMake Presets -->
 Visual Studio added dev container support in Visual Studio 2022 17.4 for C++ projects using CMake Presets. It is part of the Linux and embedded development with C++ workload, so make sure it is selected in your VS installation. Visual Studio manages the lifecycle of dev containers it uses as you work, but it treats them as remote targets in a similar way to other Linux or WSL targets.
 
+<!-- Link to official announcement -->
 You may learn more in the [announcement blog post](https://devblogs.microsoft.com/cppblog/dev-containers-for-c-in-visual-studio/).
 
+<!-- Subsection: IntelliJ IDEA -->
 ### <a href="#intellij" name="intellij" class="anchor"> IntelliJ IDEA </a>
 
+<!-- IntelliJ IDEA support details: early support for remote and local dev containers -->
 IntelliJ IDEA has early support dev containers that can be run remotely via an SSH connection or locally using Docker.
 
+<!-- Link to official announcement -->
 You may learn more in the [announcement blog post](https://blog.jetbrains.com/idea/2023/06/intellij-idea-2023-2-eap-6/#SupportforDevContainers).
 
+<!-- Section 2: Tools that support dev containers -->
 ## <a href="#tools" name="tools" class="anchor"> Tools </a>
 
+<!-- Subsection: Dev Container CLI (reference implementation) -->
 ### <a href="#devcontainer-cli" name="devcontainer-cli" class="anchor"> Dev Container CLI </a>
 
+<!-- Overview of the Dev Container CLI reference implementation -->
 The Dev Container Command Line Interface (CLI) is a reference implementation for the Dev Container Spec. It is in development in the [devcontainers/cli](https://github.com/devcontainers/cli) repo. It is intended both for use directly and by tools or services that want to support the spec.
 
+<!-- Capabilities of the CLI -->
 The CLI can take a `devcontainer.json` and create and configure a dev container from it. It allows for prebuilding dev container configurations using a CI or DevOps product like GitHub Actions. It can detect and include dev container features and apply them at container runtime, and run [lifecycle scripts](implementors/json_reference/#lifecycle-scripts) like `postCreateCommand`, providing more power than a plain `docker build` and `docker run`.
 
+<!-- Subsection: VS Code extension CLI variant -->
 #### <a href="#dev-containers-cli" name="dev-containers-cli" class="anchor"> VS Code extension CLI </a>
 
+<!-- VS Code bundled CLI variant with VS Code integration -->
 The [VS Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) includes a variation of the Dev Container CLI that adds the ability use the command line to open a dev container in VS Code. It is also automatically updated when the extension updates. 
 
+<!-- Installation instructions -->
 Press <kbd>cmd/ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>F1</kbd> and select the **Dev Containers: Install devcontainer CLI** command to install it.
 
+<!-- Subsection: Cachix devenv (Nix integration) -->
 ### <a href="#cachix-devenv" name="cachix-devenv" class="anchor"> Cachix devenv </a>
 
+<!-- Cachix devenv automatic devcontainer.json generation -->
 Cachix's **[devenv](https://devenv.sh/)** now supports automatically generating a `.devcontainer.json` file. This gives you a more convenient and consistent way to use [Nix](https://nixos.org/) with any Dev Container Spec supporting tool or service!
 
+<!-- Link to documentation -->
 See [devenv documentation](https://devenv.sh/integrations/codespaces-devcontainer/) for detais. 
 
+<!-- Subsection: Jetify Devbox (another Nix integration) -->
 ### <a href="#jetify-devbox" name="jetify-devbox" class="anchor"> Jetify Devbox </a>
 
+<!-- Jetify Devbox: Nix-based development environment generation -->
 [Jetify](https://jetify.com) (formerly jetpack.io) is a [Nix](https://nixos.org/)-based service for deploying applications. [DevBox](https://www.jetify.com/devbox/) provides a way to use Nix to generate a development environment. [Jetify's VS Code extension](https://marketplace.visualstudio.com/items?itemName=jetpack-io.devbox) allows you to quickly take advantage of DevBox in any Dev Container Spec supporting tool or service. 
 
+<!-- Instructions for generating dev container files -->
 Press <kbd>cmd/ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>F1</kbd> and select the **Generate Dev Container files** command to get started!
 
+<!-- Subsection: VS Code Dev Containers extension -->
 ### <a href="#dev-containers" name="dev-containers" class="anchor"> VS Code Dev Containers extension </a>
 
+<!-- VS Code Dev Containers extension overview -->
 The [Visual Studio Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set. There is more information in the Dev Containers [documentation](https://code.visualstudio.com/docs/remote/containers).
 
+<!-- Tip: Rebuild container after making changes -->
 > **Tip:** If you make a change to your dev container after having built and connected to it, be sure to run **Dev Containers: Rebuild Container** from the Command Palette (<kbd>cmd/ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>F1</kbd>) to pick up any changes you make.
 
 #### <a href="#product-specific-properties" name="product-specific-properties" class="anchor"> Product specific properties </a>

@@ -4,7 +4,10 @@ layout: table
 sectionid: collection-index
 ---
 
+<!-- Main heading for the Collections page -->
 <h1 style="margin-left: auto;margin-right: auto;">Collections</h1>
+
+<!-- Introduction explaining what Collections are -->
 <p style="margin-left: auto;margin-right: auto;">
     This list below contains pointers to official and community-contributed dev container assets, including Features and
     Templates.
@@ -12,29 +15,37 @@ sectionid: collection-index
     (i.e. it will be presented in the GitHub Codespaces and VS Code Dev Containers UX).
 </p>
 
+<!-- Instructions for contributing new collections -->
 <p>
     To add your own collection to this list, please create a PR editing <a
         href="https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml">this
         yaml file</a>.
 </p>
 
+<!-- Search input for filtering the table -->
 <input type="text" id="searchInput" placeholder="Search">
 
 <br>
 <br>
 
+<!-- Table listing all registered collections -->
 <table id="collectionTable" class="tg">
+    <!-- Table header row -->
     <tr>
         <td class="tg-0lax"><b>Name</b></td>
         <td class="tg-0lax"><b>Maintainer</b></td>
         <td class="tg-0lax"><b>Repository</b></td>
     </tr>
 
+    <!-- Loop through each collection in the data file -->
     {% for c in site.data.collection-index %}
     <tr>
+        <!-- Collection name -->
         <td class="tg-0lax">{{ c.name }}</td>
+        <!-- Maintainer with contact link -->
         <td class="tg-0lax"><a rel="nofollow" href="{{ c.contact | strip_html  }}">{{ c.maintainer | strip_html }}</a>
         </td>
+        <!-- Repository URL link -->
         <td class="tg-0lax"><a rel="nofollow" href="{{ c.repository | strip_html  }}">{{ c.repository | strip_html
                 }}</a>
         </td>
@@ -42,19 +53,25 @@ sectionid: collection-index
     {% endfor %}
 </table>
 
+<!-- JavaScript for search/filter functionality -->
 <script>
+    // Get references to search input and table
     const searchInput = document.getElementById('searchInput');
     const collectionTable = document.getElementById('collectionTable');
     const rows = collectionTable.getElementsByTagName('tr');
 
+    // Add event listener for real-time search filtering
     searchInput.addEventListener('input', function () {
         const searchValue = searchInput.value.toLowerCase();
 
+        // Loop through table rows (skip header row at index 0)
         for (let i = 1; i < rows.length; i++) {
+            // Get text content from each column
             const name = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
             const maintainer = rows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
             const repository = rows[i].getElementsByTagName('td')[2].textContent.toLowerCase();
 
+            // Show row if search value matches any column, otherwise hide it
             if (name.includes(searchValue) || maintainer.includes(searchValue) || repository.includes(searchValue)) {
                 rows[i].style.display = '';
             } else {
