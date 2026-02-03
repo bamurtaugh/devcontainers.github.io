@@ -10,6 +10,11 @@ function initThemeToggle() {
   const themeIcon = document.getElementById('theme-icon');
   const body = document.body;
 
+  // Exit early if elements don't exist
+  if (!themeToggle || !themeIcon) {
+    return;
+  }
+
   // Check for saved theme preference or default to light mode
   const currentTheme = localStorage.getItem('theme') || 'light';
   
@@ -21,22 +26,20 @@ function initThemeToggle() {
   }
 
   // Toggle theme on button click
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      body.classList.toggle('dark-theme');
-      
-      // Update icon
-      if (body.classList.contains('dark-theme')) {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  }
+  themeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark-theme');
+    
+    // Update icon
+    if (body.classList.contains('dark-theme')) {
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
 }
 
 // Initialize theme toggle when DOM is ready
