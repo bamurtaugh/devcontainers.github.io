@@ -86,7 +86,7 @@ Press <kbd>cmd/ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> or <kbd>F1</kbd> and sel
 Cachix's **[devenv](https://devenv.sh/)** now supports automatically generating a `.devcontainer.json` file. This gives you a more convenient and consistent way to use [Nix](https://nixos.org/) with any Dev Container Spec supporting tool or service!
 
 <!-- Link to documentation -->
-See [devenv documentation](https://devenv.sh/integrations/codespaces-devcontainer/) for detais. 
+See [devenv documentation](https://devenv.sh/integrations/codespaces-devcontainer/) for details.
 
 <!-- Subsection: Jetify Devbox (another Nix integration) -->
 ### <a href="#jetify-devbox" name="jetify-devbox" class="anchor"> Jetify Devbox </a>
