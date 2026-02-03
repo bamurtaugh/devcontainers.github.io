@@ -42,7 +42,7 @@ Scripts that run at specific points in the dev container lifecycle, such as `pos
 
 Tool-specific configuration properties in `devcontainer.json`. For example, VS Code extensions and settings can be specified under `customizations.vscode`.
 
-## <a href="#forward-ports" name="forward-ports" class="anchor"> Port Forwarding </a>
+## <a href="#port-forwarding" name="port-forwarding" class="anchor"> Port Forwarding </a>
 
 The ability to make a network port inside a dev container accessible from outside the container, typically on your local machine or through a public URL in cloud-based development environments.
 
