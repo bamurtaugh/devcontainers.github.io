@@ -43,35 +43,43 @@ $(function() {
 
   // initialize consent
   onConsentChanged();
-})
-
-// Theme toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
+  
+  // Theme toggle functionality
+  const DEFAULT_THEME = 'light';
+  const DARK_THEME = 'dark';
+  
   const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const themeIcon = themeToggle.querySelector('i');
-  
-  // Check for saved theme preference or default to light mode
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  
-  if (currentTheme === 'dark') {
-    body.classList.add('dark-theme');
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
-  }
-  
-  themeToggle.addEventListener('click', function() {
-    body.classList.toggle('dark-theme');
-    
-    // Update icon
-    if (body.classList.contains('dark-theme')) {
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      themeIcon.classList.remove('fa-sun');
-      themeIcon.classList.add('fa-moon');
-      localStorage.setItem('theme', 'light');
+  if (themeToggle) {
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector('i');
+    if (themeIcon) {
+      // Check for saved theme preference or default to light mode
+      const savedTheme = localStorage.getItem('theme');
+      const currentTheme = (savedTheme === DARK_THEME || savedTheme === DEFAULT_THEME) ? savedTheme : DEFAULT_THEME;
+      
+      function updateTheme(isDark) {
+        if (isDark) {
+          body.classList.add('dark-theme');
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          themeToggle.setAttribute('aria-label', 'Switch to light mode');
+          localStorage.setItem('theme', DARK_THEME);
+        } else {
+          body.classList.remove('dark-theme');
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+          localStorage.setItem('theme', DEFAULT_THEME);
+        }
+      }
+      
+      // Apply saved theme
+      updateTheme(currentTheme === DARK_THEME);
+      
+      themeToggle.addEventListener('click', function() {
+        const willBeDark = !body.classList.contains('dark-theme');
+        updateTheme(willBeDark);
+      });
     }
-  });
-});
+  }
+})
