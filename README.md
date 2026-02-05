@@ -24,6 +24,10 @@ It is from this [Jekyll Dev Container Template](https://github.com/devcontainers
 * Once the dev container finishes building, execute the following command in your dev container to start the site: `bundle exec jekyll serve`
 * Check out the site! http://localhost:4000/containers.dev/
 
+## Testing
+
+Run `bundle exec jekyll build` (from inside the dev container or an environment with the Ruby gems installed) to confirm the site builds successfully. The generated site will be placed in `_site/`.
+
 ## Feedback and contributing
 
 If you'd like to provide feedback on or contribute to the dev containers website, please feel free to open an issue or PR in this repo.
