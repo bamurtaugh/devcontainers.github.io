@@ -37,6 +37,17 @@ Tool-specific properties are contained in namespaces in the `"customizations"` p
 
 You may propose adding a new namespace for a specific tool, and any properties specific to that tool.
 
+## Testing your changes
+
+If you'd like to test changes to the dev containers website locally:
+
+* Clone or open this repo in the dev container-supporting editor of your choosing.
+* Reopen this repo in the dev container, so that the container builds and you may develop inside it using the included tools.
+* Once the dev container finishes building, execute the following command to start the site: `bundle exec jekyll serve`
+* Check out the site at http://localhost:4000/containers.dev/
+
+You may also run `bundle exec jekyll build` to build the site without serving it.
+
 ## Formatting Guidelines
 
 When contributing an official doc or referencing dev containers in your projects, please consider the following guidelines:
