@@ -30,6 +30,12 @@ If you'd like to provide feedback on or contribute to the dev containers website
 
 For issues on and contributions to the dev container specification itself, please visit the [Dev Containers Spec repo](https://github.com/devcontainers/spec).
 
+## Contributors
+
+Thanks to all the contributors who have helped make this project better!
+
+[View all contributors](https://github.com/bamurtaugh/devcontainers.github.io/graphs/contributors)
+
 ## License
 
 License for this repository: https://github.com/devcontainers/containers.dev/blob/gh-pages/LICENSE.
