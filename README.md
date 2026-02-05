@@ -4,6 +4,71 @@ This repo holds the website for the [Development Containers Specification](https
 
 You may view the site at [containers.dev](https://containers.dev).
 
+## What are Development Containers?
+
+```mermaid
+flowchart TB
+    subgraph source["Source Code Repository"]
+        code["Application Code"]
+        config["devcontainer.json<br/>(Configuration)"]
+        dockerfile["Dockerfile/Image<br/>(Optional)"]
+    end
+
+    subgraph devcontainer["Dev Container Components"]
+        features["Features<br/>(Reusable tools & settings)"]
+        settings["Editor Settings<br/>(Extensions, config)"]
+        runtime["Runtime Environment<br/>(Languages, tools, SDKs)"]
+    end
+
+    subgraph environments["Development Environments"]
+        local["Local Container<br/>(Docker Desktop, Podman)"]
+        cloud["Cloud Container<br/>(GitHub Codespaces, etc.)"]
+        ci["CI/CD Pipeline<br/>(Automated testing)"]
+    end
+
+    subgraph benefits["Developer Experience"]
+        consistent["Consistent Environment<br/>Across Team"]
+        isolated["Isolated Dependencies<br/>Per Project"]
+        onboard["Fast Onboarding<br/>One-Click Setup"]
+    end
+
+    code --> config
+    config --> features
+    config --> settings
+    config --> runtime
+    dockerfile --> runtime
+
+    features --> local
+    settings --> local
+    runtime --> local
+
+    features --> cloud
+    settings --> cloud
+    runtime --> cloud
+
+    features --> ci
+    settings --> ci
+    runtime --> ci
+
+    local --> consistent
+    cloud --> consistent
+    ci --> consistent
+
+    local --> isolated
+    cloud --> isolated
+
+    local --> onboard
+    cloud --> onboard
+
+    style config fill:#4CAF50
+    style features fill:#2196F3
+    style local fill:#FF9800
+    style cloud fill:#FF9800
+    style ci fill:#FF9800
+```
+
+*A development container allows you to use a container as a full-featured development environment, with consistent tooling across local, cloud, and CI/CD environments.*
+
 ## Building
 
 If you'd like to build and preview the site yourself, we make it as smooth as possible through a dev container in this repo!
