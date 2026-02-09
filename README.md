@@ -33,7 +33,7 @@ The dev container provides a pre-configured environment with all necessary depen
    bundle exec jekyll serve
    ```
    
-4. **Preview your changes**: Navigate to http://localhost:4000/containers.dev/
+4. **Preview your changes**: Open http://localhost:4000/containers.dev/ in your browser
 
 5. **Enable live reload** (optional):
    ```bash
