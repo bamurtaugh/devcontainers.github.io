@@ -4,25 +4,101 @@ This repo holds the website for the [Development Containers Specification](https
 
 You may view the site at [containers.dev](https://containers.dev).
 
-## Building
+## Prerequisites
 
-If you'd like to build and preview the site yourself, we make it as smooth as possible through a dev container in this repo!
+This is a [Jekyll](https://jekyllrb.com/) static site, which requires:
+- Ruby (version specified in `.ruby-version` or Gemfile)
+- Bundler gem (`gem install bundler`)
+- Jekyll and dependencies (installed via `bundle install`)
 
-### Dev container
+**Recommended**: Use the included dev container to avoid manual setup.
 
-You may build GitHub Pages sites with [Jekyll](https://jekyllrb.com/), which is a Ruby gem. You could manually install these tools on your machine, or you can easily get started with the setup you already need through a dev container!
+## Testing Your Changes
 
-You may review this repo's dev container in the [`.devcontainer`](https://github.com/devcontainers/containers.dev/tree/gh-pages/.devcontainer) folder.
+### Option 1: Using Dev Container (Recommended)
 
-It is from this [Jekyll Dev Container Template](https://github.com/devcontainers/templates/tree/main/src/jekyll).
+The dev container provides a pre-configured environment with all necessary dependencies.
 
-### Steps to build and run
+1. **Open in a dev container-supporting tool**:
+   - VS Code with the Dev Containers extension
+   - GitHub Codespaces
+   - Or any tool from [containers.dev/supporting](https://containers.dev/supporting)
 
-* Clone or open this repo in the dev container-supporting editor of your choosing.
-     * You may review supporting tools and services [here](https://containers.dev/supporting).
-* Reopen this repo in the dev container, so that the container builds and you may develop inside it using the included tools. 
-* Once the dev container finishes building, execute the following command in your dev container to start the site: `bundle exec jekyll serve`
-* Check out the site! http://localhost:4000/containers.dev/
+2. **Reopen in container**: 
+   - VS Code: Use command palette → "Dev Containers: Reopen in Container"
+   - The container will build automatically using the config in [`.devcontainer`](https://github.com/devcontainers/containers.dev/tree/gh-pages/.devcontainer)
+
+3. **Start the development server**:
+   ```bash
+   bundle exec jekyll serve
+   ```
+   
+4. **Preview your changes**: Open http://localhost:4000/containers.dev/ in your browser
+
+5. **Enable live reload** (optional):
+   ```bash
+   bundle exec jekyll serve --livereload
+   ```
+   Your browser will automatically refresh when you save changes.
+
+### Option 2: Local Setup (Without Dev Container)
+
+If you prefer working directly on your machine:
+
+1. **Install Ruby**: Follow the [official Ruby installation guide](https://www.ruby-lang.org/en/documentation/installation/)
+
+2. **Install Bundler**:
+   ```bash
+   gem install bundler
+   ```
+
+3. **Install project dependencies**:
+   ```bash
+   bundle install
+   ```
+
+4. **Serve the site locally**:
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+5. **Access the site**: Open http://localhost:4000/containers.dev/ in your browser
+
+### Verifying Your Changes
+
+After making modifications, verify them by:
+
+1. **Visual inspection**: Browse the affected pages at http://localhost:4000/containers.dev/
+2. **Check for errors**: Monitor the terminal output for Jekyll build warnings or errors
+3. **Test all links**: Click through navigation and internal links to ensure nothing is broken
+4. **Review responsive design**: Test on different screen sizes if you modified layouts or styles
+5. **Build without errors**:
+   ```bash
+   bundle exec jekyll build
+   ```
+   This generates the static site in `_site/` and validates that everything compiles correctly.
+
+## Troubleshooting
+
+**Port already in use**:
+```bash
+# Find and kill the process using port 4000
+lsof -ti:4000 | xargs kill -9
+```
+
+**Bundler version mismatch**:
+```bash
+bundle update --bundler
+```
+
+**Gem installation failures**: Ensure you have the necessary build tools installed:
+- macOS: `xcode-select --install`
+- Ubuntu/Debian: `sudo apt-get install build-essential`
+- Windows: Use [RubyInstaller with DevKit](https://rubyinstaller.org/)
+
+**Changes not appearing**: 
+- Try clearing Jekyll's cache: `bundle exec jekyll clean`
+- Force a rebuild: `bundle exec jekyll serve --force_polling`
 
 ## Feedback and contributing
 
