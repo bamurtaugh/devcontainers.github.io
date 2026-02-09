@@ -27,7 +27,7 @@ The simplest way to get started is using the included dev container, which provi
 If you prefer working directly on your machine without containers:
 
 **What you'll need:**
-- Ruby (version specified in `Gemfile`)
+- Ruby (version 2.5 or higher recommended)
 - Bundler gem manager
 - Git
 
