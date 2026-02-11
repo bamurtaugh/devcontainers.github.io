@@ -9,6 +9,24 @@ img[alt=init-launch] { width: 80%; height: 80%; }
 img[alt=stop-continue-terminate] { width: 80%; height: 80%; }
 img[alt=breakpoint] { width: 80%; height: 80%; }
 
+:root {
+	--bg-color: #ffffff;
+	--text-color: #000000;
+	--bg-code: #f6f8fa;
+	--border-color: #ccc;
+	--footer-bg: #e9ecef;
+	--footer-text: #000;
+}
+
+[data-theme="dark"] {
+	--bg-color: #1a1a1a;
+	--text-color: #e0e0e0;
+	--bg-code: #2d2d2d;
+	--border-color: #444;
+	--footer-bg: #252525;
+	--footer-text: #e0e0e0;
+}
+
 html {
 	position: relative;
 	min-height: 100%;
@@ -17,6 +35,9 @@ html {
 body {
 	letter-spacing: .25px;
 	text-rendering: optimizeLegibility;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .single-page {
@@ -82,10 +103,11 @@ pre[class=highlight] {
 	overflow: auto;
 	font-size: 85%;
 	line-height: 1.45;
-	background-color: #f6f8fa;
-	border: 1px solid #ccc;
+	background-color: var(--bg-code);
+	border: 1px solid var(--border-color);
 	border-radius: 4px;
-	background: #f6f8fa
+	background: var(--bg-code);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .highlight .hll {
@@ -357,8 +379,9 @@ pre[class=highlight] {
 
 .footer {
 	padding: 15px 0;
-	color: #000;
-	background: #e9ecef;
+	color: var(--footer-text);
+	background: var(--footer-bg);
+	transition: background-color 0.3s ease, color 0.3s ease;
 
 	@media (min-width: 576px) {
 		padding: 50px 0;
@@ -484,4 +507,51 @@ h2 a, h3 a, h4 a, a h3 {
 h1 a {
 	padding-top: 3px;
 	padding-bottom: 3px;
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	margin-left: 1rem;
+	display: inline-block;
+	transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover {
+	opacity: 0.7;
+}
+
+.theme-toggle:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline-offset: 2px;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] {
+	.page-content {
+		background-color: var(--bg-color);
+	}
+	
+	.card {
+		background-color: #2d2d2d;
+		border-color: var(--border-color);
+		color: var(--text-color);
+	}
+	
+	table {
+		color: var(--text-color);
+	}
+	
+	.table {
+		color: var(--text-color);
+		
+		td, th {
+			border-color: var(--border-color);
+		}
+	}
 }
