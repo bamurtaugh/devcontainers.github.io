@@ -18,7 +18,7 @@ function initThemeToggle() {
   // Get saved theme or detect system preference, defaulting to light
   let savedTheme = localStorage.getItem('theme');
   if (!savedTheme) {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     savedTheme = prefersDark ? 'dark' : 'light';
   }
   
