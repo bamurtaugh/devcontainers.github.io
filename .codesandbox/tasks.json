@@ -1,8 +1,10 @@
 {
+  // CodeSandbox configuration for devcontainers.github.io project
   // These tasks will run in order when initializing your CodeSandbox project.
   "setupTasks": [
     {
       "name": "Install dependencies",
+      // Installs Ruby gems including Jekyll and plugins
       "command": "bundle install"
     }
   ],
@@ -11,14 +13,17 @@
   "tasks": {
     "bundle exec jekyll serve": {
       "name": "bundle exec jekyll serve",
+      // Binds to 0.0.0.0 to make server accessible from outside the container
       "command": "bundle exec jekyll serve --host 0.0.0.0",
       "runAtStart": true,
       "preview": {
+        // Jekyll development server port
         "port": 4000
       }
     },
     "ruby:typecheck": {
       "name": "Typecheck",
+      // Runs Solargraph type checker for Ruby code quality
       "command": "solargraph typecheck"
     }
   }
