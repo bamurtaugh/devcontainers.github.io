@@ -1,5 +1,6 @@
 name: Publish to GitHub Pages
 
+# Workflow triggers: pushes to gh-pages, manual dispatch, and daily schedule
 on:
   push:
     branches: ["gh-pages"]
@@ -28,6 +29,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      # Install Oras CLI tool for pulling OCI artifacts from registries
+      # Used to fetch devcontainer manifests and indexes
       - name: Install Oras
         run: |
           curl -LO https://github.com/oras-project/oras/releases/download/v0.13.0/oras_0.13.0_linux_amd64.tar.gz
@@ -36,12 +39,16 @@ jobs:
           mv oras-install/oras /usr/local/bin/
           rm -rf oras_0.13.0_*.tar.gz oras-install/
 
+      # Fetch the control manifest containing metadata about available devcontainer features
+      # This data populates the features page on containers.dev
       - name: Fetch devcontainer-control-manifest.json
         run: |
           cd _data
           oras pull ghcr.io/devcontainers/control-manifest:latest
           cp devcontainer-control-manifest.json ../static/
 
+      # Fetch the devcontainer index with all published features and templates
+      # This data populates the templates and collections pages
       - name: Fetch devcontainer-index.json
         run: |
           cd _data
@@ -51,12 +58,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v1
 
+      # Build the Jekyll site using GitHub's official Jekyll build action
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
+      # Upload the built site as an artifact for the deployment job
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
@@ -68,6 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      # Deploy the artifact to GitHub Pages (publishes to containers.dev)
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

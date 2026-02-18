@@ -3,22 +3,25 @@ title: Development containers
 description: >
   Development containers documentation and specification page.
 
+# Base URL configuration for Jekyll
 # baseurl: / # the subpath of your site, e.g. /blog/
 url: https://devcontainers.github.io # the base hostname & protocol for your site
 git_address: https://github.com/devcontainers/devcontainers.github.io
 git_edit_address: https://github.com/devcontainers/devcontainers.github.io/settings/pages/blob/gh-pages
-theme_color: 2753E3
+theme_color: 2753E3 # Primary brand color used throughout the site
 
 # Build settings
-markdown: kramdown
-highlighter: rouge
+markdown: kramdown # Markdown processor
+highlighter: rouge # Syntax highlighter for code blocks
 
+# Jekyll plugins used for GitHub Pages
 plugins:
-  - github-pages
-  - jemoji
-  - jekyll-feed
+  - github-pages   # GitHub Pages compatibility
+  - jemoji         # Emoji support in markdown
+  - jekyll-feed    # RSS feed generation
 
 
+# Files and directories to exclude from the build
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -27,9 +30,12 @@ exclude:
   - README.md
   - resources
 
+# Site timezone for date/time formatting
 timezone: Europe/Zurich
 
+# Default values for different content types
 defaults:
+# Blog posts configuration
 - scope:
     path: _posts
     type: posts
@@ -37,6 +43,7 @@ defaults:
     layout: post
     sectionid: guide
 
+# Documentation pages configuration
 - scope:
     path: _docs
     type: docs
@@ -46,6 +53,7 @@ defaults:
     seo:
       type: "WebPage"
 
+# Implementors guide configuration
 - scope:
     path: _implementors
     type: implementors
@@ -53,6 +61,7 @@ defaults:
     layout: implementors
     sectionid: implementors
 
+# Jekyll collections define custom content types beyond posts and pages
 collections:
   docs:
     permalink: /:collection/:path/
