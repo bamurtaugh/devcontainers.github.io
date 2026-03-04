@@ -5,19 +5,7 @@ description: "Jekyll development, testing, and build workflows"
 
 # Jekyll Development Guidelines
 
-## Testing Requirements
-
-**CRITICAL**: Every code change must be tested before committing.
-
-### Local Testing Process
-
-1. **Start the Jekyll server**: Run the task "Serve" or execute `bundle exec jekyll serve --livereload`
-2. **View the site**: Navigate to `http://localhost:4000/` in a browser
-3. **Verify changes**: Check that your changes render correctly
-4. **Check links**: Ensure all internal links work
-5. **Validate navigation**: Confirm new pages appear in navigation if expected
-
-### Available Tasks
+## Available Tasks
 
 - **Serve**: `bundle exec jekyll serve --livereload` (starts dev server with auto-reload)
 - **Build**: `bundle exec jekyll build` (generates static site in `_site/`)

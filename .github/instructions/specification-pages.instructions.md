@@ -48,5 +48,4 @@ Document specification properties using this table format:
 2. Add property documentation in table format
 3. Update `_data/specification-toc.yml` if adding a new page
 4. Add code examples demonstrating usage
-5. Test locally with Jekyll serve
-6. Cross-reference related pages
+5. Cross-reference related pages

@@ -43,11 +43,6 @@ This repository contains the official website for the [Development Container Spe
 
 ## 🛠️ Development Workflow
 
-### Testing (CRITICAL)
-Every code change must be tested before committing. See `.github/instructions/jekyll-development.instructions.md` for full testing guidelines.
-
-**Quick start**: Run the "Serve" task or `bundle exec jekyll serve --livereload`
-
 ### Development Container
 This repository includes a dev container configuration based on the [Jekyll Dev Container Template](https://github.com/devcontainers/templates/tree/main/src/jekyll).
 
@@ -74,7 +69,6 @@ This repository includes a dev container configuration based on the [Jekyll Dev 
 
 ## 🎯 Key Principles
 
-- **Always test changes** before completing tasks (see Jekyll development instructions)
 - **Use proper terminology** from the style guide (see Markdown authoring instructions)
 - **Update navigation files** when adding new pages
 - **Verify internal links** work correctly after changes

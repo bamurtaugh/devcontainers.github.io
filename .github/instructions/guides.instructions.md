@@ -42,5 +42,3 @@ The date prefix is stripped from the URL.
 1. Create `_posts/YYYY-MM-DD-descriptive-title.md`
 2. Add proper front matter with author info
 3. Write content following style guidelines
-4. Test rendering locally with Jekyll serve
-5. Verify it appears in the guides section at `http://localhost:4000/guides.html`

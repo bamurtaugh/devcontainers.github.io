@@ -52,11 +52,4 @@ When adding a new main page:
 - Include descriptive page titles and meta information
 - Ensure responsive design works on mobile devices
 
-## Testing Main Pages
 
-After creating or modifying a main page:
-1. Run Jekyll serve to test locally
-2. Navigate to `http://localhost:4000/filename.html`
-3. Verify the page appears in the top navigation
-4. Check responsive behavior at different screen sizes
-5. Test all links and interactive elements

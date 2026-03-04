@@ -38,5 +38,3 @@ Read the relevant instruction file(s) before writing any content.
 3. Write the content following those conventions
 4. After writing, remind the user to:
    - Update navigation files if a new page was added (use the **Update Navigation** handoff)
-   - Test locally (use the **Preview Changes** handoff)
-2. Test locally with `bundle exec jekyll serve --livereload` (use the **Preview Changes** handoff)
