@@ -1,9 +1,8 @@
 ---
 description: "Review content for formatting, completeness, terminology, and style guide compliance"
 tools:
-  - readFile
+  - read
   - search
-  - problems
 ---
 
 # Reviewer Agent

@@ -1,11 +1,10 @@
 ---
 description: "Build the Jekyll site, check for errors, and validate navigation and links"
 tools:
-  - runInTerminal
-  - readFile
+  - execute
+  - read
   - search
-  - problems
-  - fetch
+  - web
 ---
 
 # Site Previewer Agent

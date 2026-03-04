@@ -1,10 +1,9 @@
 ---
 description: "Update site navigation, TOC, and collection index when pages are added or changed"
 tools:
-  - editFiles
-  - readFile
+  - edit
+  - read
   - search
-  - problems
 handoffs:
   - label: Preview Navigation
     agent: site-previewer

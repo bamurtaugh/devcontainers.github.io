@@ -1,9 +1,9 @@
 ---
 description: "Research site structure and plan content additions without making changes"
 tools:
-  - readFile
+  - read
   - search
-  - fetch
+  - web
 handoffs:
   - label: Start Writing
     agent: content-writer

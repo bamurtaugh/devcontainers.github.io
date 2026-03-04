@@ -1,11 +1,10 @@
 ---
 description: "Write new guides, spec pages, or site content following containers.dev conventions"
 tools:
-  - editFiles
+  - edit
   - search
-  - fetch
-  - readFile
-  - problems
+  - web
+  - read
 handoffs:
   - label: Update Navigation
     agent: nav-manager
