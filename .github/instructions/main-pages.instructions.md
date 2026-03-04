@@ -52,4 +52,6 @@ When adding a new main page:
 - Include descriptive page titles and meta information
 - Ensure responsive design works on mobile devices
 
+> **Important**: Do not commit changes. Never run `git commit`, `git push`, or create pull requests. Leave all changes uncommitted for the user to review and commit manually.
+
 

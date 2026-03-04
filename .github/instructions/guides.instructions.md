@@ -42,3 +42,5 @@ The date prefix is stripped from the URL.
 1. Create `_posts/YYYY-MM-DD-descriptive-title.md`
 2. Add proper front matter with author info
 3. Write content following style guidelines
+
+> **Important**: Do not commit changes. Never run `git commit`, `git push`, or create pull requests. Leave all changes uncommitted for the user to review and commit manually.

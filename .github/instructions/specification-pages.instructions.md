@@ -49,3 +49,5 @@ Document specification properties using this table format:
 3. Update `_data/specification-toc.yml` if adding a new page
 4. Add code examples demonstrating usage
 5. Cross-reference related pages
+
+> **Important**: Do not commit changes. Never run `git commit`, `git push`, or create pull requests. Leave all changes uncommitted for the user to review and commit manually.

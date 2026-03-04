@@ -45,3 +45,5 @@ This repository includes a dev container configuration (`.devcontainer/`) based 
 2. Reopen in container
 3. Run `bundle exec jekyll serve`
 4. Navigate to `http://localhost:4000/`
+
+> **Important**: Do not commit changes. Never run `git commit`, `git push`, or create pull requests. Leave all changes uncommitted for the user to review and commit manually.

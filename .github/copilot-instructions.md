@@ -72,6 +72,7 @@ This repository includes a dev container configuration based on the [Jekyll Dev 
 - **Use proper terminology** from the style guide (see Markdown authoring instructions)
 - **Update navigation files** when adding new pages
 - **Verify internal links** work correctly after changes
+- **Do not commit changes** — never run `git commit`, `git push`, or create pull requests. Leave all changes uncommitted for the user to review and commit manually.
 
 ## 📋 Task-Specific Instructions
 
