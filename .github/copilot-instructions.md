@@ -77,7 +77,6 @@ This repository includes a dev container configuration based on the [Jekyll Dev 
 - **Always test changes** before completing tasks (see Jekyll development instructions)
 - **Use proper terminology** from the style guide (see Markdown authoring instructions)
 - **Update navigation files** when adding new pages
-- **Run Jekyll serve** automatically in agent mode
 - **Verify internal links** work correctly after changes
 
 ## 📋 Task-Specific Instructions

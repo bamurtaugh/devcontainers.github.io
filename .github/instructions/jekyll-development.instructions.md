@@ -22,10 +22,6 @@ description: "Jekyll development, testing, and build workflows"
 - **Serve**: `bundle exec jekyll serve --livereload` (starts dev server with auto-reload)
 - **Build**: `bundle exec jekyll build` (generates static site in `_site/`)
 
-## Agent Mode Behavior
-
-If operating in agent mode, **automatically run `bundle exec jekyll serve`** after making changes so the user can test immediately. Don't wait to be asked.
-
 ## Jekyll Collections
 
 The site uses three Jekyll collections (defined in `_config.yml`):
