@@ -13,10 +13,10 @@ We are excited to announce that starting today, in collaboration with the Depend
  To opt-in, add a `.github/dependabot.yml` to a repository containing one or more `devcontainer.json` configuration files:
 
  ```yaml
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+# To get started with Dependabot version updates, you'll need to specify which 🚀
+# package ecosystems to update and where the package manifests are located. ✨
+# Please see the documentation for all configuration options: 🌟
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates 💻
 
 version: 2
 updates:

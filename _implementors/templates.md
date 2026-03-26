@@ -12,7 +12,7 @@ The configuration is placed in a [`.devcontainer.json`](/implementors/json_refer
 
 Template metadata is captured by a `devcontainer-template.json` file in the root folder of the Template.
 
-## <a href="#folder-structure" name="folder-structure" class="anchor"> Folder Structure</a>
+## <a href="#folder-structure" name="folder-structure" class="anchor"> Folder Structure</a> 🚀
 
 A single Template is a folder with at least a `devcontainer-template.json` and [`devcontainer.json`](/implementors/json_reference#devcontainerjson).  Additional files are permitted and are packaged along side the required files.
 
@@ -23,7 +23,7 @@ A single Template is a folder with at least a `devcontainer-template.json` and [
 |    +-- (other files)
 ```
 
-## <a href="#devcontainer-template-properties" name="devcontainer-template-properties" class="anchor">devcontainer-template.json properties</a>
+## <a href="#devcontainer-template-properties" name="devcontainer-template-properties" class="anchor">devcontainer-template.json properties</a> ✨
 
 The `devcontainer-template.json` file defines information about the Template to be used by any [supporting tools](/supporting#supporting-tools-and-services).
 
@@ -44,7 +44,7 @@ The properties of the file are as follows:
 | [`optionalPaths`](#optionalPaths) | array | An array of files or directories that tooling may consider "optional" when applying a Template. Directories are indicated with a trailing `/*`, (eg: `.github/*`).
 {: .table .table-bordered}
 
-### <a href="#options" name="options" class="anchor">  The `options` property</a>
+### <a href="#options" name="options" class="anchor">  The `options` property</a> 🌟
 The `options` property contains a map of option IDs and their related configuration settings. These `options` are used by the supporting tools to prompt the user to choose from different Template configuration options. The tools would replace the option ID with the selected value in all the files (within the sub-directory of the Template). This replacement would happen before dropping the `.devcontainer.json` (or `.devcontainer/devcontainer.json`) and other files (within the sub-directory of the Template) required to containerize your project. See [option resolution](#option-resolution) for more details. For example:
 
 ```json
@@ -72,7 +72,7 @@ The `options` property contains a map of option IDs and their related configurat
 
 > `Note`: The `options` must be unique for every `devcontainer-template.json`
 
-### <a href="#optionalPaths" name="optionalPaths" class="anchor">  The `optionalPaths` property</a>
+### <a href="#optionalPaths" name="optionalPaths" class="anchor">  The `optionalPaths` property</a> 💻
 
 Before applying a Template, tooling must inspect the `optionalPaths` property of a Template and prompt the user on whether each file or folder should be included in the resulting output workspace folder.  A path is relative to the root of the Template source directory.
 
@@ -96,7 +96,7 @@ Examples are shown below:
 ```
 
 
-### <a href="#referencing-a-template" name="referencing-a-template" class="anchor"> Referencing a Template </a>
+### <a href="#referencing-a-template" name="referencing-a-template" class="anchor"> Referencing a Template </a> 🔧
 
 The `id` format (`<oci-registry>/<namespace>/<template>[:<semantic-version>]`) dictates how a [supporting tool](/supporting) will locate and download a given Template from an OCI registry. For example:
 
@@ -106,21 +106,21 @@ The `id` format (`<oci-registry>/<namespace>/<template>[:<semantic-version>]`) d
 
 The registry must implement the [OCI Artifact Distribution Specification](https://github.com/opencontainers/distribution-spec). Some implementors can be [found here](https://oras.land/implementors/).
 
-## <a href="#versioning" name="versioning" class="anchor"> Versioning </a>
+## <a href="#versioning" name="versioning" class="anchor"> Versioning </a> 📦
 
 Each Template is individually [versioned according to the semver specification](https://semver.org/).  The `version` property in the respective `devcontainer-template.json` file is updated to increment the Template's version.
 
 Tooling that handles releasing Templates will not republish Templates if that exact version has already been published; however, tooling must republish major and minor versions in accordance with the semver specification.
 
-## <a href="#release" name="release" class="anchor"> Release </a>
+## <a href="#release" name="release" class="anchor"> Release </a> 🛠️
 
 _For information on distributing Templates, see the [Templates distribution doc](/implementors/templates-distribution)._
 
-### <a href="#option-resolution" name="option-resolution" class="anchor"> Option Resolution </a>
+### <a href="#option-resolution" name="option-resolution" class="anchor"> Option Resolution </a> 🎯
 
 A Template's `options` property is used by a supporting tool to prompt for different configuration options. A supporting tool will parse the `options` object provided by the user. If a value is selected for a Template, it will be replaced in the files (within the sub-directory of the Template).
 
-### <a href="#option-resolution-example" name="option-resolution-example" class="anchor"> Option resolution example </a>
+### <a href="#option-resolution-example" name="option-resolution-example" class="anchor"> Option resolution example </a> 🌈
 
 Consider a `java` Template with the following folder structure:
 

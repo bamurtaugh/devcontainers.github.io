@@ -12,7 +12,7 @@ A **development container** is a container in which a user can develop an applic
 
 An **environment** is defined as a logical instance of one or more **development containers**, along with any needed side-car containers. An environment is based on one set of metadata that can be managed as a single unit. Users can create multiple **environments** from the same configuration metadata for different purposes.
 
-# <a href="#metadata" name="metadata" class="anchor"> Metadata </a>
+# <a href="#metadata" name="metadata" class="anchor"> Metadata </a> 🚀
 
 The Development Container Spec allows one to define a repeatable development environment for a user or team of developers that includes the execution environment the application needs. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development and you may need to use different secrets or other settings. 
 
@@ -20,7 +20,7 @@ Furthermore, working inside a development container can require additional **met
 
 A development container is composed of a definition (e.g. contained in a `devcontainer.json` file) that deterministically creates containers under the control of the user.
 
-## <a href="#devcontainerjson" name="devcontainerjson" class="anchor"> `devcontainer.json` </a>
+## <a href="#devcontainerjson" name="devcontainerjson" class="anchor"> `devcontainer.json` </a> ✨
 
 While the structure of this metadata is critical, it is also important to call out how this data can be represented on disk where appropriate. While other representations may be added over time, metadata can be stored in a JSON with Comments file called `devcontainer.json` today. Products using it should expect to find a devcontainer.json file in one or more of the following locations (in order of precedence):
 
@@ -30,7 +30,7 @@ While the structure of this metadata is critical, it is also important to call o
 
 It is valid that these files may exist in more than one location, so consider providing a mechanism for users to select one when appropriate.
 
-## <a href="#image-metadata" name="image-metadata" class="anchor"> Image Metadata </a>
+## <a href="#image-metadata" name="image-metadata" class="anchor"> Image Metadata </a> 🌟
 
 Certain dev container metadata properties can be stored in an image label as an array of metadata snippets. This allows them to be stored in prebuilt images, such that, the image and its related configuration are self-contained. These contents should then be merged with any local devcontainer.json file contents at the time the container is created. An array is used so subsequent image builds can simply append changes to the array rather than attempting to merge at that point - which improves compatibility with arbitrary image build systems.
 
@@ -59,7 +59,7 @@ To simplify adding this metadata for other tools, we also support having a singl
 
 The metadata is added to the image as a `devcontainer.metadata` label with a JSON string value representing the above array or single object.
 
-### <a href="#merge-logic" name="merge-logic" class="anchor"> Merge Logic </a>
+### <a href="#merge-logic" name="merge-logic" class="anchor"> Merge Logic </a> 💻
 
 To apply the metadata together with a user's `devcontainer.json` at runtime, the following merge logic by property is used. The table also notes which properties are currently supported coming from the `devcontainer.json` and from the Feature metadata- this will change over time as we add more properties.
 
@@ -95,7 +95,7 @@ To apply the metadata together with a user's `devcontainer.json` at runtime, the
 
 Variables in string values will be substituted at the time the value is applied. When the order matters, the `devcontainer.json` is considered last.
 
-### <a href="#metadata-notes" name="metadata-notes" class="anchor"> Notes </a>
+### <a href="#metadata-notes" name="metadata-notes" class="anchor"> Notes </a> 🔧
 
 - Passing the label as a `LABEL` instruction in the Dockerfile:
 	- The size limit on Dockerfiles is around 1.3MB. The line length is limited to 65k characters.
@@ -105,17 +105,17 @@ Variables in string values will be substituted at the time the value is applied.
 	- The 500kb limit is shared, so we cannot use a second label in the same build to avoid it.
 	- If/when this becomes an issue we could embed the metadata as a file in the image (e.g., with a label indicating it).
 
-## <a href="#orchestration-options" name="orchestration-options" class="anchor"> Orchestration options </a>
+## <a href="#orchestration-options" name="orchestration-options" class="anchor"> Orchestration options </a> 📦
 
 A core principle of this specification is to seek to enrich existing container orchestrator formats with development container metadata where appropriate rather than replacing them. As a result, the metadata schema includes a set of optional properties for interoperating with different orchestrators. Today, the specification includes scenario-specific properties for working without a container orchestrator (by directly referencing an image or Dockerfile) and for using Docker Compose as a simple multi-container orchestrator. At the same time, this specification leaves space for further development and implementation of other orchestrator mechanisms and file formats. 
 
 The following section describes the differences between those that are supported now. 
 
-## <a href="#image-based" name="image-based" class="anchor"> Image based </a>
+## <a href="#image-based" name="image-based" class="anchor"> Image based </a> 🛠️
 
 Image based configurations only reference an image that should be reachable and downloadable through `docker pull` commands. Logins and tokens required for these operations are execution environment specific. The only required parameter is `image`. The details are [here](../json_reference#image-specific).
 
-## <a href="#dockerfile-based" name="dockerfile-based" class="anchor"> Dockerfile based </a>
+## <a href="#dockerfile-based" name="dockerfile-based" class="anchor"> Dockerfile based </a> 🎯
 
 These configurations are defined as using a Dockerfile to define the starting point of the development containers. As with image based configurations, it is assumed that any base images are already reachable by Docker when performing a `docker build` command. The only required parameter in this case is the relative reference to the Dockerfile in `build.dockerfile`. The details are [here](../json_reference#image-specific).
 
@@ -126,7 +126,7 @@ There are multiple properties that allow users to control how `docker build` wor
 - `build.target`
 - `build.cacheFrom`
 
-## <a href="#docker-compose-based" name="docker-compose-based" class="anchor"> Docker Compose based </a>
+## <a href="#docker-compose-based" name="docker-compose-based" class="anchor"> Docker Compose based </a> 🌈
 
 Docker Compose configurations use `docker-compose` (which may be Docker Compose V1 or aliased Docker Compose V2) to create and manage a set of containers required for an application. As with the other configurations, any images required for this operation are assumed to be reachable. The required parameters are:
 
@@ -136,19 +136,19 @@ Docker Compose configurations use `docker-compose` (which may be Docker Compose 
 
 It is important to note that the `image` and `dockerfile` properties are not needed since Docker Compose supports them natively in the format. 
 
-# <a href="#other-options" name="other-options" class="anchor"> Other options </a>
+# <a href="#other-options" name="other-options" class="anchor"> Other options </a> 💡
 
 In addition to the configuration options explained above, there are other settings that apply when creating development containers to facilitate their use by developers. 
 
 A complete list of available metadata properties and their purposes can be found in the [`devcontainer.json` reference](https://aka.ms/devcontainer.json). However, we will describe the critical ones below in more detail.
 
-## <a href="#features" name="features" class="anchor"> Features</a>
+## <a href="#features" name="features" class="anchor"> Features</a> 🔥
 
 Development container "Features" are self-contained, shareable units of installation code and development container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "features" into your development container for you or your collaborators to use.
 
 They are applied to container images as a secondary build step and can affect a number of dev container configuration settings. See the [Features documentation](../features) for more details.
 
-## <a href="#environment-variables" name="environment-variables" class="anchor"> Environment variables </a>
+## <a href="#environment-variables" name="environment-variables" class="anchor"> Environment variables </a> 🎉
 
 Environment variables can be set at different points in the dev container lifecycle. With this in mind, development containers support two classes of environment variables:
 
@@ -159,13 +159,13 @@ The reason for this separation is it allows for the use of information not avail
 
 Another notable and important environment variable related property is **`userEnvProbe`**. Implementing tools should use this property to "probe" for expected environment variables using the specified type of shell. However, it does not specify that this type of shell needs to be used for all sub-processes (given the performance impact). Instead, "probed" environment variables should be merged with remote environment variables for any processes the implementer injects after the container is created.  allows implementors to emulate developer expected behaviors around values added to their profile and rc files. 
 
-## <a href="#mounts" name="mounts" class="anchor"> Mounts </a>
+## <a href="#mounts" name="mounts" class="anchor"> Mounts </a> 🤖
 
 Mounts allow containers to have access to the underlying machine, share data between containers and to persist information between development containers. 
 
 A default mount should be included so that the source code is accessible from inside the container. Source code is stored outside of the container so that a developer's in-flight edits can be extracted, or a new container created in the event a container no longer starts.
 
-## <a href="#workspace-folder" name="workspace-folder" class="anchor"> workspaceFolder and workspaceMount </a>
+## <a href="#workspace-folder" name="workspace-folder" class="anchor"> workspaceFolder and workspaceMount </a> 🌐
 
 The default mount point for the source code can be set with the `workspaceMount` property for image and Dockerfile scenarios or using the built in `mounts` property in Docker Compose files. This folder should point to the root of a repository (where the `.git` folder is found) so that source control operations work correctly inside the container.
 
@@ -173,7 +173,7 @@ The `workspaceFolder` can then be set to the default folder inside the container
 
 See [`workspaceMount` and `workspaceFolder`](../json_reference#image-specific) for reference.
 
-## <a href="#users" name="users" class="anchor"> Users </a>
+## <a href="#users" name="users" class="anchor"> Users </a> 📝
 
 Users control the permissions of applications executed in the containers, allowing the developer to control them. The specification takes into account two types of user definitions:
 
@@ -182,7 +182,7 @@ Users control the permissions of applications executed in the containers, allowi
 
 This separation allows the `ENTRYPOINT` for the image to execute with different permissions than the developer and allows for developers to switch users without recreating their containers.
 
-# <a href="#lifecycle" name="lifecycle" class="anchor"> Lifecycle </a>
+# <a href="#lifecycle" name="lifecycle" class="anchor"> Lifecycle </a> 🐳
 
 A development environment goes through different lifecycle events during its use in the outer and inner loop of development.
 
@@ -191,7 +191,7 @@ A development environment goes through different lifecycle events during its use
 - Environment Stop
 - Environment Resume
 
-## <a href="#configuration-validation" name="configuration-validation" class="anchor"> Configuration Validation </a>
+## <a href="#configuration-validation" name="configuration-validation" class="anchor"> Configuration Validation </a> 🏠
 
 The exact steps required to validate configuration can vary based on exactly where the development container metadata is persisted. However, when considering a `devcontainer.json` file, the following validation should occur:
 
@@ -200,17 +200,17 @@ The exact steps required to validate configuration can vary based on exactly whe
 3. If no `devcontainer.json` is found, it is up to the implementing tool or service to determine what to do. This specification does not dictate this behavior.
 4. Validate that the metadata (for example `devcontainer.json`) contains all parameters required for the selected configuration type.
 
-## <a href="#environment-creation" name="environment-creation" class="anchor"> Environment Creation </a>
+## <a href="#environment-creation" name="environment-creation" class="anchor"> Environment Creation </a> 🤝
 
 The creation process goes through the steps necessary to go from the user configuration to a working **environment** that is ready to be used.
 
-### <a href="#initialization" name="initialization" class="anchor"> Initialization </a> 
+### <a href="#initialization" name="initialization" class="anchor"> Initialization </a> 🔒
 
 During this step, the following is executed:
 - Validate access to the container orchestrator specified by the configuration.
 - Execution of `initializeCommand`.
 
-### <a href="#image-creation" name="image-creation" class="anchor"> Image Creation </a> 
+### <a href="#image-creation" name="image-creation" class="anchor"> Image Creation </a> 📋
 
 The first part of environment creation is generating the final image(s) that the development containers are going to use. This step is orchestrator dependent and can consist of just pulling a Docker image, running Docker build, or `docker-compose` build. Additionally, this step is useful on its own since it permits the creation of intermediate images that can be uploaded and used by other users, thus cutting down on creation time. It is encouraged that tools implementing this specification give access to a command that just executes this step.
 

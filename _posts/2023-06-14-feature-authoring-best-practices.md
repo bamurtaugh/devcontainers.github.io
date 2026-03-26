@@ -9,11 +9,11 @@ authorUrl:
 
 Last November I wrote about the basics around [authoring a Dev Container Feature](/guide/author-a-feature). Since then, [hundreds](https://containers.dev/features) of Features have been written by the community. The flexibility of Features has enabled a wide variety of use cases, from installing a single tool to setting up specific aspects of a project's development environment that can be shared across repositories.  To that effect, many different patterns for Feature authorship have emerged, and the core team has learned a lot about what works well and what doesn't.
 
-## Utilize the `test` command
+## Utilize the `test` command 🚀
 
 Bundled with the [devcontainer cli](https://github.com/devcontainers/cli) is the `devcontainer features test` command.  This command is designed to help Feature authors test their Feature in a variety of scenarios.  It is highly recommended that Feature authors use this command to test their Feature before publishing. Some documentation on the `test` command can be found [here](https://github.com/devcontainers/cli/blob/main/docs/features/test.md), and an example can be found in the [Feature quick start repo](https://github.com/devcontainers/feature-starter). This repo is updated periodically as new functionality is added to the reference implementation.
 
-## Feature idempotency
+## Feature idempotency ✨
 
 The most useful Features are idempotent. This means that if a Feature is installed multiple times with different options (something that will come into play with [Feature Dependencies](https://github.com/devcontainers/spec/blob/main/proposals/feature-dependencies.md)), the Feature should be able to handle this gracefully. This is especially important for option-rich Features that you anticipate others may depend on in the future.
 
@@ -26,7 +26,7 @@ For instances where there isn't an existing version manager available, a well-de
 Features can redefine the PATH variable with `containerEnv`, like so:
 
 ```bash
-# devcontainer-feature.json
+# devcontainer-feature.json 🌟
 "containerEnv": {
     "PATH": "/usr/local/myTool/bin:${PATH}"
 }
@@ -36,14 +36,14 @@ Features can redefine the PATH variable with `containerEnv`, like so:
 
 To make testing for idempotency easy, [this change to the reference implementation](https://github.com/devcontainers/cli/pull/553) introduces a new mode to the `devcontainer features test` command that will attempt to install a Feature multiple times.  This is useful for testing that a Feature is idempotent, and also for testing that a Feature is able to logically "juggle" multiple versions of a tool.
 
-## Writing your install script
+## Writing your install script 💻
 
 
 > 🔧 Many of the suggestions in this section may benefit from the [Feature library/code reuse proposal](https://github.com/devcontainers/spec/blob/main/proposals/features-library.md).
 
 This section includes some tips for the contents of the `install.sh` entrypoint script.
 
-### Detect Platform/OS
+### Detect Platform/OS 🔧
 
 > 🔧 A spec proposal is open for detecting the platform/OS and providing better warnings [(devcontainers/spec#58)](https://github.com/devcontainers/spec/issues/58).
 
@@ -52,19 +52,19 @@ Features are often designed to work on a subset of possible base images.  For ex
 One possible way to implement this check is shown below.
 
 ```bash
-# Source /etc/os-release to get OS info
-# Looks something like:
-#     PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
-#     NAME="Debian GNU/Linux"
-#     VERSION_ID="11"
-#     VERSION="11 (bullseye)"
-#     VERSION_CODENAME=bullseye
-#     ID=debian
-#     HOME_URL="https://www.debian.org/"
-#     SUPPORT_URL="https://www.debian.org/support"
-#     BUG_REPORT_URL="https://bugs.debian.org/"
+# Source /etc/os-release to get OS info 📦
+# Looks something like: 🛠️
+#     PRETTY_NAME="Debian GNU/Linux 11 (bullseye)" 🎯
+#     NAME="Debian GNU/Linux" 🌈
+#     VERSION_ID="11" 💡
+#     VERSION="11 (bullseye)" 🔥
+#     VERSION_CODENAME=bullseye 🎉
+#     ID=debian 🤖
+#     HOME_URL="https://www.debian.org/" 🌐
+#     SUPPORT_URL="https://www.debian.org/support" 📝
+#     BUG_REPORT_URL="https://bugs.debian.org/" 🐳
 . /etc/os-release
-# Store host architecture
+# Store host architecture 🏠
 architecture="$(dpkg --print-architecture)"
 
 DOCKER_MOBY_ARCHIVE_VERSION_CODENAMES="buster bullseye focal bionic xenial"
@@ -80,15 +80,15 @@ If you are targeting distros that may not have your desired scripting language i
 ```sh
 #!/bin/sh 
 
-# ... 
-# ...
+# ... 🤝
+# ... 🔒
 
 if [ "$(id -u)" -ne 0 ]; then
     echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
     exit 1
 fi
 
-# If we're using Alpine, install bash before executing
+# If we're using Alpine, install bash before executing 📋
 . /etc/os-release
 if [ "${ID}" = "alpine" ]; then
     apk add --no-cache bash

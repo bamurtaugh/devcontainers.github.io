@@ -1,4 +1,5 @@
 #!/bin/bash
+# 🚀✨💡
 
 pushd /tmp
     curl -LO https://github.com/oras-project/oras/releases/download/v0.13.0/oras_0.13.0_linux_amd64.tar.gz

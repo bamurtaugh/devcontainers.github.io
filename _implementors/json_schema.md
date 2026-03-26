@@ -10,7 +10,7 @@ You may review the current devcontainer.json schemas in the spec repo, which inc
 * The [base schema](https://github.com/devcontainers/spec/blob/main/schemas/devContainer.base.schema.json): schema describing all base properties as documented in the [devcontainer.json reference](../json_reference).
 * The [main schema](https://github.com/devcontainers/spec/blob/main/schemas/devContainer.schema.json): references the base schema, plus all schemas containing tool-specific properties.
 
-## <a href="#base-schema" name="base-schema" class="anchor"> Base Schema </a>
+## <a href="#base-schema" name="base-schema" class="anchor"> Base Schema </a> 🚀
 
 ```json
 {
@@ -660,7 +660,7 @@ You may review the current devcontainer.json schemas in the spec repo, which inc
 }
 ```
 
-## <a href="#main-schema" name="main-schema" class="anchor"> Main Schema </a>
+## <a href="#main-schema" name="main-schema" class="anchor"> Main Schema </a> ✨
 
 ```json
 {

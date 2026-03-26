@@ -14,7 +14,7 @@ Feature metadata is captured by a `devcontainer-feature.json` file in the root f
 > 
 > This page covers details on the Features specification. If you are looking for summarized information on creating your own Features, check out the [quick start](https://github.com/devcontainers/feature-starter) and [core Features](https://github.com/devcontainers/features) repositories.
 
-## <a href="#folder-structure" name="folder-structure" class="anchor"> Folder Structure </a>
+## <a href="#folder-structure" name="folder-structure" class="anchor"> Folder Structure </a> 🚀
 
 A Feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script.  Additional files are permitted and are packaged along side the required files.
 
@@ -25,7 +25,7 @@ A Feature is a self contained entity in a folder with at least a `devcontainer-f
 |    +-- (other files)
 ```
 
-## <a href="#devcontainer-feature-json-properties" name="devcontainer-feature-json-properties" class="anchor"> devcontainer-feature.json properties </a>
+## <a href="#devcontainer-feature-json-properties" name="devcontainer-feature-json-properties" class="anchor"> devcontainer-feature.json properties </a> ✨
 
 The `devcontainer-feature.json` file defines metadata about a given Feature.
 
@@ -62,7 +62,7 @@ The properties of the file are as follows:
 (**) The ID must refer to either a Feature (1) published to an OCI registry, (2) a Feature Tgz URI, or (3) a Feature in the local file tree. Deprecated Feature identifiers (i.e GitHub Release) are not supported and the presence of this property may be considered a fatal error or ignored. For [local Features (ie: during development)](../features-distribution#addendum-locally-referenced), you may also depend on other local Features by providing a relative path to the Feature, relative to folder containing the active `devcontainer.json`. This behavior of Features within this property again mirror the `features` object in `devcontainer.json`.
 
 
-### <a href="#lifecycle-hooks" name="lifecycle-hooks" class="anchor"> Lifecycle Hooks </a>
+### <a href="#lifecycle-hooks" name="lifecycle-hooks" class="anchor"> Lifecycle Hooks </a> 🌟
 
 The following lifecycle hooks may be declared as properties of `devcontainer-feature.json`. 
 
@@ -75,7 +75,7 @@ The following lifecycle hooks may be declared as properties of `devcontainer-fea
 | `postAttachCommand` | [string, array, object](/implementors/json_reference#formatting-string-vs-array-properties) |
 {: .table .table-bordered}
 
-#### <a href="#behavior" name="behavior" class="anchor"> Behavior </a>
+#### <a href="#behavior" name="behavior" class="anchor"> Behavior </a> 💻
 
 Each property mirrors the behavior of the matching property in [`devcontainer.json`](/implementors/json_reference#Lifecycle-scripts), including the behavior that commands are executed from the context of the [project workspace folder](/implementors/spec/#project-workspace-folder).
 
@@ -85,13 +85,13 @@ If a Feature provides a given command with the [object syntax](/implementors/jso
 
 > **Note**: These properties are stored within [image metadata](/implementors/spec/#merge-logic).
 
-#### Writing scripts to known container path
+#### Writing scripts to known container path 🔧
 
 It may be helpful for a Feature to write scripts to a known, persistent path within the container (i.e. for later use in a given lifecycle hook). 
 
 Take for instance the `git-lfs` Feature, which [writes a script](https://github.com/devcontainers/features/blob/4fca96b5e8a4bfc93679098cb19d73c65ce571eb/src/git-lfs/install.sh#L190-L216) to `/usr/local/share/pull-git-lfs-artifacts.sh` during installation.
 
-##### install.sh
+##### install.sh 📦
 ```bash
 PULL_GIT_LFS_SCRIPT_PATH="/usr/local/share/pull-git-lfs-artifacts.sh"
 
@@ -105,7 +105,7 @@ EOF
 
 This script is then executed during the [`postCreateCommand` lifecycle hook](https://github.com/devcontainers/features/blob/4fca96b5e8a4bfc93679098cb19d73c65ce571eb/src/git-lfs/devcontainer-feature.json#L23).
 
-##### devcontainer-feature.json
+##### devcontainer-feature.json 🛠️
 ```jsonc
 {
     "id": "git-lfs",
@@ -119,7 +119,7 @@ This script is then executed during the [`postCreateCommand` lifecycle hook](htt
 }
 ```
 
-### <a href="#options-property" name="options-property" class="anchor"> The `options` property </a>
+### <a href="#options-property" name="options-property" class="anchor"> The `options` property </a> 🎯
 
 The options property contains a map of option IDs and their related configuration settings. The ID becomes the name of the environment variable in all caps. See [option resolution](#option-resolution) for more details. For example:
 
@@ -146,7 +146,7 @@ The options property contains a map of option IDs and their related configuratio
 | `optionId.description` | string | Description for the option. |
 {: .table .table-bordered}
 
-### <a href="#user-env-var" name="user-env-var" class="anchor"> User environment variables </a>
+### <a href="#user-env-var" name="user-env-var" class="anchor"> User environment variables </a> 🌈
 
 Feature scripts run as the `root` user and sometimes need to know which user account the dev container will be used with.
 
@@ -156,13 +156,13 @@ Additionally, the home folders of the two users are passed to the Feature script
 
 The container user can be set with `containerUser` in the `devcontainer.json` and image metadata, `user` in the `docker-compose.yml`, `USER` in the Dockerfile, and can be passed down from the base image.
 
-### <a href="#dev-container-id" name="dev-container-id" class="anchor"> Dev Container ID </a>
+### <a href="#dev-container-id" name="dev-container-id" class="anchor"> Dev Container ID </a> 💡
 
 An identifier will be referred to as `${devcontainerId}` in the `devcontainer.json` and the Feature metadata and that will be replaced with the dev container's id. It should only be used in parts of the configuration and metadata that is not used for building the image because that would otherwise prevent pre-building the image at a time when the dev container's id is not known yet. Excluding boolean, numbers and enum properties the properties supporting `${devcontainerId}` in the Feature metadata are: `entrypoint`, `mounts`, `customizations`.
 
 Implementations can choose how to compute this identifier. They must ensure that it is unique among other dev containers on the same Docker host and that it is stable across rebuilds of dev containers. The identifier must only contain alphanumeric characters. We describe a way to do this below.
 
-#### <a href="#label-based" name="label-based" class="anchor"> Label-based Implementation  </a>
+#### <a href="#label-based" name="label-based" class="anchor"> Label-based Implementation  </a> 🔥
 
 The following assumes that a dev container can be identified among other dev containers on the same Docker host by a set of labels on the container. Implementations may choose to follow this approach.
 
@@ -185,7 +185,7 @@ E.g., the [`ghcr.io/devcontainers/features/docker-in-docker` Feature](https://gi
 }
 ```
 
-#### <a href="#label-based-comp" name="label-based-comp" class="anchor"> Label-based Computation  </a>
+#### <a href="#label-based-comp" name="label-based-comp" class="anchor"> Label-based Computation  </a> 🎉
 
 - Input the labels as a JSON object with the object's keys being the label names and the object's values being the labels' values.
 	- To ensure implementations get to the same result, the object keys must be sorted and any optional whitespace outside of the keys and values must be removed.
@@ -209,7 +209,7 @@ function uniqueIdForLabels(idLabels) {
 }
 ```
 
-## <a href="#devcontainer-json-properties" name="devcontainer-json-properties" class="anchor"> devcontainer.json properties </a>
+## <a href="#devcontainer-json-properties" name="devcontainer-json-properties" class="anchor"> devcontainer.json properties </a> 🤖
 
 Features are referenced in a user's [`devcontainer.json`](../json_reference) under the top level `features` object.
 
@@ -255,7 +255,7 @@ As a shorthand, the value of the `features` property can be provided as a single
 }
 ```
 
-### <a href="#referencing-a-feature" name="referencing-a-feature" class="anchor"> Referencing a Feature </a>
+### <a href="#referencing-a-feature" name="referencing-a-feature" class="anchor"> Referencing a Feature </a> 🌐
 
 The `id` format specified dicates how a supporting tool will locate and download a given feature. `id` is one of the following:
 
@@ -270,13 +270,13 @@ The `id` format specified dicates how a supporting tool will locate and download
 
 (**) The provided path is always relative to the folder containing the `devcontainer.json`. Further requirements are outlined in the [Locally Referenced Addendum](../features-distribution#addendum-locally-referenced).
 
-## <a href="#versioning" name="versioning" class="anchor"> Versioning </a>
+## <a href="#versioning" name="versioning" class="anchor"> Versioning </a> 📝
 
 Each Feature is individually [versioned according to the semver specification](https://semver.org/). The `version` property in the respective `devcontainer-feature.json` file is updated to increment the Feature's version.
 
 Tooling that handles releasing Features will not republish Features if that exact version has already been published; however, tooling must republish major and minor versions in accordance with the semver specification.
 
-## <a href="#authoring" name="authoring" class="anchor"> Authoring </a>
+## <a href="#authoring" name="authoring" class="anchor"> Authoring </a> 🐳
 
 Features can be authored in a number of languages, the most straightforward being bash scripts. If a Feature is authored in a different language, information about it should be included in the metadata so that users can make an informed choice about it.
 
@@ -286,13 +286,13 @@ Applications should default to `/bin/sh` for Features that do not include this i
 
 If the Feature is included in a folder as part of the repository that contains `devcontainer.json`, no other steps are necessary.
 
-## <a href="#release" name="release" class="anchor"> Release </a>
+## <a href="#release" name="release" class="anchor"> Release </a> 🏠
 
 _For information on distributing Features, see the [Features distribution page](../features-distribution)._
 
-## <a href="#execution" name="execution" class="anchor"> Execution </a>
+## <a href="#execution" name="execution" class="anchor"> Execution </a> 🤝
 
-### <a href="#invoking-installsh" name="invoking-installsh" class="anchor"> Invoking `install.sh` </a>
+### <a href="#invoking-installsh" name="invoking-installsh" class="anchor"> Invoking `install.sh` </a> 🔒
 
 The `install.sh` script for each Feature should be executed as `root` during a container image build. This allows the script to add needed OS dependencies or settings that could not otherwise be modified. This also allows the script to switch into another user's context using the `su` command (e.g., `su ${USERNAME} -c "command-goes-here"`). In combination, this allows both root and non-root image modifications to occur even if `sudo` is not present in the base image for security reasons.
 
@@ -302,7 +302,7 @@ To ensure that the appropriate shell is used, the execute bit should be set on `
 > 
 > The `install.sh` file can similarly be used to bootstrap something written in a compiled language like Go. Given the increasing likelihood that a Feature needs to work on both x86_64 and arm64-based devices (e.g., Apple Silicon Macs), `install.sh` can detect the current architecture (e.g., using something like `uname -m` or `dpkg --print-architecture`), and then invoke the right executable for that architecture.
 
-### <a href="#installation-order" name="installation-order" class="anchor"> Installation order </a>
+### <a href="#installation-order" name="installation-order" class="anchor"> Installation order </a> 📋
 
 By default, Features are installed on top of a base image in an order determined as optimal by the implementing tool.
 

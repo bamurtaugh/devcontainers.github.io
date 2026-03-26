@@ -10,7 +10,7 @@ The `devcontainer.json` file contains any needed metadata and settings required 
 
 Metadata properties marked with a 🏷️️ can be stored in the `devcontainer.metadata` **[container image label](/implementors/reference/#labels)** in addition to `devcontainer.json`. This label can contain an array of json snippets that will be automatically merged with `devcontainer.json` contents (if any) when a container is created.
 
-## <a href="#general-properties" name="general-properties" class="anchor"> General devcontainer.json properties </a>
+## <a href="#general-properties" name="general-properties" class="anchor"> General devcontainer.json properties </a> 🚀
 
 | Property | Type  | Description |
 |:------------------|:------------|:------------|
@@ -36,11 +36,11 @@ Metadata properties marked with a 🏷️️ can be stored in the `devcontainer.
 | `customizations` 🏷️| object | Product specific properties, defined in [supporting tools](../../supporting) |
 {: .table .table-bordered}
 
-## <a href="#scenario-specific" name="scenario-specific" class="anchor"> Scenario specific properties </a>
+## <a href="#scenario-specific" name="scenario-specific" class="anchor"> Scenario specific properties </a> ✨
 
 The focus of `devcontainer.json` is to describe how to enrich a container for the purposes of development rather than acting as a multi-container orchestrator format. Instead, container orchestrator formats can be referenced when needed to manage multiple containers and their lifecycles. Today, `devcontainer.json` includes scenario specific properties for working without a container orchestrator (by directly referencing an image or Dockerfile) and for using Docker Compose as a simple multi-container orchestrator.
 
-### <a href="#image-specific" name="image-specific" class="anchor"> Image or Dockerfile specific properties </a>
+### <a href="#image-specific" name="image-specific" class="anchor"> Image or Dockerfile specific properties </a> 🌟
 
 | Property | Type  | Description |
 |:------------------|:------------|:------------|
@@ -57,7 +57,7 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. For example, this allows ptrace based debuggers like C++ to work in the container:<br /> `"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ]` . |
 {: .table .table-bordered}
 
-### <a href="#compose-specific" name="compose-specific" class="anchor"> Docker Compose specific properties </a>
+### <a href="#compose-specific" name="compose-specific" class="anchor"> Docker Compose specific properties </a> 💻
 
 | Property | Type  | Description |
 |:------------------|:------------|:------------|
@@ -67,11 +67,11 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 | `workspaceFolder` | string | Sets the default path that `devcontainer.json` supporting services / tools should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 {: .table .table-bordered}
 
-## <a href="#tool-specific" name="tool-specific" class="anchor"> Tool-specific properties </a>
+## <a href="#tool-specific" name="tool-specific" class="anchor"> Tool-specific properties </a> 🔧
 
 While most properties apply to any `devcontainer.json` supporting tool or service, a few are specific to certain tools. You may explore this in the [supporting tools and services document](../../supporting).
 
-## <a href="#lifecycle-scripts" name="lifecycle-scripts" class="anchor"> Lifecycle scripts </a>
+## <a href="#lifecycle-scripts" name="lifecycle-scripts" class="anchor"> Lifecycle scripts </a> 📦
 
 When creating or working with a dev container, you may need different commands to be run at different points in the container's lifecycle. The table below lists a set of command properties you can use to update what the container's contents in the order in which they are run (for example, `onCreateCommand` will run after `initializeCommand`). Each command property is an string or list of command arguments that should execute from the `workspaceFolder`.
 
@@ -90,7 +90,7 @@ For each command property, if the value is a single string, it will be run in `/
 
 If one of the lifecycle scripts fails, any subsequent scripts will not be executed. For instance, if `postCreateCommand` fails, `postStartCommand` and any following scripts will be skipped.
 
-## <a href="#min-host-reqs" name="min-host-reqs" class="anchor"> Minimum host requirements </a>
+## <a href="#min-host-reqs" name="min-host-reqs" class="anchor"> Minimum host requirements </a> 🛠️
 
 While `devcontainer.json` does not focus on hardware or VM provisioning, it can be useful to know your container's minimum RAM, CPU, and storage requirements. This is what the `hostRequirements` properties allow you to do. Cloud services can use these properties to automatically default to the best compute option available, while in other cases, you will be presented with a warning if the requirements are not met.
 
@@ -102,7 +102,7 @@ While `devcontainer.json` does not focus on hardware or VM provisioning, it can 
 | `hostRequirements.gpu` 🏷️ | boolean,<br>string,<br>object | Indicates if any GPU is required. A boolean indicates if a GPU is required or not. The string `"optional"` indicates that a GPU is used when available, but is not required.<br><br>The object syntax specifies how much GPU resources are required. The `cores` property indicates the minimum number of cores and the `memory` property indicates minimum storage requirements with a `tb`, `gb`, `mb`, or `kb` suffix. For example, `"gpu": { "cores": 1000, "storage": "32gb" }` |
  {: .table .table-bordered}
 
-## <a href="#port-attributes" name="port-attributes" class="anchor"> Port attributes </a>
+## <a href="#port-attributes" name="port-attributes" class="anchor"> Port attributes </a> 🎯
 
 The `portsAttributes` and `otherPortsAttributes` properties allow you to map default port options for one or more manually or automatically forwarded ports. The following is a list of options that can be set in the configuration object assigned to the property.
 
@@ -115,7 +115,7 @@ The `portsAttributes` and `otherPortsAttributes` properties allow you to map def
 | `elevateIfNeeded` 🏷️ | boolean | Forwarding low ports like 22, 80, or 443 to `localhost` on the same port from `devcontainer.json` supporting services / tools may require elevated permissions on certain operating systems. Setting this property to `true` will automatically try to elevate the `devcontainer.json` supporting tool's permissions in this situation. Defaults to `false`. |
 {: .table .table-bordered}
 
-## <a href="#formatting-string-vs-array-properties" name="formatting-string-vs-array-properties" class="anchor"> Formatting string vs. array properties </a>
+## <a href="#formatting-string-vs-array-properties" name="formatting-string-vs-array-properties" class="anchor"> Formatting string vs. array properties </a> 🌈
 
 The format of certain properties will vary depending on the involvement of a shell.
 
@@ -159,7 +159,7 @@ Finally, you may use an object format:
 }
 ```
 
-## <a href="#variables-in-devcontainerjson" name="variables-in-devcontainerjson" class="anchor"> Variables in devcontainer.json </a>
+## <a href="#variables-in-devcontainerjson" name="variables-in-devcontainerjson" class="anchor"> Variables in devcontainer.json </a> 💡
 
 Variables can be referenced in certain string values in `devcontainer.json` in the following format: **${variableName}**. The following is a list of available variables you can use.
 
@@ -174,15 +174,15 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 | `${devcontainerId}` | Any | Allow Features to refer to an identifier that is unique to the dev container they are installed into and that is stable across rebuilds.<br> The properties supporting it in devcontainer.json are: `name`, `runArgs`, `initializeCommand`, `onCreateCommand`, `updateContentCommand`, `postCreateCommand`, `postStartCommand`, `postAttachCommand`, `workspaceFolder`, `workspaceMount`, `mounts`, `containerEnv`, `remoteEnv`, `containerUser`, `remoteUser`, and `customizations`. |
 {: .table .table-bordered}
 
-## <a href="#schema" name="schema" class="anchor"> Schema </a>
+## <a href="#schema" name="schema" class="anchor"> Schema </a> 🔥
 
 You can see the dev container schema [here](https://github.com/devcontainers/spec/blob/main/schemas/devContainer.base.schema.json).
 
-## <a href="#publishing-vs-forwarding-ports" name="publishing-vs-forwarding-ports" class="anchor"> Publishing vs forwarding ports </a>
+## <a href="#publishing-vs-forwarding-ports" name="publishing-vs-forwarding-ports" class="anchor"> Publishing vs forwarding ports </a> 🎉
 
 Docker has the concept of "publishing" ports when the container is created. Published ports behave very much like ports you make available to your local network. If your application only accepts calls from `localhost`, it will reject connections from published ports just as your local machine would for network calls. Forwarded ports, on the other hand, actually look like `localhost` to the application.
 
-## <a href="#remoteUser" name="remoteUser" class="anchor"> remoteUser </a>
+## <a href="#remoteUser" name="remoteUser" class="anchor"> remoteUser </a> 🤖
 
 A dev container configuration will inherit the `remoteUser` property from the base image it uses.
 
