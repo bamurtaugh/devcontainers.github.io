@@ -8,14 +8,14 @@ index: 2
 
 The reference implementation for the specification is available through a [development container CLI](https://github.com/devcontainers/cli). This CLI can take a `devcontainer.json` and create and configure a dev container from it.
 
-## <a href="#what-is-CLI" name="what-is-CLI" class="anchor"> What is the Dev Container CLI? </a>
+## <a href="#what-is-CLI" name="what-is-CLI" class="anchor"> What is the Dev Container CLI? </a> 🚀
 When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. We've now opened up this CLI as a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
 
 This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Dev Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
 The CLI is available in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
-## <a href="#try-it" name="try-it" class="anchor"> How can I try it? </a>
+## <a href="#try-it" name="try-it" class="anchor"> How can I try it? </a> ✨
 
 We'd love for you to try out the Dev Container CLI and let us know what you think. You can quickly try it out in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
 
@@ -23,7 +23,7 @@ You may learn more about building from sources in the [CLI repo's README](https:
 
 To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
 
-### <a href="#npm-install" name="npm-install" class="anchor"> npm install </a>
+### <a href="#npm-install" name="npm-install" class="anchor"> npm install </a> 🌟
 
 ```bash
 npm install -g @devcontainers/cli
@@ -48,7 +48,7 @@ Options:
   --version  Show version number                                       [boolean]
 ```
 
-### <a href="#try-out" name="try-out" class="anchor"> Try out the CLI </a>
+### <a href="#try-out" name="try-out" class="anchor"> Try out the CLI </a> 💻
 
 Once you have the CLI, you can try it out with a sample project, like this [Rust sample](https://github.com/microsoft/vscode-remote-try-rust).
 
@@ -101,7 +101,7 @@ Congrats, you've just run the Dev Container CLI and seen it in action!
 
 These steps are also provided in the CLI repo's [README](https://github.com/devcontainers/cli/blob/main/README.md). You may also review frequently asked questions [here](https://github.com/devcontainers/spec/issues/31).
 
-### <a href="#prebuilding" name="prebuilding" class="anchor"> Prebuilding </a> 
+### <a href="#prebuilding" name="prebuilding" class="anchor"> Prebuilding </a> 🔧
 We recommend pre-building images with the tools you need rather than creating and building a container image each time you open your project in a dev container. Using pre-built images will result in a faster container startup, simpler configuration, and allows you to pin to a specific version of tools to improve supply-chain security and avoid potential breaks. You can automate pre-building your image by scheduling the build using a DevOps or continuous integration (CI) service like GitHub Actions.
 
 We recommend using the [Dev Container CLI](#npm-install) (or other spec supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci) or [Azure DevOps task](https://marketplace.visualstudio.com/items?itemName=devcontainers.ci)) to pre-build your images. Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
@@ -112,7 +112,7 @@ devcontainer build --workspace-folder . --push true --image-name <my_image_name>
 
 You can also check out our [in-depth guide on prebuilds](/_posts/2023-08-22-prebuild.md).
 
-#### <a href="#labels" name="labels" class="anchor"> Metadata in image labels</a> 
+#### <a href="#labels" name="labels" class="anchor"> Metadata in image labels</a> 📦
 
 You can include Dev Container configuration and Feature metadata in prebuilt images via [image labels](https://docs.docker.com/config/labels-custom-metadata/). This makes the image self-contained since these settings are automatically picked up when the image is referenced - whether directly, in a `FROM` in a referenced Dockerfile, or in a Docker Compose file. This helps prevent your Dev Container config and image contents from getting out of sync, and allows you to push updates of the same configuration to multiple repositories through a simple image reference.
 
@@ -138,7 +138,7 @@ LABEL devcontainer.metadata='[{ \
 
 See the [Dev Container metadata reference](../json_reference) for information on which properties are supported.
 
-### <a href="#domainnames" name="domainnames" class="anchor"> Domain Names </a> 
+### <a href="#domainnames" name="domainnames" class="anchor"> Domain Names </a> 🛠️
 
 If you are behind a firewall that needs to allow specific domains used by the Dev Container CLI, here's the list of hostnames you should allow communication to go through:
 

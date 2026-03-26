@@ -13,7 +13,7 @@ In this document, we'll outline a "quickstart" to help you get up-and-running wi
 
 > Note: While this walkthrough will illustrate the use of GitHub and the GitHub Container Registry, you can use your own source control system and publish to any [OCI Artifact supporting](https://oras.land/docs/compatible_oci_registries#registries-supporting-oci-artifacts) container registry instead.
 
-## <a href="#create-repo" name="create-repo" class="anchor"> Create a repo </a>
+## <a href="#create-repo" name="create-repo" class="anchor"> Create a repo </a> 🚀
 
 Start off by creating a repository to host your Feature. In this guide, we'll use a public GitHub repository. 
 
@@ -21,13 +21,13 @@ For the simplest getting started experience, you may use our example [feature-st
 
 You may also [create your own repo on GitHub](https://docs.github.com/en/get-started/quickstart/create-a-repo) if you'd prefer.
 
-## <a href="#create-folder" name="create-folder" class="anchor"> Create a folder </a>
+## <a href="#create-folder" name="create-folder" class="anchor"> Create a folder </a> ✨
 
 Once you've forked the feature-starter repo (or created your own), you'll want to create a folder for your Feature. You may create one within the [`src`](https://github.com/devcontainers/feature-starter/tree/main/src) folder.
 
 If you'd like to create multiple Features, you may add multiple folders within `src`.
 
-## <a href="#add-files" name="add-files" class="anchor"> Add files </a>
+## <a href="#add-files" name="add-files" class="anchor"> Add files </a> 🌟
 
 At a minimum, a Feature will include a `devcontainer-feature.json` and an `install.sh` entrypoint script.
 
@@ -81,7 +81,7 @@ EOF
 chmod +x /usr/local/bin/hello
 ```
 
-## <a href="#publishing" name="publishing" class="anchor"> Publishing </a>
+## <a href="#publishing" name="publishing" class="anchor"> Publishing </a> 💻
 
 The `feature-starter` repo contains a GitHub Action [workflow](https://github.com/devcontainers/feature-starter/blob/main/.github/workflows/release.yaml) that will publish each feature to GHCR. By default, each feature will be prefixed with the `<owner/<repo>` namespace. Using the hello world example from above, it can be referenced in a `devcontainer.json` with: `ghcr.io/devcontainers/feature-starter/color:1`.
 
@@ -99,7 +99,7 @@ https://github.com/users/<owner>/packages/container/<repo>%2F<featureName>/setti
 
 <img style="max-width:70%;height:auto" alt="Changing package visibility to public" src="/img/make-package-public.png"/>
 
-## <a href="#add-to-index" name="add-to-index" class="anchor"> Adding Features to the Index </a>
+## <a href="#add-to-index" name="add-to-index" class="anchor"> Adding Features to the Index </a> 🔧
 
 If you'd like your Features to appear in our [public index](/features) so that other community members can find them, you can do the following:
 

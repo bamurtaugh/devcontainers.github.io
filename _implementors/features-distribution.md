@@ -19,7 +19,7 @@ Goals include:
 
 > **Tip:** This section covers details on the Features specification. If you are looking for summarized information on creating your own Features, check out the [quick start](https://github.com/devcontainers/feature-starter) and [core Features](https://github.com/devcontainers/features) repositories.
 
-## <a href="#source-code" name="source-code" class="anchor"> Source Code </a>
+## <a href="#source-code" name="source-code" class="anchor"> Source Code </a> 🚀
 
 Features source code is stored in a git repository.
 
@@ -59,13 +59,13 @@ Each sub-directory should be named such that it matches the `id` field of the `d
 
 Optionally, a mirrored `test` directory can be included with an accompanying `test.sh` script.  Implementing tools may use this to run tests against the given Feature.
 
-## <a href="#versioning" name="versioning" class="anchor"> Versioning </a>
+## <a href="#versioning" name="versioning" class="anchor"> Versioning </a> ✨
 
 Each Feature is individually [versioned according to the semver specification](https://semver.org/).  The `version` property in the respective `devcontainer-feature.json` file is parsed to determine if the Feature should be republished.
 
 Tooling that handles publishing Features will not republish Features if that exact version has already been published; however, tooling must republish major and minor versions in accordance with the semver specification.
 
-## <a href="#packaging" name="packaging" class="anchor"> Packaging </a>
+## <a href="#packaging" name="packaging" class="anchor"> Packaging </a> 🌟
 
 Features are distributed as tarballs. The tarball contains the entire contents of the Feature sub-directory, including the `devcontainer-feature.json`, `install.sh`, and any other files in the directory.
 
@@ -73,7 +73,7 @@ The tarball is named `devcontainer-feature-<id>.tgz`, where `<id>` is the Featur
 
 A reference implementation for packaging and distributing Features is provided as a [GitHub Action](https://github.com/devcontainers/action).
 
-### <a href="#devcontainer-collection-json" name="devcontainer-collection-json" class="anchor"> devcontainer-collection.json </a>
+### <a href="#devcontainer-collection-json" name="devcontainer-collection-json" class="anchor"> devcontainer-collection.json </a> 💻
 
 The `devcontainer-collection.json` is an auto-generated metadata file.
 
@@ -85,13 +85,13 @@ The `devcontainer-collection.json` is an auto-generated metadata file.
 
 Each Features's `devcontainer-feature.json` metadata file is appended into the `features` top-level array.
 
-## <a href="#distribution" name="distribution" class="anchor"> Distribution </a>
+## <a href="#distribution" name="distribution" class="anchor"> Distribution </a> 🔧
 
 There are several supported ways to distribute Features. Distribution is handled by the implementing packaging tool such as the [Dev Container CLI](https://github.com/devcontainers/cli) or [Dev Container Publish GitHub Action](https://github.com/marketplace/actions/dev-container-publish). See the [quick start repository](https://github.com/devcontainers/feature-template) for a full working example.
 
 A user references a distributed Feature in a `devcontainer.json` as defined in ['referencing a Feature'](../features#referencing-a-feature).
 
-### <a href="#oci-registry" name="oci-registry" class="anchor"> OCI Registry </a>
+### <a href="#oci-registry" name="oci-registry" class="anchor"> OCI Registry </a> 📦
 
 An OCI registry that implements the [OCI Artifact Distribution Specification](https://github.com/opencontainers/distribution-spec) serves as the primary distribution mechanism for Features.
 
@@ -106,7 +106,7 @@ For example, the `go` Feature in the `devcontainers/features` namespace at versi
 > **Note:** The example below uses [`oras`](https://oras.land/) for demonstration purposes.  A supporting tool should directly implement the required functionality from the aforementioned OCI artifact distribution specification.
 
 ```bash
-# ghcr.io/devcontainers/features/go:1 
+# ghcr.io/devcontainers/features/go:1 🛠️
 REGISTRY=ghcr.io
 NAMESPACE=devcontainers/features
 FEATURE=go
@@ -126,7 +126,7 @@ The "namespace" is the globally identifiable name for the collection of Features
 The auto-generated `devcontainer-collection.json` is pushed to the registry with the same `namespace` as above and no accompanying `feature` name. The collection file is always tagged as `latest`.
 
 ```bash
-# ghcr.io/devcontainers/features
+# ghcr.io/devcontainers/features 🎯
 REGISTRY=ghcr.io
 NAMESPACE=devcontainers/features
 
@@ -164,13 +164,13 @@ An example manifest with the `dev.containers.metadata` annotation:
 }
 ```
 
-### <a href="#directly-reference-tarball" name="directly-reference-tarball" class="anchor"> Directly referencing a tarball </a>
+### <a href="#directly-reference-tarball" name="directly-reference-tarball" class="anchor"> Directly referencing a tarball </a> 🌈
 
 A Feature can be referenced directly in a user's [`devcontainer.json`](../spec#a-hrefdevcontainerjson-namedevcontainerjson-classanchor-devcontainerjson-a) file by HTTPS URI that points to the tarball from the [package step](#packaging).
 
 The `.tgz` archive file must be named `devcontainer-feature-<featureId>.tgz`.
 
-### <a href="#addendum-locally-referenced" name="addendum-locally-referenced" class="anchor"> Locally referenced Features </a>
+### <a href="#addendum-locally-referenced" name="addendum-locally-referenced" class="anchor"> Locally referenced Features </a> 💡
 
 Instead of publishing a Feature to an OCI registry, a Feature's source code may be referenced from a local folder. Locally referencing a Feature may be useful when first authoring a Feature.
 
@@ -206,7 +206,7 @@ An example project is illustrated below:
 │   ├── devcontainer.json
 ```
 
-##### <a href="#devcontainerjson" name="devcontainerjson" class="anchor"> devcontainer.json </a>
+##### <a href="#devcontainerjson" name="devcontainerjson" class="anchor"> devcontainer.json </a> 🔥
 ```jsonc
 {
         // ...
