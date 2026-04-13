@@ -4,6 +4,22 @@ This repo holds the website for the [Development Containers Specification](https
 
 You may view the site at [containers.dev](https://containers.dev).
 
+## How Dev Containers Work
+
+```mermaid
+flowchart TD
+    A[Your Project with devcontainer.json] -->|Open in editor or CI| B[Supporting Tool]
+    B -->|Reads configuration| C[devcontainer.json]
+    C -->|Defines| D[Base Image + Features + Settings]
+    D -->|Builds or pulls| E[Container Image]
+    E -->|Starts| F[Development Container]
+    F -->|Provides| G[Full Development Environment]
+
+    G --- H[Source Code mounted from local filesystem]
+    G --- I[Tools, runtimes, and dependencies installed]
+    G --- J[Editor extensions and settings applied]
+```
+
 ## Building
 
 If you'd like to build and preview the site yourself, we make it as smooth as possible through a dev container in this repo!
