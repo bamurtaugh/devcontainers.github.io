@@ -11,6 +11,9 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent" role="navigation" aria-label="Top Level">
             {% assign sorted = site.implementors | sort: 'index' %}
             <ul class="navbar-nav ml-auto">
+                <li {% if page.sectionid=='contributing' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+                    <a class="nav-link" href='{{ "/contributing" | prepend: site.baseurl }}'>Contributing</a>
+                </li>
                 <li {% if page.sectionid=='howItWorks' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
                     <a class="nav-link" href='{{ "/overview" | prepend: site.baseurl }}'>Overview</a>
                 </li>
